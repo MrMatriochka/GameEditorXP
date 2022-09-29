@@ -93,7 +93,7 @@ namespace Platformer
             if (other.gameObject.tag == "Coin")
             {
                 gameManager.coinsCounter += 1;
-                Destroy(other.gameObject);
+                other.gameObject.SetActive(false);
             }
         }
     }

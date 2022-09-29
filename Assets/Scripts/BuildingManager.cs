@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Platformer;
 public class BuildingManager : MonoBehaviour
 {
     public GameObject[] objects;
 
     public GameObject levelEditorUI;
+    public GameObject inGameUI;
 
     Vector3 pos;
     [HideInInspector] public GameObject pendingObj;
@@ -18,6 +19,13 @@ public class BuildingManager : MonoBehaviour
     public bool canPlace = true;
 
     public List<GameObject> placedObject = new List<GameObject>();
+
+    private GameManager gameManager;
+
+    void Start()
+    {
+        gameManager = GetComponent<GameManager>();
+    }
 
     void Update()
     {
@@ -90,5 +98,24 @@ public class BuildingManager : MonoBehaviour
                 obj.transform.GetChild(0).gameObject.SetActive(true);
             }
         }
+        gameManager.enabled = true;
+        inGameUI.SetActive(true);
+    }
+
+    public void Stop()
+    {
+        levelEditorUI.SetActive(true);
+        foreach (GameObject obj in placedObject)
+        {
+            if (obj != null)
+            {
+                obj.GetComponent<SpriteRenderer>().enabled = true;
+                obj.transform.GetChild(0).gameObject.SetActive(false);
+                obj.transform.GetChild(0).localPosition = new Vector2(0,0);
+            }
+        }
+        gameManager.enabled = false;
+        gameManager.coinsCounter = 0;
+        inGameUI.SetActive(false);
     }
 }

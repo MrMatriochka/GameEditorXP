@@ -16,7 +16,7 @@ namespace Platformer
 
         void Start()
         {
-            player = GameObject.Find("Player").GetComponent<PlayerController>();
+            player = GameObject.Find("Player").transform.GetChild(0).gameObject.GetComponent<PlayerController>();
         }
 
         void Update()
