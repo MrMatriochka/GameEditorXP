@@ -9,7 +9,7 @@ public class BuildingManager : MonoBehaviour
     public GameObject levelEditorUI;
 
     Vector3 pos;
-    GameObject pendingObj;
+    [HideInInspector] public GameObject pendingObj;
     [SerializeField] private Material[] materials;
 
     public float gridSize;
@@ -84,8 +84,11 @@ public class BuildingManager : MonoBehaviour
         levelEditorUI.SetActive(false);
         foreach (GameObject obj in placedObject)
         {
-            obj.GetComponent<SpriteRenderer>().enabled = false;
-            obj.transform.GetChild(0).gameObject.SetActive(true);
+            if(obj!=null)
+            {
+                obj.GetComponent<SpriteRenderer>().enabled = false;
+                obj.transform.GetChild(0).gameObject.SetActive(true);
+            }
         }
     }
 }
