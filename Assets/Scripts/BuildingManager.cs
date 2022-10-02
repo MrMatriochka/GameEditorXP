@@ -21,10 +21,17 @@ public class BuildingManager : MonoBehaviour
     public List<GameObject> placedObject = new List<GameObject>();
 
     private GameManager gameManager;
+    private GameObject cam;
+
+    public float camSpeed;
+    public float camLimit;
+    public GameObject leftButton;
+    public GameObject rightButton;
 
     void Start()
     {
         gameManager = GetComponent<GameManager>();
+        cam = GameObject.Find("Main Camera");
     }
 
     void Update()
@@ -100,6 +107,7 @@ public class BuildingManager : MonoBehaviour
         }
         gameManager.enabled = true;
         inGameUI.SetActive(true);
+        cam.GetComponent<CameraController>().enabled = true;
     }
 
     public void Stop()
@@ -117,5 +125,26 @@ public class BuildingManager : MonoBehaviour
         gameManager.enabled = false;
         gameManager.coinsCounter = 0;
         inGameUI.SetActive(false);
+        cam.GetComponent<CameraController>().enabled = false;
+        cam.transform.position = new Vector3(0, 0, -10);
+    }
+
+    public void MoveScreen(int direction)
+    {
+        cam.transform.position += new Vector3(camSpeed * direction,0,0);
+
+        rightButton.SetActive(true);
+        leftButton.SetActive(true);
+
+        if (cam.transform.position.x >= camLimit)
+        {
+            cam.transform.position = new Vector3(camLimit, 0, -10);
+            rightButton.SetActive(false);
+        }
+        if(cam.transform.position.x <= 0)
+        {
+            cam.transform.position = new Vector3(0, 0, -10);
+            leftButton.SetActive(false);
+        }
     }
 }
