@@ -28,7 +28,7 @@ namespace Platformer
                 GameObject deathPlayer = (GameObject)Instantiate(deathPlayerPrefab, playerGameObject.transform.position, playerGameObject.transform.rotation);
                 deathPlayer.transform.localScale = new Vector3(playerGameObject.transform.localScale.x, playerGameObject.transform.localScale.y, playerGameObject.transform.localScale.z);
                 player.deathState = false;
-                Invoke("ReloadLevel", 3);
+                //Invoke("ReloadLevel", 3);
             }
         }
 
