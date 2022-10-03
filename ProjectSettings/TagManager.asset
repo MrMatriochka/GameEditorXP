@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Placement
+  - Coin
+  - Enemy
+  - DeadBody
+  - Delete
   layers:
   - Default
   - TransparentFX

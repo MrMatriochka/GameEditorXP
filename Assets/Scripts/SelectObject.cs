@@ -6,8 +6,6 @@ using TMPro;
 public class SelectObject : MonoBehaviour
 {
     public GameObject selectedObj;
-    public GameObject objPannel;
-    public TextMeshProUGUI objNameTxt;
 
     BuildingManager buildManager;
 
@@ -18,10 +16,10 @@ public class SelectObject : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetMouseButtonDown(0))
+        if(Input.GetMouseButtonDown(0) && buildManager.pendingObj == null)
         {
-            RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), -Vector2.up);
-            if(hit.collider != null)
+            RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector3.forward);
+            if (hit.collider != null)
             {
                 if(hit.collider.gameObject.CompareTag("Placement"))
                 {
@@ -29,31 +27,34 @@ public class SelectObject : MonoBehaviour
                 }
                 else
                 {
-                    Deselect();
+                    if (selectedObj != null) Deselect();
                 }
-                return;
             }
-            //Deselect();
+            else
+            {
+                if (selectedObj != null) Deselect();
+            }
+        }
+        if (Input.GetMouseButtonUp(0) && selectedObj != null)
+        {
+            Deselect();
         }
     }
 
     void Select(GameObject obj)
     {
         if (obj == selectedObj) return;
+
         if (selectedObj != null) Deselect();
-        Outline outline = obj.GetComponent<Outline>();
-        if (outline == null) obj.AddComponent<Outline>();
-        else outline.enabled = true;
-        objPannel.SetActive(true);
-        objNameTxt.text = obj.name;
+
         selectedObj = obj;
+
+        Move();
     }
 
     void Deselect()
     {
-        selectedObj.GetComponent<Outline>().enabled = false;
         selectedObj = null;
-        objPannel.SetActive(false);
     }
 
     public void Delete()

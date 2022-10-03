@@ -28,6 +28,8 @@ public class BuildingManager : MonoBehaviour
     public GameObject leftButton;
     public GameObject rightButton;
 
+    private bool mouseOnTrash = false;
+
     void Start()
     {
         gameManager = GetComponent<GameManager>();
@@ -46,19 +48,39 @@ public class BuildingManager : MonoBehaviour
 
             UpdateMaterials();
 
-            if (Input.GetMouseButtonDown(0) && canPlace)
+            if (Input.GetMouseButtonUp(0) && canPlace)
             {
                 PlaceObject();
             }
-            
+
+        }
+
+        if (Input.GetMouseButtonDown(0) && pendingObj == null)
+        {
+            RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector3.forward);
+            if (hit.collider != null)
+            {
+                if (hit.collider.gameObject.CompareTag("Prefab"))
+                {
+                    SelectObject(1);
+                }
+            }
+        }
+
+        if (Input.GetMouseButtonUp(0) && mouseOnTrash)
+        {
+            Delete();
         }
     }
 
     void PlaceObject()
     {
-        pendingObj.GetComponent<SpriteRenderer>().material = materials[2];
-        placedObject.Add(pendingObj);
-        pendingObj = null;
+        if (!mouseOnTrash)
+        {
+            pendingObj.GetComponent<SpriteRenderer>().material = materials[2];
+            placedObject.Add(pendingObj);
+            pendingObj = null;
+        }
     }
     private void FixedUpdate()
     {
@@ -127,6 +149,7 @@ public class BuildingManager : MonoBehaviour
         inGameUI.SetActive(false);
         cam.GetComponent<CameraController>().enabled = false;
         cam.transform.position = new Vector3(0, 0, -10);
+        Destroy(GameObject.FindWithTag("DeadBody"));
     }
 
     public void MoveScreen(int direction)
@@ -146,5 +169,20 @@ public class BuildingManager : MonoBehaviour
             cam.transform.position = new Vector3(0, 0, -10);
             leftButton.SetActive(false);
         }
+    }
+
+    public void Delete()
+    {
+        Destroy(pendingObj);
+        pendingObj = null;
+    }
+
+    public void MouseEnterTrash()
+    {
+        mouseOnTrash = true;
+    }
+    public void MousExitTrash()
+    {
+        mouseOnTrash = false;
     }
 }
