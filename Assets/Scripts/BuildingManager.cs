@@ -20,7 +20,6 @@ public class BuildingManager : MonoBehaviour
 
     public List<GameObject> placedObject = new List<GameObject>();
 
-    private GameManager gameManager;
     private GameObject cam;
 
     public float camSpeed;
@@ -32,7 +31,6 @@ public class BuildingManager : MonoBehaviour
 
     void Start()
     {
-        gameManager = GetComponent<GameManager>();
         cam = GameObject.Find("Main Camera");
     }
 
@@ -127,7 +125,6 @@ public class BuildingManager : MonoBehaviour
                 obj.transform.GetChild(0).gameObject.SetActive(true);
             }
         }
-        gameManager.enabled = true;
         inGameUI.SetActive(true);
         cam.GetComponent<CameraController>().enabled = true;
     }
@@ -142,10 +139,9 @@ public class BuildingManager : MonoBehaviour
                 obj.GetComponent<SpriteRenderer>().enabled = true;
                 obj.transform.GetChild(0).gameObject.SetActive(false);
                 obj.transform.GetChild(0).localPosition = new Vector2(0,0);
+                obj.transform.GetChild(0).localRotation = Quaternion.Euler(0,0,0);
             }
         }
-        gameManager.enabled = false;
-        gameManager.coinsCounter = 0;
         inGameUI.SetActive(false);
         cam.GetComponent<CameraController>().enabled = false;
         cam.transform.position = new Vector3(0, 0, -10);
