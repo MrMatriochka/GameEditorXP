@@ -28,6 +28,7 @@ public class BuildingManager : MonoBehaviour
     public GameObject rightButton;
 
     private bool mouseOnTrash = false;
+    private bool firstPlacement = false;
 
     void Start()
     {
@@ -53,18 +54,6 @@ public class BuildingManager : MonoBehaviour
 
         }
 
-        if (Input.GetMouseButtonDown(0) && pendingObj == null)
-        {
-            RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector3.forward);
-            if (hit.collider != null)
-            {
-                if (hit.collider.gameObject.CompareTag("Prefab"))
-                {
-                    SelectObject(1);
-                }
-            }
-        }
-
         if (Input.GetMouseButtonUp(0) && mouseOnTrash)
         {
             Delete();
@@ -76,7 +65,11 @@ public class BuildingManager : MonoBehaviour
         if (!mouseOnTrash)
         {
             pendingObj.GetComponent<SpriteRenderer>().material = materials[2];
-            placedObject.Add(pendingObj);
+            if(firstPlacement)
+            {
+                placedObject.Add(pendingObj);
+                firstPlacement = false;
+            }       
             pendingObj = null;
         }
     }
@@ -89,6 +82,7 @@ public class BuildingManager : MonoBehaviour
     public void SelectObject(int index)
     {
         pendingObj = Instantiate(objects[index], pos, transform.rotation);
+        firstPlacement = true;
     }
 
     float RoundToNearestGrid(float pos)
@@ -145,7 +139,6 @@ public class BuildingManager : MonoBehaviour
         inGameUI.SetActive(false);
         cam.GetComponent<CameraController>().enabled = false;
         cam.transform.position = new Vector3(0, 0, -10);
-        Destroy(GameObject.FindWithTag("DeadBody"));
     }
 
     public void MoveScreen(int direction)
@@ -170,6 +163,8 @@ public class BuildingManager : MonoBehaviour
     public void Delete()
     {
         Destroy(pendingObj);
+        int index = placedObject.IndexOf(pendingObj);
+        placedObject.RemoveAt(index);
         pendingObj = null;
     }
 
