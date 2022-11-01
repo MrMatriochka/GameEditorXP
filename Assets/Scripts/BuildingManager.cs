@@ -33,6 +33,7 @@ public class BuildingManager : MonoBehaviour
     void Start()
     {
         cam = GameObject.Find("Main Camera");
+        
     }
 
     void Update()
@@ -126,6 +127,11 @@ public class BuildingManager : MonoBehaviour
     public void Stop()
     {
         levelEditorUI.SetActive(true);
+
+        Player player = GameObject.FindWithTag("Player").GetComponent<Player>();
+        player.score = 0;
+        player.UpdateScore();
+
         foreach (GameObject obj in placedObject)
         {
             if (obj != null)
@@ -163,8 +169,11 @@ public class BuildingManager : MonoBehaviour
     public void Delete()
     {
         Destroy(pendingObj);
-        int index = placedObject.IndexOf(pendingObj);
-        placedObject.RemoveAt(index);
+        if (!firstPlacement)
+        {
+            int index = placedObject.IndexOf(pendingObj);
+            placedObject.RemoveAt(index);
+        }
         pendingObj = null;
     }
 

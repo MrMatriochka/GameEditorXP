@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -15,9 +16,13 @@ public class Player : MonoBehaviour
 
     private Rigidbody2D rigidbody;
 
+    [HideInInspector] public int score;
+    private Text scoreUI;
+
     void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
+        scoreUI = GameObject.Find("ScoreText").GetComponent<Text>();
     }
 
     void Update()
@@ -61,5 +66,10 @@ public class Player : MonoBehaviour
     {
         Collider2D[] colliders = Physics2D.OverlapCircleAll(groundCheck.transform.position, 0.2f);
         isGrounded = colliders.Length > 1;
+    }
+
+    public void UpdateScore()
+    {
+        scoreUI.text = score.ToString();
     }
 }

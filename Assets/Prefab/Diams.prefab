@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 818934064857773912}
   - component: {fileID: 8028962855103911428}
   m_Layer: 0
-  m_Name: Coin
+  m_Name: Diams
   m_TagString: Placement
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f373a10029150774fb70b4222515281c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bcc184cf667a50c4ca52395fc751fdd8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -100,18 +100,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.00046606362, y: -0.0036814213}
+  m_Offset: {x: 0.0015822649, y: 0.00078341365}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.75, y: 0.74}
+    oldSize: {x: 1.05, y: 0.99}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.7498505, y: 0.7512486}
+  m_Size: {x: 1.0512271, y: 0.9834203}
   m_EdgeRadius: 0
 --- !u!114 &8028962855103911428
 MonoBehaviour:
@@ -200,7 +200,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f373a10029150774fb70b4222515281c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bcc184cf667a50c4ca52395fc751fdd8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -224,18 +224,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.004007578, y: 0.00079219043}
+  m_Offset: {x: 0.0015734434, y: 0.003024608}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.75, y: 0.74}
+    oldSize: {x: 1.05, y: 0.99}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.746868, y: 0.74230134}
+  m_Size: {x: 1.0527096, y: 0.98340267}
   m_EdgeRadius: 0
 --- !u!114 &3164993998004377245
 MonoBehaviour:
@@ -249,4 +249,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42d20f4602589dc4b893c5a10eec27d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  value: 1
+  value: 5
