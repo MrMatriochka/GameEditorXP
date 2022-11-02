@@ -127,6 +127,7 @@ GameObject:
   - component: {fileID: 7224246082828030069}
   - component: {fileID: 9103388133262493365}
   - component: {fileID: 3332477007914959248}
+  - component: {fileID: 2325541089650531584}
   m_Layer: 0
   m_Name: spikes
   m_TagString: Enemy
@@ -229,3 +230,23 @@ CircleCollider2D:
   m_Offset: {x: -0.02127397, y: -0.034038305}
   serializedVersion: 2
   m_Radius: 0.71341383
+--- !u!95 &2325541089650531584
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7011201200907099176}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7aae756154168c54388b03fed9b84f54, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

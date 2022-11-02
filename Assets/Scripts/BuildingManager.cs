@@ -117,6 +117,7 @@ public class BuildingManager : MonoBehaviour
             if(obj!=null)
             {
                 obj.GetComponent<SpriteRenderer>().enabled = false;
+                obj.GetComponent<Collider2D>().enabled = false;
                 obj.transform.GetChild(0).gameObject.SetActive(true);
             }
         }

@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     public Transform groundCheck;
 
     private Rigidbody2D rigidbody;
+    private SpriteRenderer renderer;
 
     [HideInInspector] public int score;
     private Text scoreUI;
@@ -22,6 +23,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
+        renderer = GetComponent<SpriteRenderer>();
         scoreUI = GameObject.Find("ScoreText").GetComponent<Text>();
     }
 
@@ -57,9 +59,7 @@ public class Player : MonoBehaviour
     private void Flip()
     {
         facingRight = !facingRight;
-        Vector3 Scaler = transform.localScale;
-        Scaler.x *= -1;
-        transform.localScale = Scaler;
+        renderer.flipX = !renderer.flipX;
     }
 
     private void CheckGround()
