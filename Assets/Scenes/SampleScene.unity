@@ -275,11 +275,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 707e0e979c90f1e4cab67c5cdca2da78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objects:
-  - {fileID: 818934064857773913, guid: 293c4ada356d9bf4e9d61cd8eaaab0d5, type: 3}
-  - {fileID: 7116163340910287809, guid: 9ff187b82c4b54e40b869fd8a997b081, type: 3}
-  - {fileID: 7873588928898685938, guid: 7012534cd2f58bc40b882756233dc1a4, type: 3}
-  - {fileID: 2370058098865023721, guid: b64545fff281d9145b8bb5f430dbe34e, type: 3}
   levelEditorUI: {fileID: 1577649701}
   inGameUI: {fileID: 1506508269048826749}
   pendingObj: {fileID: 0}
@@ -1368,10 +1363,10 @@ MonoBehaviour:
         - m_Target: {fileID: 130612210}
           m_TargetAssemblyTypeName: BuildingManager, Assembly-CSharp
           m_MethodName: SelectObject
-          m_Mode: 3
+          m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_ObjectArgument: {fileID: 818934064857773913, guid: 293c4ada356d9bf4e9d61cd8eaaab0d5, type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -1474,10 +1469,10 @@ MonoBehaviour:
         - m_Target: {fileID: 130612210}
           m_TargetAssemblyTypeName: BuildingManager, Assembly-CSharp
           m_MethodName: SelectObject
-          m_Mode: 3
+          m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_ObjectArgument: {fileID: 2370058098865023721, guid: b64545fff281d9145b8bb5f430dbe34e, type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
             m_IntArgument: 3
             m_FloatArgument: 0
             m_StringArgument: 
@@ -1865,10 +1860,10 @@ MonoBehaviour:
         - m_Target: {fileID: 130612210}
           m_TargetAssemblyTypeName: BuildingManager, Assembly-CSharp
           m_MethodName: SelectObject
-          m_Mode: 3
+          m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_ObjectArgument: {fileID: 7873588928898685938, guid: 7012534cd2f58bc40b882756233dc1a4, type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
             m_IntArgument: 2
             m_FloatArgument: 0
             m_StringArgument: 
@@ -2519,10 +2514,10 @@ MonoBehaviour:
         - m_Target: {fileID: 130612210}
           m_TargetAssemblyTypeName: BuildingManager, Assembly-CSharp
           m_MethodName: SelectObject
-          m_Mode: 3
+          m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_ObjectArgument: {fileID: 7116163340910287809, guid: 9ff187b82c4b54e40b869fd8a997b081, type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
             m_IntArgument: 1
             m_FloatArgument: 0
             m_StringArgument: 

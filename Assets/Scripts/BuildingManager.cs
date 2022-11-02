@@ -4,8 +4,6 @@ using UnityEngine;
 using Platformer;
 public class BuildingManager : MonoBehaviour
 {
-    public GameObject[] objects;
-
     public GameObject levelEditorUI;
     public GameObject inGameUI;
 
@@ -80,9 +78,9 @@ public class BuildingManager : MonoBehaviour
         pos = mousePosition;
     }
 
-    public void SelectObject(int index)
+    public void SelectObject(GameObject objectToSpawn)
     {
-        pendingObj = Instantiate(objects[index], pos, transform.rotation);
+        pendingObj = Instantiate(objectToSpawn, pos, transform.rotation);
         firstPlacement = true;
     }
 
