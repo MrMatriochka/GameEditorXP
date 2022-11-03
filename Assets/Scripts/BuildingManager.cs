@@ -53,7 +53,7 @@ public class BuildingManager : MonoBehaviour
 
         }
 
-        if (Input.GetMouseButtonUp(0) && mouseOnTrash)
+        if (Input.GetMouseButtonUp(0) && mouseOnTrash && pendingObj != null)
         {
             Delete();
         }
@@ -139,6 +139,7 @@ public class BuildingManager : MonoBehaviour
                 obj.transform.GetChild(0).gameObject.SetActive(false);
                 obj.transform.GetChild(0).localPosition = new Vector2(0,0);
                 obj.transform.GetChild(0).localRotation = Quaternion.Euler(0,0,0);
+                obj.GetComponent<Collider2D>().enabled = true;
             }
         }
         inGameUI.SetActive(false);
