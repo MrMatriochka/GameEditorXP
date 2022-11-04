@@ -4,13 +4,16 @@ using System.IO;
 using System.Text;
 using System.Linq;
 using System.Collections.Generic;
-
+using System.Runtime.InteropServices;
 /// <summary>
 /// Saves, loads and deletes all data in the game
 /// </summary>
 /// <typeparam name="T"></typeparam>
 public static class SaveLoad<T>
 {
+    //[DllImport("__Internal")]
+    private static extern void JS_FileSystem_Sync();
+
     /// <summary>
     /// Save data to a file (overwrite completely)
     /// </summary>
@@ -27,7 +30,6 @@ public static class SaveLoad<T>
         byte[] byteData;
 
         byteData = Encoding.ASCII.GetBytes(jsonData);
-
         // create the file in the path if it doesn't exist
         // if the file path or name does not exist, return the default SO
         if (!Directory.Exists(Path.GetDirectoryName(dataPath)))
@@ -40,7 +42,8 @@ public static class SaveLoad<T>
         {
             // save datahere
             File.WriteAllBytes(dataPath, byteData);
-            Debug.Log("Save data to: " + dataPath);
+            JS_FileSystem_Sync();
+            Debug.Log("Save data to: " + dataPath);  
         }
         catch (Exception e)
         {
@@ -108,6 +111,7 @@ public static class SaveLoad<T>
     private static string GetFilePath(string FolderName, string FileName = "")
     {
         string filePath = Path.Combine(Application.persistentDataPath, "data/");
+
 #if UNITY_EDITOR_OSX || UNITY_STANDALONE_OSX
         // mac
         filePath = Path.Combine(Application.streamingAssetsPath, ("data/" + FolderName));
@@ -129,6 +133,12 @@ public static class SaveLoad<T>
 #elif UNITY_IOS
         // ios
         filePath = Path.Combine(Application.persistentDataPath, ("data/" + FolderName));
+
+        if(FileName != "")
+            filePath = Path.Combine(filePath, (FileName + ".txt"));
+#elif UNITY_WEBGL
+        // WebGl
+        filePath = Path.Combine(Application.persistentDataPath, "/idbfs/" + FolderName);
 
         if(FileName != "")
             filePath = Path.Combine(filePath, (FileName + ".txt"));

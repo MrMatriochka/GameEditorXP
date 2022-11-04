@@ -1,0 +1,98 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+[System.Serializable]
+public class SavedLevel
+{
+    public SavedLevel()
+    {
+        List<int> index;
+        List<Vector3> positions;
+        List<string> prefabs;
+    }
+
+    public List<int> index = new List<int>();
+    public List<Vector3> positions = new List<Vector3>();
+    public List<string> prefabs = new List<string>();
+}
+
+public class SaveLoadLevel : MonoBehaviour
+{
+    public Dictionary<string, GameObject> prefabByName = new Dictionary<string, GameObject>();
+    public List<GameObject> prefabsList = new List<GameObject>();
+
+    private string testFolder = "Save";
+    private string testFile = "Level";
+
+    private List<Vector3> myPositions = new List<Vector3>();
+    private List<string> myPrefabs = new List<string>();
+    private List<int> myIndex = new List<int>();
+
+    private BuildingManager manager;
+
+    void Start()
+    {
+        manager = gameObject.GetComponent<BuildingManager>();
+        Initialize();
+    }
+
+
+    public void SaveData()
+    {
+        int newIndex = 0;
+        foreach (GameObject obj in manager.placedObject)
+        {
+            myPositions.Add(obj.transform.position);       
+            myPrefabs.Add(obj.name.Replace("(Clone)", string.Empty));
+            myIndex.Add(newIndex);
+            newIndex++;
+        }
+
+        SavedLevel dataToSave = new SavedLevel
+        {
+            positions = myPositions,
+            prefabs = myPrefabs,
+            index = myIndex
+        };
+
+        SaveLoad<SavedLevel>.Save(dataToSave, testFolder, testFile);
+    }
+
+    public void LoadData()
+    {
+        SavedLevel loadedData = SaveLoad<SavedLevel>.Load(testFolder, testFile) ?? new SavedLevel();
+
+        myPositions = loadedData.positions;
+        myPrefabs = loadedData.prefabs;
+        myIndex = loadedData.index;
+
+        foreach (int i in myIndex)
+        {
+            GameObject myObject = Instantiate(GetPrefab(myPrefabs[i]));
+            myObject.transform.position = myPositions[i];
+        }
+    }
+
+    void Initialize()
+    {
+        foreach (GameObject prefab in prefabsList)
+        {
+            if (!prefabByName.ContainsKey(prefab.name))
+            {
+                prefabByName.Add(prefab.name, prefab);
+            }
+        }
+    }
+
+    public GameObject GetPrefab(string prefabName)
+    {
+        if (prefabByName.ContainsKey(prefabName))
+        {
+            return prefabByName[prefabName];
+        }
+
+        Debug.LogWarning("There is not inventory ui for " + prefabName);
+        return null;
+    }
+}
