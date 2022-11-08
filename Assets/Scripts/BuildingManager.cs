@@ -40,7 +40,7 @@ public class BuildingManager : MonoBehaviour
         {
             if(gridOn)
             {
-                pendingObj.transform.position = new Vector3(RoundToNearestGrid(pos.x), RoundToNearestGrid(pos.y), 0);
+                pendingObj.transform.position = new Vector3(Snapping.Snap(pos.x,gridSize), Snapping.Snap(pos.y, gridSize), 0);
             }
             else { pendingObj.transform.position = pos; }
 
@@ -80,19 +80,11 @@ public class BuildingManager : MonoBehaviour
 
     public void SelectObject(GameObject objectToSpawn)
     {
-        pendingObj = Instantiate(objectToSpawn, pos, transform.rotation);
-        firstPlacement = true;
-    }
-
-    float RoundToNearestGrid(float pos)
-    {
-        float xDiff = pos % gridSize;
-        pos -= xDiff + gridSize / 2;
-        if(xDiff>(gridSize/2))
+        if (!IsPrefabLimitExceeded(objectToSpawn))
         {
-            pos += gridSize * 1.5f;
+            pendingObj = Instantiate(objectToSpawn, pos, transform.rotation);
+            firstPlacement = true;
         }
-        return pos;
     }
 
     void UpdateMaterials()
@@ -184,5 +176,33 @@ public class BuildingManager : MonoBehaviour
     public void MousExitTrash()
     {
         mouseOnTrash = false;
+    }
+
+    public bool IsPrefabLimitExceeded(GameObject prefab)
+    {
+        int limit = prefab.GetComponent<CheckPlacement>().nbLimit;
+        if (limit == 0)
+        {
+            return false;
+        }
+        else
+        {
+            int actualNb = 0;
+            foreach (GameObject obj in placedObject)
+            {
+                if (obj.name.Replace("(Clone)", string.Empty) == prefab.name)
+                {
+                    actualNb++;
+                }
+            }
+            if (actualNb < limit)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }   
     }
 }

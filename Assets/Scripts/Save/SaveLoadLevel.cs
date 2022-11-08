@@ -61,6 +61,13 @@ public class SaveLoadLevel : MonoBehaviour
 
     public void LoadData()
     {
+        foreach (GameObject obj in manager.placedObject)
+        {
+            Destroy(obj);
+        }
+        manager.placedObject.Clear();
+
+
         SavedLevel loadedData = SaveLoad<SavedLevel>.Load(testFolder, testFile) ?? new SavedLevel();
 
         myPositions = loadedData.positions;
@@ -70,6 +77,7 @@ public class SaveLoadLevel : MonoBehaviour
         foreach (int i in myIndex)
         {
             GameObject myObject = Instantiate(GetPrefab(myPrefabs[i]));
+            manager.placedObject.Add(myObject);
             myObject.transform.position = myPositions[i];
         }
     }

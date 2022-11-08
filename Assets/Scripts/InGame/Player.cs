@@ -14,7 +14,7 @@ public class Player : MonoBehaviour
     private bool isGrounded;
     public Transform groundCheck;
 
-    private Rigidbody2D rigidbody;
+    private Rigidbody2D rb;
     private SpriteRenderer renderer;
 
     [HideInInspector] public int score;
@@ -22,7 +22,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
-        rigidbody = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
         renderer = GetComponent<SpriteRenderer>();
         scoreUI = GameObject.Find("ScoreText").GetComponent<Text>();
     }
@@ -32,12 +32,13 @@ public class Player : MonoBehaviour
         if (Input.GetButton("Horizontal"))
         {
             moveInput = Input.GetAxisRaw("Horizontal");
-            rigidbody.velocity = new Vector2(moveInput * movingSpeed, rigidbody.velocity.y);
+            Vector3 direction = transform.right * moveInput;
+            transform.position = Vector3.MoveTowards(transform.position, transform.position + direction, movingSpeed * Time.deltaTime);
         } 
             
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
-            rigidbody.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
+            rb.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
         }
 
         if (facingRight == false && moveInput > 0)

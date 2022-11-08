@@ -302,7 +302,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 5b9af6e49afe13442a302b3734cbea42, type: 2}
   - {fileID: 2100000, guid: ca1fb8681b0567645b0780865197f904, type: 2}
   gridSize: 1
-  gridOn: 0
+  gridOn: 1
   canPlace: 1
   placedObject:
   - {fileID: 492592658}
@@ -521,10 +521,6 @@ PrefabInstance:
     - target: {fileID: 6952628394585513906, guid: a3b0ebacd0d73c245b8c7335dc12d6e5, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 8488144919857834284, guid: a3b0ebacd0d73c245b8c7335dc12d6e5, type: 3}
-      propertyPath: movingSpeed
-      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3538480079698538831, guid: a3b0ebacd0d73c245b8c7335dc12d6e5, type: 3}
