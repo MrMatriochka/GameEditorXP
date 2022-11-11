@@ -17,6 +17,7 @@ public class BuildingManager : MonoBehaviour
     public bool canPlace = true;
 
     public List<GameObject> placedObject = new List<GameObject>();
+    [HideInInspector] public List<GameObject> objectToDestroy = new List<GameObject>();
 
     private GameObject cam;
 
@@ -102,6 +103,7 @@ public class BuildingManager : MonoBehaviour
     public void Play()
     {
         levelEditorUI.SetActive(false);
+        inGameUI.SetActive(true);
         foreach (GameObject obj in placedObject)
         {
             if(obj!=null)
@@ -110,18 +112,18 @@ public class BuildingManager : MonoBehaviour
                 obj.GetComponent<Collider2D>().enabled = false;
                 obj.transform.GetChild(0).gameObject.SetActive(true);
             }
-        }
-        inGameUI.SetActive(true);
+        }     
         cam.GetComponent<CameraController>().enabled = true;
+
+        Player player = GameObject.FindWithTag("Player").GetComponent<Player>();
+        player.score = 0;
+        player.UpdateScore();
+        player.lastCheckpoint = player.transform.parent;
     }
 
     public void Stop()
     {
         levelEditorUI.SetActive(true);
-
-        Player player = GameObject.FindWithTag("Player").GetComponent<Player>();
-        player.score = 0;
-        player.UpdateScore();
 
         foreach (GameObject obj in placedObject)
         {
@@ -134,6 +136,16 @@ public class BuildingManager : MonoBehaviour
                 obj.GetComponent<Collider2D>().enabled = true;
             }
         }
+
+        foreach (GameObject obj in objectToDestroy)
+        {
+            if (obj != null)
+            {
+                Destroy(obj);
+            }
+        }
+        objectToDestroy.Clear();
+
         inGameUI.SetActive(false);
         cam.GetComponent<CameraController>().enabled = false;
         cam.transform.position = new Vector3(0, 0, -10);

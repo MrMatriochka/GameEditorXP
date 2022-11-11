@@ -4,11 +4,18 @@ using UnityEngine;
 
 public class Spike : MonoBehaviour
 {
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerStay2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            GameObject.FindObjectOfType<BuildingManager>().Stop();
+            //GameObject.FindObjectOfType<BuildingManager>().Stop();
+            Player player = other.GetComponent<Player>();
+            if (!player.isInvincible)
+            {
+                player.hp--;
+                player.StartCoroutine(player.InvincibleTimer());
+                player.UpdateLife();
+            }
         }
     }
 }

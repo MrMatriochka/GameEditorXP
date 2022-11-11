@@ -7,12 +7,21 @@ public class Player : MonoBehaviour
 {
     public float movingSpeed;
     public float jumpForce;
+    public float invincibilityTime;
+    public int maxHp;
+    [HideInInspector] public List<GameObject> heart;
+    [HideInInspector] public int hp;
+    [HideInInspector] public bool isInvincible;
+
     private float moveInput;
+
 
     private bool facingRight = false;
 
     private bool isGrounded;
     public Transform groundCheck;
+
+    [HideInInspector]  public Transform lastCheckpoint;
 
     private Rigidbody2D rb;
     private SpriteRenderer renderer;
@@ -25,6 +34,12 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         renderer = GetComponent<SpriteRenderer>();
         scoreUI = GameObject.Find("ScoreText").GetComponent<Text>();
+
+        for (int i = 0; i < GameObject.Find("Health").transform.childCount; i++)
+        {
+            heart.Add(GameObject.Find("Health").transform.GetChild(i).gameObject);
+        }
+        hp = maxHp;
     }
 
     void Update()
@@ -49,6 +64,11 @@ public class Player : MonoBehaviour
         {
             Flip();
         }
+
+        if(hp == 0)
+        {
+            Death();
+        }
     }
 
     private void FixedUpdate()
@@ -71,6 +91,67 @@ public class Player : MonoBehaviour
 
     public void UpdateScore()
     {
+        if(scoreUI == null)
+        {
+            scoreUI = GameObject.Find("ScoreText").GetComponent<Text>();
+        }
+        
         scoreUI.text = score.ToString();
+    }
+    
+    public void UpdateLife()
+    {
+        foreach (GameObject obj in heart)
+        {
+            if(hp >= heart.IndexOf(obj)+1)
+            {
+                obj.SetActive(true);
+            }
+            else
+            {
+                obj.SetActive(false);
+            }
+        }
+    }
+
+    public IEnumerator InvincibleTimer()
+    {
+        isInvincible = true;
+        renderer.color = new Color(1, 1, 1, 0.2f);
+        yield return new WaitForSeconds(invincibilityTime);
+        renderer.color = new Color(1, 1, 1, 1);
+        isInvincible = false;
+        yield return null;
+    }
+
+    public IEnumerator InvincibleTimer(float time)
+    {
+        isInvincible = true;
+        renderer.color = new Color(1, 1, 1, 0.2f);
+        yield return new WaitForSeconds(time);
+        renderer.color = new Color(1, 1, 1, 1);
+        isInvincible = false;
+        yield return null;
+    }
+
+    void Death()
+    {
+        hp = maxHp;
+        renderer.color = new Color(1, 1, 1, 1);
+        isInvincible = false;
+        UpdateLife();
+        
+        GameOverMenu gameOver = GameObject.Find("GameManager").GetComponent<GameOverMenu>();
+        gameOver.gameOverMenu.SetActive(true);
+        gameOver.inGameUI.SetActive(false);
+        gameOver.player = gameObject;
+
+        gameObject.SetActive(false);
+
+    }
+
+    public void TpToLastcheckpoint()
+    {
+        transform.position = lastCheckpoint.position;
     }
 }
