@@ -302,8 +302,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 23778bae5832a244da36858e984f99c8, type: 2}
   - {fileID: 2100000, guid: 5b9af6e49afe13442a302b3734cbea42, type: 2}
   - {fileID: 2100000, guid: ca1fb8681b0567645b0780865197f904, type: 2}
-  gridSize: 1
-  gridOn: 1
+  gridSize: 1.28
+  gridOn: 0
   canPlace: 1
   placedObject:
   - {fileID: 492592658}
@@ -3170,7 +3170,7 @@ PrefabInstance:
     - target: {fileID: 8053491583403647960, guid: ce19209fb51afc84987546f544c6e122, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 7116163340910287809, guid: 7d5c862bd16116e4d9e5d5c28ada8ccd, type: 3}
+      objectReference: {fileID: 818934064857773913, guid: 133586052568cbb47afea74783950244, type: 3}
     - target: {fileID: 8053491583403647963, guid: ce19209fb51afc84987546f544c6e122, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -3202,7 +3202,7 @@ PrefabInstance:
     - target: {fileID: 8053491583711885648, guid: ce19209fb51afc84987546f544c6e122, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 6952628394585513906, guid: 9d3549cc9a80d9b43b7461f499097d95, type: 3}
+      objectReference: {fileID: 7873588928898685938, guid: dac34455084c1184580abaf3364db25e, type: 3}
     - target: {fileID: 8053491583711885651, guid: ce19209fb51afc84987546f544c6e122, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -3274,7 +3274,7 @@ PrefabInstance:
     - target: {fileID: 8053491584361750285, guid: ce19209fb51afc84987546f544c6e122, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 7116163340910287809, guid: 4cd1b54b775207447bfb3bf00943a55a, type: 3}
+      objectReference: {fileID: 7116163340910287809, guid: 9ff187b82c4b54e40b869fd8a997b081, type: 3}
     - target: {fileID: 8053491584483263237, guid: ce19209fb51afc84987546f544c6e122, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

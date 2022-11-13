@@ -7,17 +7,17 @@ public class Bub : MonoBehaviour
     public float moveSpeed = 1f;
     public LayerMask ground;
 
-    private Rigidbody2D rigidbody;
+    private Rigidbody2D rb;
     public Collider2D triggerCollider;
 
     void Start()
     {
-        rigidbody = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     void Update()
     {
-        rigidbody.velocity = new Vector2(moveSpeed, rigidbody.velocity.y);
+        rb.velocity = new Vector2(moveSpeed, rb.velocity.y);
     }
 
     void FixedUpdate()
