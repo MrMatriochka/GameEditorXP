@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Platformer;
+using UnityEngine.UI;
+
 public class BuildingManager : MonoBehaviour
 {
     public GameObject levelEditorUI;
     public GameObject inGameUI;
-
+    public Scrollbar map;
     Vector3 pos;
     [HideInInspector] public GameObject pendingObj;
     [SerializeField] private Material[] materials;
@@ -153,7 +154,7 @@ public class BuildingManager : MonoBehaviour
 
     public void MoveScreen(int direction)
     {
-        cam.transform.position += new Vector3(camSpeed * direction,0,0);
+        cam.transform.position += new Vector3(camSpeed * direction,0,-10);
 
         rightButton.SetActive(true);
         leftButton.SetActive(true);
@@ -216,5 +217,10 @@ public class BuildingManager : MonoBehaviour
                 return true;
             }
         }   
+    }
+
+    public void MoveMap()
+    {
+        cam.transform.position = new Vector3(camLimit*map.value, 0, -10);
     }
 }

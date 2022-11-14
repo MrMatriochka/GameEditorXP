@@ -154,4 +154,9 @@ public class Player : MonoBehaviour
     {
         transform.position = lastCheckpoint.position;
     }
+
+    public void Bounce(Vector2 force)
+    {
+        rb.AddForce(force, ForceMode2D.Impulse);
+    }
 }
