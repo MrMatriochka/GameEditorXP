@@ -3,16 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-[System.Serializable]
-public class TestClass
-{
-    public TestClass()
-    {
-        string testData;
-    }
-
-    public string testData = "default";
-}
 
 public class TestSaveTitle : MonoBehaviour
 {
@@ -26,10 +16,7 @@ public class TestSaveTitle : MonoBehaviour
 
     private void Awake()
     {
-        // the ?? is a null comparison so if the value returns null, it generates new data
-        TestClass loadedData = SaveLoad<TestClass>.Load(testFolder, testFile) ?? new TestClass();
-
-        myText = loadedData.testData;
+        myText = PlayerPrefs.GetString("Title");
 
         title.text = myText;
     }
@@ -45,11 +32,7 @@ public class TestSaveTitle : MonoBehaviour
 
     private void SaveData()
     {
-        TestClass dataToSave = new TestClass
-        {
-            testData = myText
-        };
-
-        SaveLoad<TestClass>.Save(dataToSave, testFolder, testFile);
+        PlayerPrefs.SetString("Title", myText);
+        PlayerPrefs.Save();
     }
 }
