@@ -56,7 +56,7 @@ public class SaveLoadLevel : MonoBehaviour
             index = myIndex
         };
 
-        SaveLoad<SavedLevel>.Save(dataToSave, testFolder, testFile);
+        SaveLoad<SavedLevel>.Save(dataToSave, testFile);
     }
 
     public void LoadData()
@@ -68,7 +68,7 @@ public class SaveLoadLevel : MonoBehaviour
         manager.placedObject.Clear();
 
 
-        SavedLevel loadedData = SaveLoad<SavedLevel>.Load(testFolder, testFile) ?? new SavedLevel();
+        SavedLevel loadedData = SaveLoad<SavedLevel>.Load(testFile) ?? new SavedLevel();
 
         myPositions = loadedData.positions;
         myPrefabs = loadedData.prefabs;
