@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - DeadBody
   - Delete
+  - PlayerHazard
   layers:
   - Default
   - TransparentFX

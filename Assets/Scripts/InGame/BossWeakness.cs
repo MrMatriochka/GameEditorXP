@@ -8,11 +8,11 @@ public class BossWeakness : MonoBehaviour
     public Boss boss;
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("PlayerHazard"))
         {
             if (!boss.isInvincible)
             {
-                Player player = other.GetComponent<Player>();
+                Player player = other.GetComponentInParent<Player>();
                 player.Bounce(force);
 
                 boss.hp--;

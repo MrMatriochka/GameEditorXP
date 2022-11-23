@@ -8,12 +8,14 @@ public class Player : MonoBehaviour
     public float movingSpeed;
     public float jumpForce;
     public float invincibilityTime;
+    public float loseControlAfterHit;
     public int maxHp;
     [HideInInspector] public List<GameObject> heart;
     [HideInInspector] public int hp;
     [HideInInspector] public bool isInvincible;
 
     private float moveInput;
+    [HideInInspector] public bool canMove = true;
 
 
     private bool facingRight = false;
@@ -24,7 +26,7 @@ public class Player : MonoBehaviour
     [HideInInspector]  public Transform lastCheckpoint;
 
     private Rigidbody2D rb;
-    private SpriteRenderer renderer;
+    [HideInInspector] public SpriteRenderer renderer;
 
     [HideInInspector] public int score;
     private Text scoreUI;
@@ -44,7 +46,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButton("Horizontal"))
+        if (Input.GetButton("Horizontal")&&canMove)
         {
             moveInput = Input.GetAxisRaw("Horizontal");
             Vector3 direction = transform.right * moveInput;
@@ -64,7 +66,7 @@ public class Player : MonoBehaviour
         {
             Flip();
         }
-
+        
         if(hp == 0)
         {
             Death();
@@ -118,7 +120,10 @@ public class Player : MonoBehaviour
     {
         isInvincible = true;
         renderer.color = new Color(1, 1, 1, 0.2f);
-        yield return new WaitForSeconds(invincibilityTime);
+        canMove = false;
+        yield return new WaitForSeconds(loseControlAfterHit);
+        canMove = true;
+        yield return new WaitForSeconds(invincibilityTime-loseControlAfterHit);
         renderer.color = new Color(1, 1, 1, 1);
         isInvincible = false;
         yield return null;
@@ -128,7 +133,10 @@ public class Player : MonoBehaviour
     {
         isInvincible = true;
         renderer.color = new Color(1, 1, 1, 0.2f);
-        yield return new WaitForSeconds(time);
+        canMove = false;
+        yield return new WaitForSeconds(loseControlAfterHit);
+        canMove = true;
+        yield return new WaitForSeconds(time - loseControlAfterHit);
         renderer.color = new Color(1, 1, 1, 1);
         isInvincible = false;
         yield return null;

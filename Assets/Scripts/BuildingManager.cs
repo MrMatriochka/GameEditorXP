@@ -119,7 +119,12 @@ public class BuildingManager : MonoBehaviour
         Player player = GameObject.FindWithTag("Player").GetComponent<Player>();
         player.score = 0;
         player.UpdateScore();
+        player.hp = player.maxHp;
+        player.UpdateLife();
+        player.isInvincible = false;
+        player.transform.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
         player.lastCheckpoint = player.transform.parent;
+        player.canMove = true;
     }
 
     public void Stop()
