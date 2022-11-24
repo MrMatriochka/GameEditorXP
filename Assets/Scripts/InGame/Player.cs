@@ -31,8 +31,10 @@ public class Player : MonoBehaviour
     [HideInInspector] public int score;
     private Text scoreUI;
 
+    private Animator anim;
     void Start()
     {
+        anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         renderer = GetComponent<SpriteRenderer>();
         scoreUI = GameObject.Find("ScoreText").GetComponent<Text>();
@@ -77,6 +79,24 @@ public class Player : MonoBehaviour
     {
         CheckGround();
         
+        if(!isGrounded)
+        {
+            anim.SetBool("isJumping", true);
+        }
+        else
+        {
+            anim.SetBool("isJumping", false);
+        }
+        
+        moveInput = Input.GetAxisRaw("Horizontal");
+        if (moveInput != 0)
+        {
+            anim.SetBool("isMoving", true);
+        }
+        else
+        {
+            anim.SetBool("isMoving", false);
+        }
     }
 
     private void Flip()
@@ -88,7 +108,7 @@ public class Player : MonoBehaviour
     private void CheckGround()
     {
         Collider2D[] colliders = Physics2D.OverlapCircleAll(groundCheck.transform.position, 0.2f);
-        isGrounded = colliders.Length > 1;
+        isGrounded = colliders.Length > 2;
     }
 
     public void UpdateScore()
