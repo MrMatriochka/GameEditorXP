@@ -14,7 +14,7 @@ public class Checkpoint : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Player player = other.gameObject.GetComponent<Player>();
-            player.lastCheckpoint = transform;
+            player.lastCheckpoint = transform.position;
             GetComponent<SpriteRenderer>().color = Color.green;
         }
     }

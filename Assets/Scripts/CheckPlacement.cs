@@ -10,20 +10,19 @@ public class CheckPlacement : MonoBehaviour
     {
         buildManager = GameObject.Find("GameManager").GetComponent<BuildingManager>();
     }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if(other.CompareTag("Placement"))
-        {
-            buildManager.canPlace = false;
-        }
-    }
-
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("Placement"))
         {
             buildManager.canPlace = true;
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if(other.CompareTag("Placement"))
+        {
+            buildManager.canPlace = false;
         }
     }
 }

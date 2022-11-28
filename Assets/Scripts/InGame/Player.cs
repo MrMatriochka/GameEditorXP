@@ -23,7 +23,7 @@ public class Player : MonoBehaviour
     private bool isGrounded;
     public Transform groundCheck;
 
-    [HideInInspector]  public Transform lastCheckpoint;
+    [HideInInspector]  public Vector3 lastCheckpoint;
 
     private Rigidbody2D rb;
     [HideInInspector] public SpriteRenderer renderer;
@@ -32,12 +32,15 @@ public class Player : MonoBehaviour
     private Text scoreUI;
 
     private Animator anim;
+
+    public GameObject feet;
     void Start()
     {
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         renderer = GetComponent<SpriteRenderer>();
         scoreUI = GameObject.Find("ScoreText").GetComponent<Text>();
+        lastCheckpoint = transform.position;
 
         for (int i = 0; i < GameObject.Find("Health").transform.childCount; i++)
         {
@@ -141,8 +144,10 @@ public class Player : MonoBehaviour
         isInvincible = true;
         renderer.color = new Color(1, 1, 1, 0.2f);
         canMove = false;
+        feet.SetActive(false);
         yield return new WaitForSeconds(loseControlAfterHit);
         canMove = true;
+        feet.SetActive(true);
         yield return new WaitForSeconds(invincibilityTime-loseControlAfterHit);
         renderer.color = new Color(1, 1, 1, 1);
         isInvincible = false;
@@ -154,8 +159,10 @@ public class Player : MonoBehaviour
         isInvincible = true;
         renderer.color = new Color(1, 1, 1, 0.2f);
         canMove = false;
+        feet.SetActive(false);
         yield return new WaitForSeconds(loseControlAfterHit);
         canMove = true;
+        feet.SetActive(true);
         yield return new WaitForSeconds(time - loseControlAfterHit);
         renderer.color = new Color(1, 1, 1, 1);
         isInvincible = false;
@@ -167,6 +174,9 @@ public class Player : MonoBehaviour
         hp = maxHp;
         renderer.color = new Color(1, 1, 1, 1);
         isInvincible = false;
+        canMove = true;
+        feet.SetActive(true);
+        StopAllCoroutines();
         UpdateLife();
         
         GameOverMenu gameOver = GameObject.Find("GameManager").GetComponent<GameOverMenu>();
@@ -180,7 +190,7 @@ public class Player : MonoBehaviour
 
     public void TpToLastcheckpoint()
     {
-        transform.position = lastCheckpoint.position;
+        transform.position = lastCheckpoint;
     }
 
     public void Bounce(Vector2 force)

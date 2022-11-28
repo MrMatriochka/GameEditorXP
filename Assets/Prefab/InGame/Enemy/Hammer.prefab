@@ -185,6 +185,7 @@ GameObject:
   - component: {fileID: 7873588928898685951}
   - component: {fileID: 3744258482846512370}
   - component: {fileID: 1280663284779806912}
+  - component: {fileID: 1333615129946915500}
   m_Layer: 0
   m_Name: Hammer
   m_TagString: Placement
@@ -299,6 +300,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nbLimit: 0
+--- !u!50 &1333615129946915500
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7873588928898685938}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &8058705162620641848
 GameObject:
   m_ObjectHideFlags: 0
@@ -442,4 +464,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21428da05c70b90489dd74e17c00887f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: {x: 0, y: 10}
