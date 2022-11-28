@@ -2663,7 +2663,7 @@ PrefabInstance:
     - target: {fileID: 4858766085438457885, guid: 6841b2dc2b9fa3a49a656769a539cb7c, type: 3}
       propertyPath: levelEditorUI
       value: 
-      objectReference: {fileID: 787154912}
+      objectReference: {fileID: 0}
     - target: {fileID: 4858766085438457885, guid: 6841b2dc2b9fa3a49a656769a539cb7c, type: 3}
       propertyPath: placedObject.Array.data[0]
       value: 

@@ -22,10 +22,7 @@ public class BuildingManager : MonoBehaviour
 
     private GameObject cam;
 
-    public float camSpeed;
     public float camLimit;
-    public GameObject leftButton;
-    public GameObject rightButton;
 
     private bool mouseOnTrash = false;
     private bool firstPlacement = false;
@@ -162,25 +159,6 @@ public class BuildingManager : MonoBehaviour
         inGameUI.SetActive(false);
         cam.GetComponent<CameraController>().enabled = false;
         cam.transform.position = new Vector3(0, 0, -10);
-    }
-
-    public void MoveScreen(int direction)
-    {
-        cam.transform.position += new Vector3(camSpeed * direction,0,-10);
-
-        rightButton.SetActive(true);
-        leftButton.SetActive(true);
-
-        if (cam.transform.position.x >= camLimit)
-        {
-            cam.transform.position = new Vector3(camLimit, 0, -10);
-            rightButton.SetActive(false);
-        }
-        if(cam.transform.position.x <= 0)
-        {
-            cam.transform.position = new Vector3(0, 0, -10);
-            leftButton.SetActive(false);
-        }
     }
 
     public void Delete()
