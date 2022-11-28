@@ -4,14 +4,9 @@ using UnityEngine;
 
 public class DestroyParent : MonoBehaviour
 {
-    public Vector2 force;
-    private void OnTriggerEnter2D(Collider2D other)
+    public void DeathFunction()
     {
-        if (other.CompareTag("PlayerHazard"))
-        {
-            Player player = other.GetComponentInParent<Player>();
-            transform.parent.gameObject.SetActive(false);
-            player.Bounce(force);
-        }
+        transform.parent.gameObject.SetActive(false);
     }
+
 }

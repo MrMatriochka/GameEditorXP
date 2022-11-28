@@ -179,7 +179,6 @@ MonoBehaviour:
   isInvincible: 0
   triggerCollider: {fileID: 8073075644334120940}
   groundCheck: {fileID: 1977811394512676104}
-  state: 0
 --- !u!1 &5553982986112278038
 GameObject:
   m_ObjectHideFlags: 0
@@ -408,6 +407,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e11f5cd7b6363084f9c9f650b2252853, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  force: {x: 0, y: 0}
 --- !u!1 &8926203860811713258
 GameObject:
   m_ObjectHideFlags: 0
@@ -479,4 +479,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 289b83f8085a1f54c9a481634a2dfd2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  force: {x: 0, y: 10}
   boss: {fileID: 386724851362431670}
