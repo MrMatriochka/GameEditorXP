@@ -13,7 +13,9 @@ public class Coins : MonoBehaviour
             Player player = other.gameObject.GetComponent<Player>();
             player.score += value;
             player.UpdateScore();
-            gameObject.SetActive(false);
+            GetComponent<AudioSource>().Play();
+            GetComponent<SpriteRenderer>().enabled = false;
+            GetComponent<BoxCollider2D>().enabled = false;
         }
     }
 }

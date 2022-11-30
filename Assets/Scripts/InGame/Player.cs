@@ -34,6 +34,8 @@ public class Player : MonoBehaviour
     private Animator anim;
 
     public GameObject feet;
+    public AudioClip jumpSFX;
+    public AudioClip hitSFX;
     void Start()
     {
         anim = GetComponent<Animator>();
@@ -61,6 +63,7 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             rb.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
+            GetComponent<AudioSource>().PlayOneShot(jumpSFX);
         }
 
         if (facingRight == false && moveInput > 0)
@@ -72,7 +75,7 @@ public class Player : MonoBehaviour
             Flip();
         }
         
-        if(hp == 0)
+        if(hp == 0 || transform.position.y <= -7)
         {
             Death();
         }
@@ -141,6 +144,7 @@ public class Player : MonoBehaviour
 
     public IEnumerator InvincibleTimer()
     {
+        GetComponent<AudioSource>().PlayOneShot(hitSFX);
         isInvincible = true;
         renderer.color = new Color(1, 1, 1, 0.2f);
         canMove = false;
@@ -156,6 +160,7 @@ public class Player : MonoBehaviour
 
     public IEnumerator InvincibleTimer(float time)
     {
+        GetComponent<AudioSource>().PlayOneShot(hitSFX);
         isInvincible = true;
         renderer.color = new Color(1, 1, 1, 0.2f);
         canMove = false;
@@ -196,5 +201,6 @@ public class Player : MonoBehaviour
     public void Bounce(Vector2 force)
     {
         rb.AddForce(force, ForceMode2D.Impulse);
+        GetComponent<AudioSource>().PlayOneShot(jumpSFX);
     }
 }
