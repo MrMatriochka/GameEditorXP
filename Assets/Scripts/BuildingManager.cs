@@ -158,6 +158,7 @@ public class BuildingManager : MonoBehaviour
 
         inGameUI.SetActive(false);
         cam.GetComponent<CameraController>().enabled = false;
+        cam.GetComponent<CameraController>().camLimit = camLimit;
         cam.transform.position = new Vector3(0, 0, -10);
     }
 
