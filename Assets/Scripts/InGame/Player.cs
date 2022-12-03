@@ -77,7 +77,7 @@ public class Player : MonoBehaviour
             Flip();
         }
         
-        if(hp == 0 || transform.position.y <= -7)
+        if(hp == 0 || transform.position.y <= -13)
         {
             Death();
         }
