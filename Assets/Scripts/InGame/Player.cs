@@ -43,12 +43,14 @@ public class Player : MonoBehaviour
         renderer = GetComponent<SpriteRenderer>();
         scoreUI = GameObject.Find("ScoreText").GetComponent<Text>();
         lastCheckpoint = transform.position;
-
+        
         for (int i = 0; i < GameObject.Find("Health").transform.childCount; i++)
         {
             heart.Add(GameObject.Find("Health").transform.GetChild(i).gameObject);
         }
         hp = maxHp;
+        UpdateLife();
+        UpdateScore();
     }
 
     void Update()
