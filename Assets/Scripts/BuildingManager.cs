@@ -118,6 +118,7 @@ public class BuildingManager : MonoBehaviour
             }
         }
         cam.GetComponent<CameraController>().enabled = true;
+        cam.GetComponent<CameraController>().camLimit = camLimit;
         cam.GetComponent<CameraController>().FindPlayer(cam.GetComponent<CameraController>().faceLeft);
 
         //Player player = GameObject.FindWithTag("Player").GetComponent<Player>();
@@ -158,7 +159,7 @@ public class BuildingManager : MonoBehaviour
 
         inGameUI.SetActive(false);
         cam.GetComponent<CameraController>().enabled = false;
-        cam.GetComponent<CameraController>().camLimit = camLimit;
+        
         cam.transform.position = new Vector3(0, 0, -10);
     }
 
