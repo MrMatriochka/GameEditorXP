@@ -27,7 +27,9 @@ public class BuildingManager : MonoBehaviour
     private bool mouseOnTrash = false;
     private bool firstPlacement = false;
 
-    SaveLoadLevel saveLvl;
+    [HideInInspector] public SaveLoadLevel saveLvl;
+
+    public GameObject spriteEditor;
     void Start()
     {
         cam = GameObject.Find("Main Camera");
@@ -83,6 +85,8 @@ public class BuildingManager : MonoBehaviour
 
     public void SelectObject(GameObject objectToSpawn)
     {
+        if (Input.GetKeyDown(KeyCode.Mouse1)) return;
+
         if (!IsPrefabLimitExceeded(objectToSpawn))
         {
             pendingObj = Instantiate(objectToSpawn, pos, transform.rotation);
@@ -115,38 +119,24 @@ public class BuildingManager : MonoBehaviour
                 obj.GetComponent<SpriteRenderer>().enabled = false;
                 obj.GetComponent<Collider2D>().enabled = false;
                 obj.transform.GetChild(0).gameObject.SetActive(true);
+
+
+                int startChildCount = obj.transform.childCount;
+                for (int i = 1; i < startChildCount; i++)
+                {
+                        obj.transform.GetChild(1).parent = obj.transform.GetChild(0);
+                }
             }
         }
         cam.GetComponent<CameraController>().enabled = true;
         cam.GetComponent<CameraController>().camLimit = camLimit;
         cam.GetComponent<CameraController>().FindPlayer(cam.GetComponent<CameraController>().faceLeft);
-
-        //Player player = GameObject.FindWithTag("Player").GetComponent<Player>();
-        //player.score = 0;
-        //player.UpdateScore();
-        //player.hp = player.maxHp;
-        //player.UpdateLife();
-        //player.isInvincible = false;
-        //player.transform.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
-        //player.lastCheckpoint = player.transform.parent;
-        //player.canMove = true;
     }
 
     public void Stop()
     {
         levelEditorUI.SetActive(true);
         saveLvl.LoadData();
-        //foreach (GameObject obj in placedObject)
-        //{
-        //    if (obj != null)
-        //    {
-        //        obj.GetComponent<SpriteRenderer>().enabled = true;
-        //        obj.transform.GetChild(0).gameObject.SetActive(false);
-        //        obj.transform.GetChild(0).localPosition = new Vector2(0,0);
-        //        obj.transform.GetChild(0).localRotation = Quaternion.Euler(0,0,0);
-        //        obj.GetComponent<Collider2D>().enabled = true;
-        //    }
-        //}
 
         foreach (GameObject obj in objectToDestroy)
         {
@@ -214,5 +204,23 @@ public class BuildingManager : MonoBehaviour
     public void MoveMap()
     {
         cam.transform.position = new Vector3(camLimit*map.value, 0, -10);
+    }
+
+    public void OpenSpriteEditor(GameObject prefabToEdit)
+    {
+        if(Input.GetKeyDown(KeyCode.Mouse1))
+        {
+            spriteEditor.SetActive(true);
+            transform.parent.gameObject.SetActive(false);
+
+            saveLvl.SaveData();
+            foreach (GameObject obj in placedObject)
+            {
+                Destroy(obj);
+            }
+
+            spriteEditor.GetComponent<SpriteEditor>().editedPrefab = prefabToEdit;
+            spriteEditor.GetComponent<SpriteEditor>().OpenSpriteEditor();
+        }
     }
 }

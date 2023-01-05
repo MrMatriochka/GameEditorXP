@@ -10,6 +10,7 @@ TagManager:
   - DeadBody
   - Delete
   - PlayerHazard
+  - Sprite
   layers:
   - Default
   - TransparentFX

@@ -22,7 +22,7 @@ public class SaveLoadLevel : MonoBehaviour
     public Dictionary<string, GameObject> prefabByName = new Dictionary<string, GameObject>();
     public List<GameObject> prefabsList = new List<GameObject>();
 
-    private string testFolder = "Save";
+    //private string testFolder = "Save";
     private string testFile = "Level";
 
     private List<Vector3> myPositions = new List<Vector3>();
@@ -135,7 +135,7 @@ public class SaveLoadLevel : MonoBehaviour
             return prefabByName[prefabName];
         }
 
-        Debug.LogWarning("There is not inventory ui for " + prefabName);
+        Debug.LogWarning("There is no prefab for " + prefabName);
         return null;
     }
 }
