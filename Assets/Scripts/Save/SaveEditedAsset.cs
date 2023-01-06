@@ -29,7 +29,7 @@ public class SaveEditedAsset : MonoBehaviour
     private List<string> mySprites = new List<string>();
     private List<int> myIndex = new List<int>();
 
-    private SpriteEditor editor;
+    SpriteEditor editor;
 
     public GameObject spriteTemplate;
     void Awake()

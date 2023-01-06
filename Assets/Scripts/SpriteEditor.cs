@@ -21,6 +21,25 @@ public class SpriteEditor : MonoBehaviour
     public GameObject spriteEditor;
     public GameObject buildingManager;
 
+    public List<GameObject> dictionary = new List<GameObject>();
+    private void Awake()
+    {
+        foreach (GameObject prefab in dictionary)
+        {
+            prefab.GetComponent<BoxCollider2D>().enabled = false;
+            prefab.GetComponent<CheckPlacement>().enabled = false;
+            prefab.transform.localPosition = Vector3.zero;
+
+            GetComponent<SaveEditedAsset>().LoadData(prefab.name);
+            foreach (GameObject obj in placedObject)
+            {
+                obj.transform.parent = prefab.transform;
+            }
+            placedObject.Clear();
+            prefab.transform.localPosition = new Vector3(0,-20,0);
+        }
+        
+    }
     private void Start()
     {
         OpenSpriteEditor();
@@ -28,10 +47,20 @@ public class SpriteEditor : MonoBehaviour
 
     public void OpenSpriteEditor()
     {
-        editedPrefab.GetComponent<BoxCollider2D>().enabled = false;
-        editedPrefab.GetComponent<CheckPlacement>().enabled = false;
+        foreach (GameObject prefab in dictionary)
+        {
+            prefab.GetComponent<BoxCollider2D>().enabled = false;
+            prefab.GetComponent<CheckPlacement>().enabled = false;
+        }
 
         editedPrefab.transform.position = Vector3.zero;
+
+        int startChildCount = editedPrefab.transform.childCount;
+        for (int i = 1; i < startChildCount; i++)
+        {
+            Destroy(editedPrefab.transform.GetChild(i).gameObject);
+        }
+
         GetComponent<SaveEditedAsset>().LoadData(editedPrefab.name);
     }
 
@@ -110,11 +139,18 @@ public class SpriteEditor : MonoBehaviour
         {
             obj.transform.parent = editedPrefab.transform;
         }
+        placedObject.Clear();
         editedPrefab.GetComponent<BoxCollider2D>().enabled = true;
         editedPrefab.GetComponent<CheckPlacement>().enabled = true;
-        editedPrefab.transform.localPosition = Vector3.zero;
+        editedPrefab.transform.localPosition = new Vector3(0, -20, 0);
         spriteEditor.SetActive(false);
         buildingManager.transform.parent.gameObject.SetActive(true);
+
+        foreach (GameObject prefab in dictionary)
+        {
+            prefab.GetComponent<BoxCollider2D>().enabled = true;
+            prefab.GetComponent<CheckPlacement>().enabled = true;
+        }
 
         buildingManager.GetComponent<SaveLoadLevel>().LoadData();
     }
