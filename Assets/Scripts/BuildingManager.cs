@@ -118,14 +118,14 @@ public class BuildingManager : MonoBehaviour
             {
                 obj.GetComponent<SpriteRenderer>().enabled = false;
                 obj.GetComponent<Collider2D>().enabled = false;
-                obj.transform.GetChild(0).gameObject.SetActive(true);
-
 
                 int startChildCount = obj.transform.childCount;
                 for (int i = 1; i < startChildCount; i++)
                 {
                         obj.transform.GetChild(1).parent = obj.transform.GetChild(0);
                 }
+
+                obj.transform.GetChild(0).gameObject.SetActive(true);
             }
         }
         cam.GetComponent<CameraController>().enabled = true;
@@ -210,6 +210,7 @@ public class BuildingManager : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Mouse1))
         {
+            mouseOnTrash = false;
             spriteEditor.SetActive(true);
             transform.parent.gameObject.SetActive(false);
 

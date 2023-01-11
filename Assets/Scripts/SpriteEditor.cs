@@ -22,6 +22,7 @@ public class SpriteEditor : MonoBehaviour
     public GameObject buildingManager;
 
     public List<GameObject> dictionary = new List<GameObject>();
+    public Camera cam;
     private void Awake()
     {
         foreach (GameObject prefab in dictionary)
@@ -47,6 +48,7 @@ public class SpriteEditor : MonoBehaviour
 
     public void OpenSpriteEditor()
     {
+        cam.orthographicSize = 3;
         foreach (GameObject prefab in dictionary)
         {
             prefab.GetComponent<BoxCollider2D>().enabled = false;
@@ -153,5 +155,7 @@ public class SpriteEditor : MonoBehaviour
         }
 
         buildingManager.GetComponent<SaveLoadLevel>().LoadData();
+
+        cam.orthographicSize = 10;
     }
 }
