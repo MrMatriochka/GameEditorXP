@@ -39,7 +39,13 @@ public class BuildingManager : MonoBehaviour
 
     void Update()
     {
-        if(pendingObj != null)
+        if (Input.GetMouseButtonUp(0) && mouseOnTrash && pendingObj != null)
+        {
+            Delete();
+            //saveLvl.SaveData();
+        }
+
+        if (pendingObj != null)
         {
             if(gridOn)
             {
@@ -54,14 +60,14 @@ public class BuildingManager : MonoBehaviour
                 PlaceObject();
                 //saveLvl.SaveData();
             }
-
+            else if (Input.GetMouseButtonUp(0) && !canPlace && firstPlacement)
+            {
+                Delete();
+                firstPlacement = false;
+            }
         }
 
-        if (Input.GetMouseButtonUp(0) && mouseOnTrash && pendingObj != null)
-        {
-            Delete();
-            //saveLvl.SaveData();
-        }
+        
     }
 
     void PlaceObject()

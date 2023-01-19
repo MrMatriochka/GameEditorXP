@@ -22,6 +22,22 @@ public class RigDetection : MonoBehaviour
             {
                 collision.GetComponent<RigTag>().bodyPart = "Sprite_Head";
             }
+            if (collision.IsTouching(handL))
+            {
+                collision.GetComponent<RigTag>().bodyPart = "Sprite_HandL";
+            }
+            if (collision.IsTouching(handR))
+            {
+                collision.GetComponent<RigTag>().bodyPart = "Sprite_HandR";
+            }
+            if (collision.IsTouching(feetL))
+            {
+                collision.GetComponent<RigTag>().bodyPart = "Sprite_FeetL";
+            }
+            if (collision.IsTouching(feetR))
+            {
+                collision.GetComponent<RigTag>().bodyPart = "Sprite_FeetR";
+            }
         }
     }
 

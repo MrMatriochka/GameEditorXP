@@ -25,6 +25,22 @@ public class RigTransfer : MonoBehaviour
             {
                 transform.GetChild(3).parent = head.transform;
             }
+            if (part == "Sprite_HandL")
+            {
+                transform.GetChild(3).parent = handL.transform;
+            }
+            if (part == "Sprite_HandR")
+            {
+                transform.GetChild(3).parent = handR.transform;
+            }
+            if (part == "Sprite_FeetL")
+            {
+                transform.GetChild(3).parent = feetL.transform;
+            }
+            if (part == "Sprite_FeetR")
+            {
+                transform.GetChild(3).parent = feetR.transform;
+            }
         }
     }
 }

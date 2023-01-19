@@ -72,9 +72,9 @@ public class SpriteEditor : MonoBehaviour
         {
             if (gridOn)
             {
-                pendingObj.transform.position = new Vector3(Snapping.Snap(pos.x, gridSize), Snapping.Snap(pos.y, gridSize), 0);
+                pendingObj.transform.position = new Vector3(Snapping.Snap(pos.x, gridSize), Snapping.Snap(pos.y, gridSize), -1);
             }
-            else { pendingObj.transform.position = pos; }
+            else { pendingObj.transform.position = pos + new Vector3(0, 0, -1); }
 
             if (Input.GetMouseButtonUp(0) && canPlace)
             {
@@ -110,6 +110,7 @@ public class SpriteEditor : MonoBehaviour
     public void SelectObject(Sprite localSprite)
     {
         pendingObj = Instantiate(SpriteTemplate, pos, transform.rotation);
+        pendingObj.transform.position += new Vector3(0,0,-1);
         pendingObj.GetComponent<SpriteRenderer>().sprite = localSprite;
         firstPlacement = true;
     }

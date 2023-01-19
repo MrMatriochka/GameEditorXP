@@ -18,7 +18,7 @@ public class Player : MonoBehaviour
     [HideInInspector] public bool canMove = true;
 
 
-    private bool facingRight = false;
+    private bool facingRight = true;
 
     private bool isGrounded;
     public Transform groundCheck;
@@ -26,21 +26,18 @@ public class Player : MonoBehaviour
     [HideInInspector]  public Vector3 lastCheckpoint;
 
     private Rigidbody2D rb;
-    [HideInInspector] public SpriteRenderer renderer;
 
     [HideInInspector] public int score;
     private Text scoreUI;
 
-    private Animator anim;
+    public Animator anim;
 
     public GameObject feet;
     public AudioClip jumpSFX;
     public AudioClip hitSFX;
     void Start()
     {
-        anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
-        renderer = GetComponent<SpriteRenderer>();
         scoreUI = GameObject.Find("ScoreText").GetComponent<Text>();
         lastCheckpoint = transform.position;
         
@@ -99,18 +96,18 @@ public class Player : MonoBehaviour
         moveInput = Input.GetAxisRaw("Horizontal");
         if (moveInput != 0)
         {
-            anim.SetBool("isMoving", true);
+            anim.SetBool("IsMoving", true);
         }
         else
         {
-            anim.SetBool("isMoving", false);
+            anim.SetBool("IsMoving", false);
         }
     }
 
     private void Flip()
     {
         facingRight = !facingRight;
-        renderer.flipX = !renderer.flipX;
+        anim.gameObject.transform.localScale =new Vector3(-anim.gameObject.transform.localScale.x, anim.gameObject.transform.localScale.y, anim.gameObject.transform.localScale.z);
     }
 
     private void CheckGround()
@@ -148,14 +145,14 @@ public class Player : MonoBehaviour
     {
         GetComponent<AudioSource>().PlayOneShot(hitSFX);
         isInvincible = true;
-        renderer.color = new Color(1, 1, 1, 0.2f);
+        //GetComponent<Renderer>().color = new Color(1, 1, 1, 0.2f);
         canMove = false;
         feet.SetActive(false);
         yield return new WaitForSeconds(loseControlAfterHit);
         canMove = true;
         feet.SetActive(true);
         yield return new WaitForSeconds(invincibilityTime-loseControlAfterHit);
-        renderer.color = new Color(1, 1, 1, 1);
+        //GetComponent<Renderer>().color = new Color(1, 1, 1, 1);
         isInvincible = false;
         yield return null;
     }
@@ -164,14 +161,14 @@ public class Player : MonoBehaviour
     {
         GetComponent<AudioSource>().PlayOneShot(hitSFX);
         isInvincible = true;
-        renderer.color = new Color(1, 1, 1, 0.2f);
+        //GetComponent<Renderer>().color = new Color(1, 1, 1, 0.2f);
         canMove = false;
         feet.SetActive(false);
         yield return new WaitForSeconds(loseControlAfterHit);
         canMove = true;
         feet.SetActive(true);
         yield return new WaitForSeconds(time - loseControlAfterHit);
-        renderer.color = new Color(1, 1, 1, 1);
+        //GetComponent<Renderer>().color = new Color(1, 1, 1, 1);
         isInvincible = false;
         yield return null;
     }
@@ -179,7 +176,7 @@ public class Player : MonoBehaviour
     void Death()
     {
         hp = maxHp;
-        renderer.color = new Color(1, 1, 1, 1);
+        //GetComponent<Renderer>().color = new Color(1, 1, 1, 1);
         isInvincible = false;
         canMove = true;
         feet.SetActive(true);
