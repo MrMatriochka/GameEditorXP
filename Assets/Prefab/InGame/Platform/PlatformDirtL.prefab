@@ -124,7 +124,7 @@ GameObject:
   - component: {fileID: 7116163340910287808}
   - component: {fileID: 7371674108012335585}
   - component: {fileID: 5297744543013869651}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PlatformDirtL
   m_TagString: Placement
   m_Icon: {fileID: 0}

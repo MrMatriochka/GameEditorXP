@@ -252,8 +252,8 @@ MonoBehaviour:
   canMove: 1
   groundCheck: {fileID: 6401787531695052235}
   lastCheckpoint: {x: 0, y: 0, z: 0}
-  renderer: {fileID: 0}
   score: 0
+  anim: {fileID: 0}
   feet: {fileID: 728533021457997401}
   jumpSFX: {fileID: 8300000, guid: 7ba504d5c9a558d4f8f7441206cdd518, type: 3}
   hitSFX: {fileID: 8300000, guid: 22fc9449dde2dd244881e9e9ac0e68d7, type: 3}
@@ -404,7 +404,7 @@ GameObject:
   - component: {fileID: 6952628394585513911}
   - component: {fileID: 6952628394585513908}
   - component: {fileID: 1970442854654190451}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Placement
   m_Icon: {fileID: 0}
