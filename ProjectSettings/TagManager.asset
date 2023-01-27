@@ -11,6 +11,8 @@ TagManager:
   - Delete
   - PlayerHazard
   - Sprite
+  - Bloc
+  - BlocPos
   layers:
   - Default
   - TransparentFX

@@ -111,6 +111,7 @@ public class SpriteEditor : MonoBehaviour
     {
         pendingObj = Instantiate(SpriteTemplate, pos, transform.rotation);
         pendingObj.transform.position += new Vector3(0,0,-1);
+        pendingObj.transform.rotation = Quaternion.Euler(0, 0, -20);
         pendingObj.GetComponent<SpriteRenderer>().sprite = localSprite;
         firstPlacement = true;
     }
