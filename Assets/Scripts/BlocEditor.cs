@@ -46,14 +46,23 @@ public class BlocEditor : MonoBehaviour
                 firstPlacement = false;
             }
 
-            if (pendingObj.GetComponent<BlocAssemble>().CanAssemble() == true)
+            if (pendingObj.GetComponent<BlocAssemble>().CanAssemble())
             {
-                pendingObj.transform.position = pendingObj.GetComponent<BlocAssemble>().touchingObj.transform.position;
-
+                pendingObj.transform.position = pendingObj.GetComponent<BlocAssemble>().touchingObj.position;
                 pendingObj.transform.parent = pendingObj.GetComponent<BlocAssemble>().touchingObj;
-
+                pendingObj.transform.GetChild(0).GetComponent<BlocPreviousPosition>().isOccuupied = true;
             }
-            else { pendingObj.transform.parent = null; }
+            else if(pendingObj.transform.GetChild(1).GetComponent<BlocNextPosition>().canAssemble)
+            {
+                pendingObj.GetComponent<BlocAssemble>().touchingObj.GetComponent<BlocPreviousPosition>().isOccuupied = true;
+                pendingObj.transform.position = pendingObj.GetComponent<BlocAssemble>().touchingObj.position;
+                pendingObj.GetComponent<BlocAssemble>().touchingObj.parent.parent = pendingObj.transform.GetChild(1);
+            }
+            else 
+            {
+                pendingObj.transform.GetChild(0).GetComponent<BlocPreviousPosition>().isOccuupied = false;
+                pendingObj.transform.parent = null; 
+            }
 
             pendingObj = null;
         }
