@@ -231,8 +231,8 @@ public class BuildingManager : MonoBehaviour
                 Destroy(obj);
             }
 
-            spriteEditor.GetComponent<SpriteEditor>().editedPrefab = prefabToEdit;
-            spriteEditor.GetComponent<SpriteEditor>().OpenSpriteEditor();
+            spriteEditor.transform.GetChild(0).GetComponent<SpriteEditor>().editedPrefab = prefabToEdit;
+            spriteEditor.transform.GetChild(0).GetComponent<SpriteEditor>().OpenSpriteEditor();
         }
     }
 

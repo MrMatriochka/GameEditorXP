@@ -37,7 +37,7 @@ public class SpriteEditor : MonoBehaviour
                 obj.transform.parent = prefab.transform;
             }
             placedObject.Clear();
-            prefab.transform.localPosition = new Vector3(0,-20,0);
+            prefab.transform.localPosition = new Vector3(dictionary.IndexOf(prefab)*10, -20,0);
         }
         
     }
@@ -144,9 +144,10 @@ public class SpriteEditor : MonoBehaviour
             obj.transform.parent = editedPrefab.transform;
         }
         placedObject.Clear();
+
         editedPrefab.GetComponent<Collider2D>().enabled = true;
         editedPrefab.GetComponent<CheckPlacement>().enabled = true;
-        editedPrefab.transform.localPosition = new Vector3(0, -20, 0);
+        editedPrefab.transform.localPosition = new Vector3(dictionary.IndexOf(editedPrefab)*10, -20, 0);
         spriteEditor.SetActive(false);
         buildingManager.transform.parent.gameObject.SetActive(true);
 
@@ -157,7 +158,6 @@ public class SpriteEditor : MonoBehaviour
         }
 
         buildingManager.GetComponent<SaveLoadLevel>().LoadData();
-
         cam.orthographicSize = 10;
     }
 }
