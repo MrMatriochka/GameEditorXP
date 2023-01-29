@@ -39,6 +39,11 @@ public class BuildingManager : MonoBehaviour
 
     void Update()
     {
+        if(Input.GetKeyDown(KeyCode.R))
+        {
+            Reset();
+        }
+
         if (Input.GetMouseButtonUp(0) && mouseOnTrash && pendingObj != null)
         {
             Delete();
@@ -229,5 +234,10 @@ public class BuildingManager : MonoBehaviour
             spriteEditor.GetComponent<SpriteEditor>().editedPrefab = prefabToEdit;
             spriteEditor.GetComponent<SpriteEditor>().OpenSpriteEditor();
         }
+    }
+
+    public void Reset()
+    {
+        saveLvl.ClearData();
     }
 }

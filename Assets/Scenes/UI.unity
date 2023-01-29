@@ -4522,7 +4522,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 478894023041278534, guid: 56a13782c31b04c44acffdf962adf55a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 478894023041278554, guid: 56a13782c31b04c44acffdf962adf55a, type: 3}
       propertyPath: m_Pivot.x
@@ -4640,14 +4640,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 130612210}
-    - target: {fileID: 1318832148579226857, guid: 56a13782c31b04c44acffdf962adf55a, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 819
-      objectReference: {fileID: 0}
-    - target: {fileID: 1318832148579226857, guid: 56a13782c31b04c44acffdf962adf55a, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -74
-      objectReference: {fileID: 0}
     - target: {fileID: 1318832149283792816, guid: 56a13782c31b04c44acffdf962adf55a, type: 3}
       propertyPath: m_Sprite
       value: 

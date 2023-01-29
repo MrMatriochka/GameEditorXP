@@ -27,7 +27,7 @@ public class SpriteEditor : MonoBehaviour
     {
         foreach (GameObject prefab in dictionary)
         {
-            prefab.GetComponent<BoxCollider2D>().enabled = false;
+            prefab.GetComponent<Collider2D>().enabled = false;
             prefab.GetComponent<CheckPlacement>().enabled = false;
             prefab.transform.localPosition = Vector3.zero;
 
@@ -51,7 +51,7 @@ public class SpriteEditor : MonoBehaviour
         cam.orthographicSize = 3;
         foreach (GameObject prefab in dictionary)
         {
-            prefab.GetComponent<BoxCollider2D>().enabled = false;
+            prefab.GetComponent<Collider2D>().enabled = false;
             prefab.GetComponent<CheckPlacement>().enabled = false;
         }
 
@@ -144,7 +144,7 @@ public class SpriteEditor : MonoBehaviour
             obj.transform.parent = editedPrefab.transform;
         }
         placedObject.Clear();
-        editedPrefab.GetComponent<BoxCollider2D>().enabled = true;
+        editedPrefab.GetComponent<Collider2D>().enabled = true;
         editedPrefab.GetComponent<CheckPlacement>().enabled = true;
         editedPrefab.transform.localPosition = new Vector3(0, -20, 0);
         spriteEditor.SetActive(false);
@@ -152,7 +152,7 @@ public class SpriteEditor : MonoBehaviour
 
         foreach (GameObject prefab in dictionary)
         {
-            prefab.GetComponent<BoxCollider2D>().enabled = true;
+            prefab.GetComponent<Collider2D>().enabled = true;
             prefab.GetComponent<CheckPlacement>().enabled = true;
         }
 

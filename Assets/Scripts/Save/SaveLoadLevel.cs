@@ -117,6 +117,12 @@ public class SaveLoadLevel : MonoBehaviour
         }
     }
 
+    public void ClearData()
+    {
+        PlayerPrefs.DeleteKey(testFile);
+        LoadData();
+    }
+
     void Initialize()
     {
         foreach (GameObject prefab in prefabsList)
