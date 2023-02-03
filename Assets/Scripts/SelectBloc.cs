@@ -41,11 +41,29 @@ public class SelectBloc : MonoBehaviour
 
         selectedObj = obj;
 
+        if(selectedObj.GetComponent<BlocAssemble>().previousBloc != null)
+        {
+            if(selectedObj.GetComponent<BlocAssemble>().previousBloc.GetComponent<BlocAssemble>().midBloc == selectedObj)
+            {
+                selectedObj.GetComponent<BlocAssemble>().previousBloc.GetComponent<BlocAssemble>().midBloc = null;
+            }
+            else
+            {
+                selectedObj.GetComponent<BlocAssemble>().previousBloc.GetComponent<BlocAssemble>().nextBloc = null;
+            }
+            
+            selectedObj.GetComponent<BlocAssemble>().previousBloc = null;
+        }
+
+
+        GetLastObjOfbloc().GetComponent<BlocAssemble>().lastOfThePendingBloc = true;
+
         Move();
     }
 
     void Deselect()
     {
+        GetLastObjOfbloc().GetComponent<BlocAssemble>().lastOfThePendingBloc = false;
         selectedObj = null;
     }
 
@@ -58,5 +76,22 @@ public class SelectBloc : MonoBehaviour
     public void Move()
     {
         BlocEditor.pendingObj = selectedObj;
+    }
+
+    GameObject GetLastObjOfbloc()
+    {
+        if (selectedObj.GetComponent<BlocAssemble>().nextBloc != null)
+        {
+            GameObject lastObj = selectedObj;
+            while (lastObj.GetComponent<BlocAssemble>().nextBloc != null)
+            {
+                lastObj = lastObj.GetComponent<BlocAssemble>().nextBloc;
+            }
+            return lastObj;
+        }
+        else
+        {
+            return selectedObj;
+        }
     }
 }

@@ -41,13 +41,13 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 947688419931416999}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.18}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -58,7 +58,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.63, y: 0.7}
+  m_Size: {x: 3.76, y: 0.46}
   m_EdgeRadius: 0
 --- !u!212 &5201382321106990329
 SpriteRenderer:
@@ -119,12 +119,11 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 947688419931416999}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e2159add150d0764ba57bd7fd2f97e8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isOccuupied: 0
 --- !u!1 &3416840130568941302
 GameObject:
   m_ObjectHideFlags: 0
@@ -139,7 +138,7 @@ GameObject:
   - component: {fileID: -1919636653973660316}
   - component: {fileID: -4636672876015617933}
   m_Layer: 0
-  m_Name: blocTest
+  m_Name: blocNormal
   m_TagString: Bloc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -273,10 +272,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d14a288dcab152349ba2451e062ebf4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  layer:
-    serializedVersion: 2
-    m_Bits: 128
-  touchingObj: {fileID: 0}
+  previousBloc: {fileID: 0}
+  midBloc: {fileID: 0}
+  nextBloc: {fileID: 0}
+  canAssembleNext: 0
+  canAssemblePrevious: 0
+  collidingBloc: {fileID: 0}
+  previousBlocPosition: {fileID: 947688419931416999}
+  nextBlocPosition: {fileID: 8116589066035420459}
+  midBlocPosition: {fileID: 0}
+  lastOfThePendingBloc: 0
+  isBlocIf: 0
+  decalageBlocIf: 0
 --- !u!1 &8116589066035420459
 GameObject:
   m_ObjectHideFlags: 0
@@ -324,7 +331,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.12}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -335,7 +342,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.63, y: 0.7}
+  m_Size: {x: 3.72, y: 0.4}
   m_EdgeRadius: 0
 --- !u!212 &5810111265553468720
 SpriteRenderer:
@@ -396,9 +403,8 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8116589066035420459}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 90df48a09ea59bf42991dc05a652f056, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canAssemble: 0

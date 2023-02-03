@@ -6,13 +6,11 @@ public class BlocEditor : MonoBehaviour
 {
     Vector3 pos;
     [HideInInspector]public static GameObject pendingObj;
-    public List<GameObject> placedObject = new List<GameObject>();
 
     public float gridSize;
     public bool gridOn = true;
 
     private bool mouseOnTrash = false;
-    private bool firstPlacement = false;
     void Update()
     {
         if (pendingObj != null)
@@ -40,28 +38,32 @@ public class BlocEditor : MonoBehaviour
     {
         if (!mouseOnTrash)
         {
-            if (firstPlacement)
-            {
-                placedObject.Add(pendingObj);
-                firstPlacement = false;
-            }
 
-            if (pendingObj.GetComponent<BlocAssemble>().CanAssemble())
+            BlocAssemble assembler = pendingObj.GetComponent<BlocAssemble>();
+            BlocAssemble lastAssembler = GetLastObjOfbloc().GetComponent<BlocAssemble>();
+            if (assembler.canAssembleNext)
             {
-                pendingObj.transform.position = pendingObj.GetComponent<BlocAssemble>().touchingObj.position;
-                pendingObj.transform.parent = pendingObj.GetComponent<BlocAssemble>().touchingObj;
-                pendingObj.transform.GetChild(0).GetComponent<BlocPreviousPosition>().isOccuupied = true;
+                assembler.transform.position = assembler.collidingBloc.GetComponent<BlocAssemble>().previousBlocPosition.transform.position;
+                assembler.collidingBloc.GetComponent<BlocAssemble>().previousBloc = pendingObj;
+                assembler.nextBloc = assembler.collidingBloc;
             }
-            else if(pendingObj.transform.GetChild(1).GetComponent<BlocNextPosition>().canAssemble)
+            else if(assembler.canAssemblePrevious)
             {
-                pendingObj.GetComponent<BlocAssemble>().touchingObj.GetComponent<BlocPreviousPosition>().isOccuupied = true;
-                pendingObj.transform.position = pendingObj.GetComponent<BlocAssemble>().touchingObj.position;
-                pendingObj.GetComponent<BlocAssemble>().touchingObj.parent.parent = pendingObj.transform.GetChild(1);
+                if (assembler.collidingBloc.GetComponent<BlocAssemble>().isBlocIf && !assembler.collidingWithBlocEnd)
+                {
+                    assembler.collidingBloc.GetComponent<BlocAssemble>().midBloc = pendingObj;
+                    assembler.previousBloc = assembler.collidingBloc;
+                }
+                else
+                {
+                    assembler.collidingBloc.GetComponent<BlocAssemble>().nextBloc = pendingObj;
+                    assembler.previousBloc = assembler.collidingBloc;
+                }
             }
-            else 
+            else if(lastAssembler.canAssembleNext)
             {
-                pendingObj.transform.GetChild(0).GetComponent<BlocPreviousPosition>().isOccuupied = false;
-                pendingObj.transform.parent = null; 
+                lastAssembler.collidingBloc.GetComponent<BlocAssemble>().previousBloc = lastAssembler.gameObject;
+                lastAssembler.nextBloc = lastAssembler.collidingBloc;
             }
 
             pendingObj = null;
@@ -76,17 +78,41 @@ public class BlocEditor : MonoBehaviour
     {
         pendingObj = Instantiate(bloc, pos, transform.rotation);
         pendingObj.GetComponent<SpriteRenderer>().color = Random.ColorHSV();
-        firstPlacement = true;
     }
 
     public void Delete()
     {
-        Destroy(pendingObj);
-        if (!firstPlacement)
+        List<GameObject> objectToDestroy = new List<GameObject>();
+        while (pendingObj.GetComponent<BlocAssemble>().nextBloc != null || pendingObj.GetComponent<BlocAssemble>().midBloc != null)
         {
-            int index = placedObject.IndexOf(pendingObj);
-            placedObject.RemoveAt(index);
+            objectToDestroy.Add(pendingObj);
+            if (pendingObj.GetComponent<BlocAssemble>().isBlocIf && pendingObj.GetComponent<BlocAssemble>().midBloc!=null)
+            {
+                GameObject ifBloc = pendingObj;
+                pendingObj = pendingObj.GetComponent<BlocAssemble>().midBloc;
+                objectToDestroy.Add(pendingObj);
+                while (pendingObj.GetComponent<BlocAssemble>().nextBloc != null)
+                {
+                    objectToDestroy.Add(pendingObj);
+                    pendingObj = pendingObj.GetComponent<BlocAssemble>().nextBloc;
+                }
+                objectToDestroy.Add(pendingObj);
+                pendingObj = ifBloc;
+                pendingObj.GetComponent<BlocAssemble>().midBloc = null;
+            }
+
+            if(pendingObj.GetComponent<BlocAssemble>().nextBloc != null)
+                pendingObj = pendingObj.GetComponent<BlocAssemble>().nextBloc;
+
+            
         }
+        objectToDestroy.Add(pendingObj);
+
+        foreach (GameObject obj in objectToDestroy)
+        {
+            Destroy(obj);
+        }
+        
         pendingObj = null;
     }
 
@@ -97,5 +123,22 @@ public class BlocEditor : MonoBehaviour
     public void MousExitTrash()
     {
         mouseOnTrash = false;
+    }
+
+    GameObject GetLastObjOfbloc()
+    {
+        if (pendingObj.GetComponent<BlocAssemble>().nextBloc != null)
+        {
+            GameObject lastObj = pendingObj;
+            while (lastObj.GetComponent<BlocAssemble>().nextBloc != null)
+            {
+                lastObj = lastObj.GetComponent<BlocAssemble>().nextBloc;
+            }
+            return lastObj;
+        }
+        else
+        {
+            return pendingObj;
+        }
     }
 }

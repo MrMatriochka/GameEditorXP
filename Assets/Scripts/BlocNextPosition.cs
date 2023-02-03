@@ -4,53 +4,28 @@ using UnityEngine;
 
 public class BlocNextPosition : MonoBehaviour
 {
-    public bool canAssemble;
+    BlocAssemble assembler;
+    private void Start()
+    {
+        assembler = transform.parent.gameObject.GetComponent<BlocAssemble>();
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Bloc"))
+        if (other.CompareTag("Bloc") &&  (BlocEditor.pendingObj == assembler.gameObject || assembler.lastOfThePendingBloc))
         {
-            
-            GetComponent<SpriteRenderer>().enabled = true;
-            
-            if (BlocEditor.pendingObj != other.gameObject && !other.transform.GetChild(0).GetComponent<BlocPreviousPosition>().isOccuupied)
-            {
-                canAssemble = true;
-                transform.parent.GetComponent<BlocAssemble>().touchingObj = other.transform.GetChild(0);
-                other.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
-            }
-
+            assembler.canAssembleNext = true;
+            assembler.collidingBloc = other.gameObject;
+            other.GetComponent<BlocAssemble>().previousBlocPosition.GetComponent<SpriteRenderer>().enabled = true;
         }
     }
-
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("Bloc"))
         {
-            canAssemble = false;
-            GetComponent<SpriteRenderer>().enabled = false;
-            other.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
-        }
-    }
-
-    private void Update()
-    {
-        if (transform.childCount == 0)
-        {
-            GetComponent<BoxCollider2D>().enabled = true;
-        }
-        else
-        {
-            GetComponent<BoxCollider2D>().enabled = false;
-        }
-
-        if (BlocEditor.pendingObj == null)
-        {
-            GetComponent<SpriteRenderer>().enabled = false;
-        }
-        if (BlocEditor.pendingObj == transform.parent.gameObject)
-        {
-            GetComponent<SpriteRenderer>().enabled = false;
+            assembler.canAssembleNext = false;
+            assembler.collidingBloc = null;
+            other.GetComponent<BlocAssemble>().previousBlocPosition.GetComponent<SpriteRenderer>().enabled = false;
         }
     }
 }
