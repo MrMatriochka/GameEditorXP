@@ -47,7 +47,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.18}
+  m_Offset: {x: 0, y: 0.06827828}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -58,7 +58,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.76, y: 0.46}
+  m_Size: {x: 3.76, y: 0.23655659}
   m_EdgeRadius: 0
 --- !u!212 &5201382321106990329
 SpriteRenderer:
@@ -285,11 +285,11 @@ MonoBehaviour:
   nextBlocPosition: {fileID: 8116589066035420459}
   midBlocPosition: {fileID: 7381917756348772714}
   lastOfThePendingBloc: 0
-  isBlocIf: 1
   collidingWithBlocEnd: 0
   decalageBlocIf: 0.39
   bot: {fileID: 4179888645472165067}
   midBase: {fileID: 6744984098043824059}
+  type: 1
 --- !u!1 &4179888645472165067
 GameObject:
   m_ObjectHideFlags: 0

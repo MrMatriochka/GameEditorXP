@@ -12,10 +12,11 @@ public class BlocNextPosition : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Bloc") &&  (BlocEditor.pendingObj == assembler.gameObject || assembler.lastOfThePendingBloc))
+        if (other.CompareTag("Bloc") &&  (BlocEditor.pendingObj == assembler.gameObject || assembler.lastOfThePendingBloc) && other.GetComponent<BlocAssemble>().type != BlocAssemble.BlocType.Boucle)
         {
             assembler.canAssembleNext = true;
             assembler.collidingBloc = other.gameObject;
+
             other.GetComponent<BlocAssemble>().previousBlocPosition.GetComponent<SpriteRenderer>().enabled = true;
         }
     }
@@ -25,7 +26,9 @@ public class BlocNextPosition : MonoBehaviour
         {
             assembler.canAssembleNext = false;
             assembler.collidingBloc = null;
-            other.GetComponent<BlocAssemble>().previousBlocPosition.GetComponent<SpriteRenderer>().enabled = false;
+
+            if (other.GetComponent<BlocAssemble>().type != BlocAssemble.BlocType.Boucle)
+                other.GetComponent<BlocAssemble>().previousBlocPosition.GetComponent<SpriteRenderer>().enabled = false;
         }
     }
 }

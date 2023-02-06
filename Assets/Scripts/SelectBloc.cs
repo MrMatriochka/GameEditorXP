@@ -13,7 +13,7 @@ public class SelectBloc : MonoBehaviour
             RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector3.forward);
             if (hit.collider != null)
             {
-                if (hit.collider.gameObject.CompareTag("Bloc"))
+                if (hit.collider.gameObject.CompareTag("Bloc") && hit.collider.GetComponent<BlocAssemble>().type != BlocAssemble.BlocType.Boucle)
                 {
                     Select(hit.collider.gameObject);
                 }
@@ -41,9 +41,20 @@ public class SelectBloc : MonoBehaviour
 
         selectedObj = obj;
 
+        
+
+
+
+
         if(selectedObj.GetComponent<BlocAssemble>().previousBloc != null)
         {
-            if(selectedObj.GetComponent<BlocAssemble>().previousBloc.GetComponent<BlocAssemble>().midBloc == selectedObj)
+            if (selectedObj.GetComponent<BlocAssemble>().previousBloc.GetComponent<BlocAssemble>().type == BlocAssemble.BlocType.Boucle)
+            {
+                selectedObj.GetComponent<BlocAssemble>().previousBloc.GetComponent<BlocAssemble>().midBloc = null;
+                selectedObj.GetComponent<BlocAssemble>().previousBloc.GetComponent<BlocAssemble>().nextBloc = null;
+            }
+
+            if (selectedObj.GetComponent<BlocAssemble>().previousBloc.GetComponent<BlocAssemble>().midBloc == selectedObj)
             {
                 selectedObj.GetComponent<BlocAssemble>().previousBloc.GetComponent<BlocAssemble>().midBloc = null;
             }

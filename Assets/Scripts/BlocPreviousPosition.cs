@@ -5,20 +5,21 @@ using UnityEngine;
 public class BlocPreviousPosition : MonoBehaviour
 {
     BlocAssemble assembler;
+
     private void Start()
     {
         assembler = transform.parent.gameObject.GetComponent<BlocAssemble>();
     }
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.CompareTag("Bloc") && !other.GetComponent<BlocAssemble>().isBlocIf && BlocEditor.pendingObj == assembler.gameObject)
+        if (other.CompareTag("Bloc") && other.GetComponent<BlocAssemble>().type != BlocAssemble.BlocType.If && BlocEditor.pendingObj == assembler.gameObject)
         {
             assembler.canAssemblePrevious = true;
             assembler.collidingBloc = other.gameObject;
             other.GetComponent<BlocAssemble>().nextBlocPosition.GetComponent<SpriteRenderer>().enabled = true;
         }
 
-        if (other.CompareTag("Bloc") && other.GetComponent<BlocAssemble>().isBlocIf && BlocEditor.pendingObj == assembler.gameObject)
+        if (other.CompareTag("Bloc") && other.GetComponent<BlocAssemble>().type == BlocAssemble.BlocType.If && BlocEditor.pendingObj == assembler.gameObject)
         {
             assembler.canAssemblePrevious = true;
             assembler.collidingBloc = other.gameObject;
@@ -39,7 +40,7 @@ public class BlocPreviousPosition : MonoBehaviour
         {
             assembler.canAssemblePrevious = false;
             assembler.collidingBloc = null;
-            if(other.GetComponent<BlocAssemble>().isBlocIf)
+            if(other.GetComponent<BlocAssemble>().type == BlocAssemble.BlocType.If)
             {
                 other.GetComponent<BlocAssemble>().midBlocPosition.GetComponent<SpriteRenderer>().enabled = false;
             }
@@ -52,9 +53,13 @@ public class BlocPreviousPosition : MonoBehaviour
 
         if (other.CompareTag("BlocEnd"))
         {
+
             assembler.canAssemblePrevious = false;
             assembler.collidingWithBlocEnd = false;
+
+
             assembler.collidingBloc = null;
+
             other.transform.parent.GetComponent<BlocAssemble>().nextBlocPosition.GetComponent<SpriteRenderer>().enabled = false;
         }
     }

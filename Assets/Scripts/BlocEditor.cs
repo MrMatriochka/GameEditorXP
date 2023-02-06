@@ -5,12 +5,15 @@ using UnityEngine;
 public class BlocEditor : MonoBehaviour
 {
     Vector3 pos;
-    [HideInInspector]public static GameObject pendingObj;
+    public static GameObject pendingObj;
+
 
     public float gridSize;
     public bool gridOn = true;
 
     private bool mouseOnTrash = false;
+
+
     void Update()
     {
         if (pendingObj != null)
@@ -41,30 +44,42 @@ public class BlocEditor : MonoBehaviour
 
             BlocAssemble assembler = pendingObj.GetComponent<BlocAssemble>();
             BlocAssemble lastAssembler = GetLastObjOfbloc().GetComponent<BlocAssemble>();
-            if (assembler.canAssembleNext)
+            if (assembler.collidingBloc != null)
             {
-                assembler.transform.position = assembler.collidingBloc.GetComponent<BlocAssemble>().previousBlocPosition.transform.position;
-                assembler.collidingBloc.GetComponent<BlocAssemble>().previousBloc = pendingObj;
-                assembler.nextBloc = assembler.collidingBloc;
-            }
-            else if(assembler.canAssemblePrevious)
-            {
-                if (assembler.collidingBloc.GetComponent<BlocAssemble>().isBlocIf && !assembler.collidingWithBlocEnd)
+                if (assembler.canAssembleNext && assembler.collidingBloc.GetComponent<BlocAssemble>().previousBloc == null)
                 {
-                    assembler.collidingBloc.GetComponent<BlocAssemble>().midBloc = pendingObj;
-                    assembler.previousBloc = assembler.collidingBloc;
+                    assembler.transform.position = assembler.collidingBloc.GetComponent<BlocAssemble>().previousBlocPosition.transform.position;
+                    assembler.collidingBloc.GetComponent<BlocAssemble>().previousBloc = pendingObj;
+                    assembler.nextBloc = assembler.collidingBloc;
                 }
-                else
+                else if (assembler.canAssemblePrevious && assembler.collidingBloc.GetComponent<BlocAssemble>().nextBloc == null)
                 {
-                    assembler.collidingBloc.GetComponent<BlocAssemble>().nextBloc = pendingObj;
-                    assembler.previousBloc = assembler.collidingBloc;
+                    if (assembler.collidingBloc.GetComponent<BlocAssemble>().type == BlocAssemble.BlocType.If && !assembler.collidingWithBlocEnd)
+                    {
+                        assembler.collidingBloc.GetComponent<BlocAssemble>().midBloc = pendingObj;
+                        assembler.previousBloc = assembler.collidingBloc;
+                    }
+                    else
+                    {
+                        assembler.collidingBloc.GetComponent<BlocAssemble>().nextBloc = pendingObj;
+                        assembler.previousBloc = assembler.collidingBloc;
+                    }
+                }
+                else if (lastAssembler.canAssembleNext && lastAssembler.collidingBloc.GetComponent<BlocAssemble>().previousBloc == null)
+                {
+                    lastAssembler.collidingBloc.GetComponent<BlocAssemble>().previousBloc = lastAssembler.gameObject;
+                    lastAssembler.nextBloc = lastAssembler.collidingBloc;
+                }
+                else if (assembler.collidingBloc.GetComponent<BlocAssemble>().type == BlocAssemble.BlocType.If)
+                {
+                    if (assembler.canAssemblePrevious && assembler.collidingBloc.GetComponent<BlocAssemble>().midBloc == null)
+                    {
+                        assembler.collidingBloc.GetComponent<BlocAssemble>().midBloc = pendingObj;
+                        assembler.previousBloc = assembler.collidingBloc;
+                    }
                 }
             }
-            else if(lastAssembler.canAssembleNext)
-            {
-                lastAssembler.collidingBloc.GetComponent<BlocAssemble>().previousBloc = lastAssembler.gameObject;
-                lastAssembler.nextBloc = lastAssembler.collidingBloc;
-            }
+            
 
             pendingObj = null;
         }
@@ -86,7 +101,7 @@ public class BlocEditor : MonoBehaviour
         while (pendingObj.GetComponent<BlocAssemble>().nextBloc != null || pendingObj.GetComponent<BlocAssemble>().midBloc != null)
         {
             objectToDestroy.Add(pendingObj);
-            if (pendingObj.GetComponent<BlocAssemble>().isBlocIf && pendingObj.GetComponent<BlocAssemble>().midBloc!=null)
+            if (pendingObj.GetComponent<BlocAssemble>().type == BlocAssemble.BlocType.If && pendingObj.GetComponent<BlocAssemble>().midBloc!=null)
             {
                 GameObject ifBloc = pendingObj;
                 pendingObj = pendingObj.GetComponent<BlocAssemble>().midBloc;
