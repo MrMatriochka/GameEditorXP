@@ -5,53 +5,74 @@ using UnityEngine;
 public class BlocCodeCheck : MonoBehaviour
 {
     public List<string> codeList = new List<string>();
-
+    GameObject pendingObj;
     public void CreateCodeList()
     {
         codeList.Clear();
 
-        GameObject pendingObj = gameObject;
+        pendingObj = gameObject;
         codeList.Add(pendingObj.name);
-        bool ifDone = false;
+        
         if(pendingObj.GetComponent<BlocAssemble>().nextBloc != null)
         {
             pendingObj = pendingObj.GetComponent<BlocAssemble>().nextBloc;
+           
             while (pendingObj.GetComponent<BlocAssemble>().nextBloc != null || pendingObj.GetComponent<BlocAssemble>().midBloc != null)
             {
                 codeList.Add(pendingObj.name);
-                if (pendingObj.GetComponent<BlocAssemble>().type == BlocAssemble.BlocType.If && pendingObj.GetComponent<BlocAssemble>().midBloc != null && !ifDone)
+
+               //pendingObj = pendingObj.GetComponent<BlocAssemble>().nextBloc;
+
+                if (pendingObj.GetComponent<BlocAssemble>().type == BlocAssemble.BlocType.If)
                 {
-                    GameObject ifBloc = pendingObj;
-                    pendingObj = pendingObj.GetComponent<BlocAssemble>().midBloc;
-                    codeList.Add(pendingObj.name);
-                    while (pendingObj.GetComponent<BlocAssemble>().nextBloc != null)
-                    {
-                        
-                        codeList.Add(pendingObj.name);
-                        pendingObj = pendingObj.GetComponent<BlocAssemble>().nextBloc;
-                    }
-                    codeList.Add("IfEnd");
+                    
                     //codeList.Add(pendingObj.name);
-                    pendingObj = ifBloc;
-                    //pendingObj.GetComponent<BlocAssemble>().midBloc = null;
-                    ifDone = true;
+                    GameObject saveIf = pendingObj;
+                    ReadBlocIf();
+                    pendingObj = saveIf;
                 }
-                ifDone = false;
+                    
+
                 if (pendingObj.GetComponent<BlocAssemble>().nextBloc != null)
                     pendingObj = pendingObj.GetComponent<BlocAssemble>().nextBloc;
-
-
+                if (pendingObj.GetComponent<BlocAssemble>().nextBloc == null && pendingObj.GetComponent<BlocAssemble>().midBloc != null)
+                    return;
             }
             codeList.Add(pendingObj.name);
         }
 
-        
-        
-        print(codeList.Count);
     }
 
-    void Test()
+    void ReadBlocIf()
     {
-        Test();
+        print(pendingObj.name);
+        if(pendingObj.GetComponent<BlocAssemble>().midBloc != null)
+        {
+            print(01);
+            pendingObj = pendingObj.GetComponent<BlocAssemble>().midBloc;
+            while (pendingObj.GetComponent<BlocAssemble>().nextBloc != null || pendingObj.GetComponent<BlocAssemble>().midBloc != null)
+            {
+                codeList.Add(pendingObj.name);
+
+                //pendingObj = pendingObj.GetComponent<BlocAssemble>().nextBloc;
+
+                if (pendingObj.GetComponent<BlocAssemble>().type == BlocAssemble.BlocType.If)
+                {
+
+                    //codeList.Add(pendingObj.name);
+                    GameObject saveIf = pendingObj;
+                    ReadBlocIf();
+                    pendingObj = saveIf;
+                }
+
+
+                if (pendingObj.GetComponent<BlocAssemble>().nextBloc != null)
+                    pendingObj = pendingObj.GetComponent<BlocAssemble>().nextBloc;
+                //if (pendingObj.GetComponent<BlocAssemble>().nextBloc == null && pendingObj.GetComponent<BlocAssemble>().midBloc != null)
+                //    return;
+
+            }
+            codeList.Add(pendingObj.name);
+        }
     }
 }
