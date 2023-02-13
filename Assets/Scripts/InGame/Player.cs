@@ -48,6 +48,7 @@ public class Player : MonoBehaviour
         hp = maxHp;
         UpdateLife();
         UpdateScore();
+        anim.SetBool("Start", true);
     }
 
     void Update()

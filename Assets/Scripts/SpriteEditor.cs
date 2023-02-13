@@ -60,6 +60,7 @@ public class SpriteEditor : MonoBehaviour
         int startChildCount = editedPrefab.transform.childCount;
         for (int i = 1; i < startChildCount; i++)
         {
+            if(!editedPrefab.transform.GetChild(i).gameObject.CompareTag("DontDestroy"))
             Destroy(editedPrefab.transform.GetChild(i).gameObject);
         }
 
@@ -111,11 +112,16 @@ public class SpriteEditor : MonoBehaviour
     {
         pendingObj = Instantiate(SpriteTemplate, pos, transform.rotation);
         pendingObj.transform.position += new Vector3(0,0,-1);
-        pendingObj.transform.rotation = Quaternion.Euler(0, 0, -20);
+        pendingObj.transform.rotation = Quaternion.Euler(0, 0, -10);
         pendingObj.GetComponent<SpriteRenderer>().sprite = localSprite;
         firstPlacement = true;
     }
 
+    public void SelectMaterial(Material localMaterial)
+    {
+        GameObject bodyPart = UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.GetComponent<BodyParts>().bodyPart;
+        bodyPart.GetComponent<Renderer>().material = localMaterial;
+    }
     public void Delete()
     {
         Destroy(pendingObj);
