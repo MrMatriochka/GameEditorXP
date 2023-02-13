@@ -5,6 +5,7 @@ using UnityEngine;
 public class BlocEditor : MonoBehaviour
 {
     Vector3 pos;
+    public Vector3 posOffset;
     public static GameObject pendingObj;
 
 
@@ -13,6 +14,8 @@ public class BlocEditor : MonoBehaviour
 
     private bool mouseOnTrash = false;
 
+    public int maxBlocNb;
+    int blocNb = 0;
 
     void Update()
     {
@@ -20,9 +23,9 @@ public class BlocEditor : MonoBehaviour
         {
             if (gridOn)
             {
-                pendingObj.transform.position = new Vector3(Snapping.Snap(pos.x, gridSize), Snapping.Snap(pos.y, gridSize), 0);
+                pendingObj.transform.position = new Vector3(Snapping.Snap(pos.x, gridSize), Snapping.Snap(pos.y, gridSize), 0)+posOffset;
             }
-            else { pendingObj.transform.position = pos ; }
+            else { pendingObj.transform.position = pos + posOffset; }
 
             if (Input.GetMouseButtonUp(0))
             {
@@ -91,46 +94,86 @@ public class BlocEditor : MonoBehaviour
     }
     public void SelectObject(GameObject bloc)
     {
-        pendingObj = Instantiate(bloc, pos, transform.rotation);
-        pendingObj.GetComponent<SpriteRenderer>().color = Random.ColorHSV();
+        if (blocNb < maxBlocNb)
+        {
+            blocNb++;
+            pendingObj = Instantiate(bloc, pos, transform.rotation);
+            //pendingObj.GetComponent<SpriteRenderer>().color = Random.ColorHSV();
+        }
     }
-
+    
+    
+    List<GameObject> objectToDestroy = new List<GameObject>();
     public void Delete()
     {
-        List<GameObject> objectToDestroy = new List<GameObject>();
-        while (pendingObj.GetComponent<BlocAssemble>().nextBloc != null || pendingObj.GetComponent<BlocAssemble>().midBloc != null)
-        {
-            objectToDestroy.Add(pendingObj);
-            if (pendingObj.GetComponent<BlocAssemble>().type == BlocAssemble.BlocType.If && pendingObj.GetComponent<BlocAssemble>().midBloc!=null)
-            {
-                GameObject ifBloc = pendingObj;
-                pendingObj = pendingObj.GetComponent<BlocAssemble>().midBloc;
-                objectToDestroy.Add(pendingObj);
-                while (pendingObj.GetComponent<BlocAssemble>().nextBloc != null)
-                {
-                    objectToDestroy.Add(pendingObj);
-                    pendingObj = pendingObj.GetComponent<BlocAssemble>().nextBloc;
-                }
-                objectToDestroy.Add(pendingObj);
-                pendingObj = ifBloc;
-                pendingObj.GetComponent<BlocAssemble>().midBloc = null;
-            }
 
-            if(pendingObj.GetComponent<BlocAssemble>().nextBloc != null)
-                pendingObj = pendingObj.GetComponent<BlocAssemble>().nextBloc;
-
-            
-        }
-        objectToDestroy.Add(pendingObj);
+        CreateDeleteList();
 
         foreach (GameObject obj in objectToDestroy)
         {
             Destroy(obj);
+            blocNb--;
+            if (blocNb < 0) blocNb = 0; 
         }
+
+        
         
         pendingObj = null;
     }
+    void CreateDeleteList()
+    {
+        objectToDestroy.Clear();
 
+        objectToDestroy.Add(pendingObj);
+
+        
+
+            while (pendingObj.GetComponent<BlocAssemble>().nextBloc != null || pendingObj.GetComponent<BlocAssemble>().midBloc != null)
+            {
+                objectToDestroy.Add(pendingObj);
+
+                if (pendingObj.GetComponent<BlocAssemble>().type == BlocAssemble.BlocType.If)
+                {
+                    GameObject saveIf = pendingObj;
+                    ReadBlocIf();
+                    pendingObj = saveIf;
+                }
+
+                if (pendingObj.GetComponent<BlocAssemble>().nextBloc == null && pendingObj.GetComponent<BlocAssemble>().midBloc != null)
+                    return;
+                if (pendingObj.GetComponent<BlocAssemble>().nextBloc != null)
+                    pendingObj = pendingObj.GetComponent<BlocAssemble>().nextBloc;
+
+            }
+            objectToDestroy.Add(pendingObj);
+        
+    }
+    void ReadBlocIf()
+    {
+        if (pendingObj.GetComponent<BlocAssemble>().midBloc != null)
+        {
+            pendingObj = pendingObj.GetComponent<BlocAssemble>().midBloc;
+            while (pendingObj.GetComponent<BlocAssemble>().nextBloc != null || pendingObj.GetComponent<BlocAssemble>().midBloc != null)
+            {
+                objectToDestroy.Add(pendingObj);
+
+                if (pendingObj.GetComponent<BlocAssemble>().type == BlocAssemble.BlocType.If)
+                {
+                    GameObject saveIf = pendingObj;
+                    ReadBlocIf();
+                    pendingObj = saveIf;
+                }
+
+                if (pendingObj.GetComponent<BlocAssemble>().nextBloc == null && pendingObj.GetComponent<BlocAssemble>().midBloc != null)
+                    return;
+                if (pendingObj.GetComponent<BlocAssemble>().nextBloc != null)
+                    pendingObj = pendingObj.GetComponent<BlocAssemble>().nextBloc;
+
+
+            }
+            objectToDestroy.Add(pendingObj);
+        }
+    }
     public void MouseEnterTrash()
     {
         mouseOnTrash = true;

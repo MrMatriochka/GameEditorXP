@@ -4,29 +4,31 @@ using UnityEngine;
 
 public class BlocAssemble : MonoBehaviour
 {
-     public GameObject previousBloc;
-     public GameObject midBloc;
-     public GameObject nextBloc;
+    [HideInInspector] public GameObject previousBloc;
+    [HideInInspector] public GameObject midBloc;
+    [HideInInspector] public GameObject nextBloc;
      
     [HideInInspector] public bool canAssembleNext;
-     public bool canAssemblePrevious;
-    public GameObject collidingBloc;
+    [HideInInspector] public bool canAssemblePrevious;
+    [HideInInspector] public GameObject collidingBloc;
 
     public GameObject previousBlocPosition;
     public GameObject nextBlocPosition;
     public GameObject midBlocPosition;
 
     [HideInInspector] public bool lastOfThePendingBloc;
-   
-    public bool collidingWithBlocEnd;
-    public float decalageBlocIf;
+
+    [HideInInspector] public bool collidingWithBlocEnd;
+
     public GameObject bot;
     Vector3 botBasePos;
     Vector3 nextBlocPosBasePos;
     Vector3 midBaseBlocPosBasePos;
 
     public GameObject midBase;
-
+    public float midBaseRescaleOffset;
+    public float midBasePosRescaleOffset;
+    public float nextPosRescaleOffset;
     public enum BlocType
     {
         Normal,
@@ -68,27 +70,13 @@ public class BlocAssemble : MonoBehaviour
 
         if (previousBloc != null)
         {
-            if (type == BlocType.If)
-            {
-                transform.position = previousBloc.GetComponent<BlocAssemble>().nextBlocPosition.transform.position + (Vector3.right * decalageBlocIf);
-            }
-            else
-            {
                 transform.position = previousBloc.GetComponent<BlocAssemble>().nextBlocPosition.transform.position;
-            }
 
             if (previousBloc.GetComponent<BlocAssemble>().type == BlocType.If && previousBloc.GetComponent<BlocAssemble>().midBloc !=null)
             {
                 if(previousBloc.GetComponent<BlocAssemble>().midBloc == gameObject)
                 {
-                    if (type == BlocType.If)
-                    {
-                        transform.position = previousBloc.GetComponent<BlocAssemble>().midBlocPosition.transform.position + (Vector3.right * decalageBlocIf);
-                    }
-                    else
-                    {
                         transform.position = previousBloc.GetComponent<BlocAssemble>().midBlocPosition.transform.position;
-                    }
                 }
                 
             }
@@ -112,15 +100,15 @@ public class BlocAssemble : MonoBehaviour
         if (type == BlocType.If)
         {
             //resize
-            //if (Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyUp(KeyCode.Mouse0))
-            //{
-            //    float nbOfMidBloc = GetNumberOfMidBloc();
-            //    bot.transform.localPosition = botBasePos - new Vector3(0, 0.75f * nbOfMidBloc, 0);
-            //    nextBlocPosition.transform.localPosition = nextBlocPosBasePos - new Vector3(0, 0.75f * nbOfMidBloc, 0);
+            if (Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyUp(KeyCode.Mouse0))
+            {
+                float nbOfMidBloc = GetNumberOfMidBloc();
+                bot.transform.localPosition = botBasePos - new Vector3(0, nextPosRescaleOffset * nbOfMidBloc, 0);
+                nextBlocPosition.transform.localPosition = nextBlocPosBasePos - new Vector3(0, nextPosRescaleOffset * nbOfMidBloc, 0);
 
-            //    midBase.transform.localPosition = midBaseBlocPosBasePos - new Vector3(0, 0.4f * nbOfMidBloc, 0);
-            //    midBase.transform.localScale = new Vector3(1, (nbOfMidBloc / 2) + 1, 1);
-            //}
+                midBase.transform.localPosition = midBaseBlocPosBasePos - new Vector3(0, midBasePosRescaleOffset * nbOfMidBloc, 0);
+                midBase.transform.localScale = new Vector3(1, (nbOfMidBloc+1)* midBaseRescaleOffset, 1);
+            }
 
 
             if (midBloc != null)
@@ -134,17 +122,17 @@ public class BlocAssemble : MonoBehaviour
             }
         }
 
-        //if (type == BlocType.Boucle)
-        //{
-        //    if (Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyUp(KeyCode.Mouse0))
-        //    {
-        //        float nbOfMidBloc = GetNumberOfMidBloc();
-        //        bot.transform.localPosition = botBasePos - new Vector3(0, 0.75f * nbOfMidBloc, 0);
+        if (type == BlocType.Boucle)
+        {
+            if (Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyUp(KeyCode.Mouse0))
+            {
+                float nbOfMidBloc = GetNumberOfMidBloc();
+                bot.transform.localPosition = botBasePos - new Vector3(0, nextPosRescaleOffset * nbOfMidBloc, 0);
 
-        //        midBase.transform.localPosition = midBaseBlocPosBasePos - new Vector3(0, 0.4f * nbOfMidBloc, 0);
-        //        midBase.transform.localScale = new Vector3(1, (nbOfMidBloc / 2) + 1, 1);
-        //    }
-        //}
+                midBase.transform.localPosition = midBaseBlocPosBasePos - new Vector3(0, midBasePosRescaleOffset * nbOfMidBloc, 0);
+                midBase.transform.localScale = new Vector3(1, (nbOfMidBloc + 1) * midBaseRescaleOffset, 1);
+            }
+        }
     }
 
     public List<GameObject> codeList = new List<GameObject>();
@@ -158,7 +146,7 @@ public class BlocAssemble : MonoBehaviour
         if (midBloc != null)
         {
             codeList.Clear();
-            pendingObj = midBloc;
+            pendingObj = gameObject;
             ReadBlocIf();
 
 
@@ -176,7 +164,9 @@ public class BlocAssemble : MonoBehaviour
     }
     void ReadBlocIf()
     {
-
+        if (pendingObj.GetComponent<BlocAssemble>().midBloc != null)
+        {
+            pendingObj = pendingObj.GetComponent<BlocAssemble>().midBloc;
             while (pendingObj.GetComponent<BlocAssemble>().nextBloc != null || pendingObj.GetComponent<BlocAssemble>().midBloc != null)
             {
                 codeList.Add(pendingObj);
@@ -196,6 +186,6 @@ public class BlocAssemble : MonoBehaviour
 
             }
             codeList.Add(pendingObj);
-        
+        }
     }
 }
