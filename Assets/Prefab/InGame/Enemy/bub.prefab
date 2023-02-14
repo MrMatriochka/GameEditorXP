@@ -440,7 +440,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e11f5cd7b6363084f9c9f650b2252853, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: {x: 2, y: 5}
+  force: {x: 4, y: 10}
 --- !u!1 &8926203860811713258
 GameObject:
   m_ObjectHideFlags: 0
@@ -512,5 +512,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4b3ebc4b15efec408961de7e8e9c66c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: {x: 0, y: 10}
+  force: {x: 0, y: 20}
   enemy: {fileID: 7989053716266411334}
