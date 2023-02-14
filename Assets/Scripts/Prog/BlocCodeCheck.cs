@@ -16,7 +16,7 @@ public class BlocCodeCheck : MonoBehaviour
     public GameObject boss;
     public GameObject player;
     public float speed;
-    public float baseSpeed;
+    float baseSpeed;
     [HideInInspector] public bool playerIsDead;
     Vector3 playerStartPosition;
     int index;

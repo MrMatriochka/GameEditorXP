@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class BlocEditor : MonoBehaviour
 {
     Vector3 pos;
@@ -198,5 +198,11 @@ public class BlocEditor : MonoBehaviour
         {
             return pendingObj;
         }
+    }
+
+    public void NextScene()
+    {
+        int sceneIndex = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(sceneIndex + 1);
     }
 }

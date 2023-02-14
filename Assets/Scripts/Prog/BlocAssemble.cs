@@ -135,7 +135,7 @@ public class BlocAssemble : MonoBehaviour
         }
     }
 
-    public List<GameObject> codeList = new List<GameObject>();
+    List<GameObject> codeList = new List<GameObject>();
     GameObject pendingObj;
     int GetNumberOfMidBloc()
     {

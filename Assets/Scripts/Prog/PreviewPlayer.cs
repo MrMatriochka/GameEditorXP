@@ -9,9 +9,12 @@ public class PreviewPlayer : MonoBehaviour
     public Vector2 knockback;
     [HideInInspector] public bool touchBoss;
     Rigidbody2D rb;
+    Animator anim;
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
+        anim.SetBool("Start", true);
     }
     void FixedUpdate()
     {
