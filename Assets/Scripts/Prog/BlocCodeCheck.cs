@@ -15,6 +15,7 @@ public class BlocCodeCheck : MonoBehaviour
 
     public GameObject boss;
     public GameObject player;
+    public GameObject checkpoint;
     public float speed;
     float baseSpeed;
     [HideInInspector] public bool playerIsDead;
@@ -125,7 +126,7 @@ public class BlocCodeCheck : MonoBehaviour
         boss.transform.localScale = startScale;
         boss.transform.rotation = Quaternion.Euler(Vector3.zero);
         speed = baseSpeed;
-
+        checkpoint.GetComponent<PreviewCheckpoint>().nbOfPassage = 0;
         if (player != null)
         {
             playerIsDead = false;

@@ -146,6 +146,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 7695546489575947799, guid: abbb642dc84212344b88d6b23e81d5a9, type: 3}
+      propertyPath: checkpoint
+      value: 
+      objectReference: {fileID: 807473798}
     - target: {fileID: 8318842553212702525, guid: abbb642dc84212344b88d6b23e81d5a9, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -624,6 +628,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 716983483}
   m_CullTransparentMesh: 1
+--- !u!1 &807473798 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8516772189989776430, guid: e1b3a1f241649b44c96d9ac596ffbfb5, type: 3}
+  m_PrefabInstance: {fileID: 1551672024}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1066111287
 GameObject:
   m_ObjectHideFlags: 0
@@ -1097,7 +1106,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1383088190046621411, guid: 2a1bc6342e8f16343b61f57f52e3d2de, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 42.09198
+      value: 42.09192
       objectReference: {fileID: 0}
     - target: {fileID: 1383088190046621411, guid: 2a1bc6342e8f16343b61f57f52e3d2de, type: 3}
       propertyPath: m_AnchoredPosition.y

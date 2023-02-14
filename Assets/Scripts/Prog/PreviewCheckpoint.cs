@@ -6,7 +6,7 @@ public class PreviewCheckpoint : MonoBehaviour
 {
     public GameObject winScreen;
     public BlocCodeCheck codeCheck;
-    int nbOfPassage;
+    [HideInInspector]public int nbOfPassage;
     public int nbOfPassageNeeded;
     private void OnTriggerEnter2D(Collider2D other)
     {
