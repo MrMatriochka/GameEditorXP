@@ -283,10 +283,13 @@ MonoBehaviour:
   midBlocPosition: {fileID: 0}
   lastOfThePendingBloc: 0
   collidingWithBlocEnd: 0
-  decalageBlocIf: 0
   bot: {fileID: 0}
   midBase: {fileID: 0}
+  midBaseRescaleOffset: 0
+  midBasePosRescaleOffset: 0
+  nextPosRescaleOffset: 0
   type: 0
+  codeList: []
 --- !u!1 &8116589066035420459
 GameObject:
   m_ObjectHideFlags: 0

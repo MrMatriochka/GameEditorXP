@@ -488,6 +488,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   winScreen: {fileID: 2005653883}
+  codeCheck: {fileID: 0}
   nbOfPassageNeeded: 2
 --- !u!61 &277156873
 BoxCollider2D:
@@ -1454,7 +1455,7 @@ PrefabInstance:
     - target: {fileID: 7695546489575947799, guid: abbb642dc84212344b88d6b23e81d5a9, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 1556402885}
+      objectReference: {fileID: 0}
     - target: {fileID: 8318842553212702525, guid: abbb642dc84212344b88d6b23e81d5a9, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -2882,6 +2883,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: febfe33c68526ef4888be154754f2fa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  posOffset: {x: 0, y: 0, z: 0}
   gridSize: 0
   gridOn: 1
   maxBlocNb: 10
@@ -3191,6 +3193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: febfe33c68526ef4888be154754f2fa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  posOffset: {x: 0, y: 0, z: 0}
   gridSize: 0
   gridOn: 1
   maxBlocNb: 2
