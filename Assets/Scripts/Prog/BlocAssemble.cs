@@ -139,7 +139,7 @@ public class BlocAssemble : MonoBehaviour
     GameObject pendingObj;
     int GetNumberOfMidBloc()
     {
-        if (type == BlocType.Boucle && nextBloc !=null)
+        if (type == BlocType.Boucle )
             midBloc = nextBloc;
 
 

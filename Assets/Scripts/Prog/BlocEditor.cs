@@ -15,7 +15,7 @@ public class BlocEditor : MonoBehaviour
     private bool mouseOnTrash = false;
 
     public int maxBlocNb;
-    int blocNb = 0;
+    public int blocNb = 0;
 
     void Update()
     {
@@ -126,7 +126,33 @@ public class BlocEditor : MonoBehaviour
 
         objectToDestroy.Add(pendingObj);
 
-        
+        if (pendingObj.GetComponent<BlocAssemble>().type == BlocAssemble.BlocType.If)
+        {
+            if(pendingObj.GetComponent<BlocAssemble>().midBloc != null)
+            {
+                GameObject saveFirstIf = pendingObj;
+                while (pendingObj.GetComponent<BlocAssemble>().nextBloc != null || pendingObj.GetComponent<BlocAssemble>().midBloc != null)
+                {
+                    if (pendingObj.GetComponent<BlocAssemble>().type == BlocAssemble.BlocType.If)
+                    {
+                        GameObject saveIf = pendingObj;
+                        ReadBlocIf();
+                        pendingObj = saveIf;
+                    }
+
+                    if (pendingObj.GetComponent<BlocAssemble>().nextBloc == null && pendingObj.GetComponent<BlocAssemble>().midBloc != null)
+                        return;
+                    if (pendingObj.GetComponent<BlocAssemble>().nextBloc != null)
+                        pendingObj = pendingObj.GetComponent<BlocAssemble>().nextBloc;
+
+                }
+                pendingObj = saveFirstIf;
+            }
+        }
+
+        if (pendingObj.GetComponent<BlocAssemble>().nextBloc != null)
+        {
+            pendingObj = pendingObj.GetComponent<BlocAssemble>().nextBloc;
 
             while (pendingObj.GetComponent<BlocAssemble>().nextBloc != null || pendingObj.GetComponent<BlocAssemble>().midBloc != null)
             {
@@ -145,8 +171,12 @@ public class BlocEditor : MonoBehaviour
                     pendingObj = pendingObj.GetComponent<BlocAssemble>().nextBloc;
 
             }
+
             objectToDestroy.Add(pendingObj);
+
+        }
         
+
     }
     void ReadBlocIf()
     {
@@ -171,8 +201,11 @@ public class BlocEditor : MonoBehaviour
 
 
             }
+
+
             objectToDestroy.Add(pendingObj);
         }
+    
     }
     public void MouseEnterTrash()
     {
