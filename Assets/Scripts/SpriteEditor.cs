@@ -65,6 +65,11 @@ public class SpriteEditor : MonoBehaviour
         }
 
         GetComponent<SaveEditedAsset>().LoadData(editedPrefab.name);
+
+        if (editedPrefab.name == "Player")
+        {
+            editedPrefab.GetComponent<SaveBodyParts>().LoadData("BodyParts");
+        }
     }
 
     void Update()
@@ -144,6 +149,12 @@ public class SpriteEditor : MonoBehaviour
 
     public void SaveNewPrefab()
     {
+        if(editedPrefab.name == "Player")
+        {
+            editedPrefab.GetComponent<SaveBodyParts>().SaveData("BodyParts");
+        }
+
+
         GetComponent<SaveEditedAsset>().SaveData(editedPrefab.name);
         foreach (GameObject obj in placedObject)
         {
@@ -165,5 +176,14 @@ public class SpriteEditor : MonoBehaviour
 
         buildingManager.GetComponent<SaveLoadLevel>().LoadData();
         cam.orthographicSize = 10;
+    }
+
+    public void Reset()
+    {
+        GetComponent<SaveEditedAsset>().ClearData(editedPrefab.name);
+        if (editedPrefab.name == "Player")
+        {
+            editedPrefab.GetComponent<SaveBodyParts>().ClearData("BodyParts");
+        }
     }
 }

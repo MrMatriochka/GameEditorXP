@@ -108,4 +108,10 @@ public class SaveEditedAsset : MonoBehaviour
         Debug.LogWarning("There is no sprite for " + spriteName);
         return null;
     }
+
+    public void ClearData(string fileName)
+    {
+        PlayerPrefs.DeleteKey(fileName);
+        LoadData(fileName);
+    }
 }
