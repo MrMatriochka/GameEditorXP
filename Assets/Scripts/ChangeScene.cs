@@ -6,8 +6,15 @@ using UnityEngine.SceneManagement;
 public class ChangeScene : MonoBehaviour
 {
     // Start is called before the first frame update
-    public void GoToScene(string scene)
+    public void GoToScene()
     {
-        SceneManager.LoadScene(scene);
+        if(PlayerPrefs.HasKey("ProgLvl"))
+        {
+            SceneManager.LoadScene(PlayerPrefs.GetInt("ProgLvl"));
+        }
+        else
+        {
+            SceneManager.LoadScene(1 + SceneManager.GetActiveScene().buildIndex);
+        }
     }
 }

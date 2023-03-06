@@ -599,7 +599,7 @@ MonoBehaviour:
       - m_Target: {fileID: 484944187}
         m_TargetAssemblyTypeName: ChangeScene, Assembly-CSharp
         m_MethodName: GoToScene
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

@@ -236,6 +236,7 @@ public class BlocEditor : MonoBehaviour
     public void NextScene()
     {
         int sceneIndex = SceneManager.GetActiveScene().buildIndex;
+        PlayerPrefs.SetInt("ProgLvl", sceneIndex + 1);
         SceneManager.LoadScene(sceneIndex + 1);
     }
 }
