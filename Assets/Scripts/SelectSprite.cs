@@ -5,7 +5,7 @@ using UnityEngine;
 public class SelectSprite : MonoBehaviour
 {
     public GameObject selectedObj;
-
+    public GameObject resizeHUD;
     SpriteEditor spriteEditor;
 
     void Start()
@@ -24,35 +24,39 @@ public class SelectSprite : MonoBehaviour
                 {
                     Select(hit.collider.gameObject);
                 }
-                else
-                {
-                    if (selectedObj != null) Deselect();
-                }
+                //else
+                //{
+                //    if (selectedObj != null) Deselect();
+                //}
             }
             else
             {
                 if (selectedObj != null) Deselect();
             }
         }
-        if (Input.GetMouseButtonUp(0) && selectedObj != null)
-        {
-            Deselect();
-        }
+        //if (Input.GetMouseButtonUp(0) && selectedObj != null)
+        //{
+        //    Deselect();
+        //}
     }
 
     void Select(GameObject obj)
     {
-        if (obj == selectedObj) return;
+        //if (obj == selectedObj) return;
 
         if (selectedObj != null) Deselect();
 
         selectedObj = obj;
 
+        //selectedObj.transform.GetChild(1).gameObject.SetActive(true);
+        resizeHUD.SetActive(true);
         Move();
     }
 
     void Deselect()
     {
+        //selectedObj.transform.GetChild(1).gameObject.SetActive(false);
+        resizeHUD.SetActive(false);
         selectedObj = null;
     }
 
@@ -65,5 +69,28 @@ public class SelectSprite : MonoBehaviour
     public void Move()
     {
         spriteEditor.pendingObj = selectedObj;
+    }
+
+    public void SizeUp()
+    {
+        if (selectedObj.transform.localScale.x <2)
+            selectedObj.transform.localScale += new Vector3(0.25f,0.25f,0.25f);
+        
+    }
+
+    public void SizeDown()
+    {
+        if (selectedObj.transform.localScale.x > 0.25f)
+            selectedObj.transform.localScale -= new Vector3(0.25f, 0.25f, 0.25f);
+    }
+
+    public void RotateLeft()
+    {
+        selectedObj.transform.Rotate(Vector3.forward, -10);
+    }
+
+    public void RotateRight()
+    {
+        selectedObj.transform.Rotate(Vector3.forward, 10);
     }
 }

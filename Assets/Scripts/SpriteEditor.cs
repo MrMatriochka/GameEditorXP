@@ -23,6 +23,8 @@ public class SpriteEditor : MonoBehaviour
 
     public List<GameObject> dictionary = new List<GameObject>();
     public Camera cam;
+    public GameObject resizeHUD;
+    public GameObject deselectBugFixer;
     private void Awake()
     {
         foreach (GameObject prefab in dictionary)
@@ -82,6 +84,9 @@ public class SpriteEditor : MonoBehaviour
             }
             else { pendingObj.transform.position = pos + new Vector3(0, 0, -1); }
 
+            resizeHUD.transform.position = cam.WorldToScreenPoint(pendingObj.transform.position);
+            deselectBugFixer.transform.position = pendingObj.transform.position - new Vector3(0,0.4f,0);
+
             if (Input.GetMouseButtonUp(0) && canPlace)
             {
                 PlaceObject();
@@ -136,6 +141,7 @@ public class SpriteEditor : MonoBehaviour
             placedObject.RemoveAt(index);
         }
         pendingObj = null;
+        resizeHUD.SetActive(false);
     }
 
     public void MouseEnterTrash()
@@ -158,7 +164,10 @@ public class SpriteEditor : MonoBehaviour
         GetComponent<SaveEditedAsset>().SaveData(editedPrefab.name);
         foreach (GameObject obj in placedObject)
         {
+            obj.transform.GetChild(0).gameObject.SetActive(false);
+            obj.transform.GetChild(1).gameObject.SetActive(false);
             obj.transform.parent = editedPrefab.transform;
+            
         }
         placedObject.Clear();
 
@@ -186,4 +195,6 @@ public class SpriteEditor : MonoBehaviour
             editedPrefab.GetComponent<SaveBodyParts>().ClearData("BodyParts");
         }
     }
+
+    
 }
