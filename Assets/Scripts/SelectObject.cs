@@ -6,7 +6,7 @@ using TMPro;
 public class SelectObject : MonoBehaviour
 {
     public GameObject selectedObj;
-
+    public GameObject resizeHUD;
     BuildingManager buildManager;
 
     void Start()
@@ -25,35 +25,36 @@ public class SelectObject : MonoBehaviour
                 {
                     Select(hit.collider.gameObject);
                 }
-                else
-                {
-                    if (selectedObj != null) Deselect();
-                }
+                //else
+                //{
+                //    if (selectedObj != null) Deselect();
+                //}
             }
             else
             {
                 if (selectedObj != null) Deselect();
             }
         }
-        if (Input.GetMouseButtonUp(0) && selectedObj != null)
-        {
-            Deselect();
-        }
+        //if (Input.GetMouseButtonUp(0) && selectedObj != null)
+        //{
+        //    Deselect();
+        //}
     }
 
     void Select(GameObject obj)
     {
-        if (obj == selectedObj) return;
+        //if (obj == selectedObj) return;
 
         if (selectedObj != null) Deselect();
 
         selectedObj = obj;
-
+        resizeHUD.SetActive(true);
         Move();
     }
 
     void Deselect()
     {
+        resizeHUD.SetActive(false);
         selectedObj = null;
     }
 
@@ -66,5 +67,28 @@ public class SelectObject : MonoBehaviour
     public void Move()
     {
         buildManager.pendingObj = selectedObj;
+    }
+
+    public void SizeUp()
+    {
+        if (selectedObj.transform.localScale.x < 2)
+            selectedObj.transform.localScale += new Vector3(0.25f, 0.25f, 0.25f);
+
+    }
+
+    public void SizeDown()
+    {
+        if (selectedObj.transform.localScale.x > 0.25f)
+            selectedObj.transform.localScale -= new Vector3(0.25f, 0.25f, 0.25f);
+    }
+
+    public void RotateLeft()
+    {
+        selectedObj.transform.Rotate(Vector3.forward, -10);
+    }
+
+    public void RotateRight()
+    {
+        selectedObj.transform.Rotate(Vector3.forward, 10);
     }
 }

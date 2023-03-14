@@ -30,6 +30,9 @@ public class BuildingManager : MonoBehaviour
     [HideInInspector] public SaveLoadLevel saveLvl;
 
     public GameObject spriteEditor;
+
+    public GameObject resizeHUD;
+    public GameObject deselectBugFixer;
     void Start()
     {
         cam = GameObject.Find("Main Camera");
@@ -57,7 +60,8 @@ public class BuildingManager : MonoBehaviour
                 pendingObj.transform.position = new Vector3(Snapping.Snap(pos.x,gridSize), Snapping.Snap(pos.y, gridSize), 0);
             }
             else { pendingObj.transform.position = pos; }
-
+            resizeHUD.transform.position = cam.GetComponent<Camera>().WorldToScreenPoint(pendingObj.transform.position);
+            deselectBugFixer.transform.position = pendingObj.transform.position - new Vector3(0, 0.4f, 0);
             UpdateMaterials();
 
             if (Input.GetMouseButtonUp(0) && canPlace)
@@ -173,6 +177,7 @@ public class BuildingManager : MonoBehaviour
             placedObject.RemoveAt(index);
         }
         pendingObj = null;
+        resizeHUD.SetActive(false);
     }
 
     public void MouseEnterTrash()

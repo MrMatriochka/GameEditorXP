@@ -9,11 +9,15 @@ public class SavedLevel
     {
         List<int> index = new List<int>();
         List<Vector3> positions =new List<Vector3>(); ;
+        List<Quaternion> rotations = new List<Quaternion>();
+        List<Vector3> scales = new List<Vector3>();
         List<string> prefabs = new List<string>(); ;
     }
 
     public List<int> index = new List<int>();
     public List<Vector3> positions = new List<Vector3>();
+    public List<Quaternion> rotations = new List<Quaternion>();
+    public List<Vector3> scales = new List<Vector3>();
     public List<string> prefabs = new List<string>();
 }
 
@@ -26,6 +30,8 @@ public class SaveLoadLevel : MonoBehaviour
     private string testFile = "Level";
 
     private List<Vector3> myPositions = new List<Vector3>();
+    private List<Quaternion> myRotations = new List<Quaternion>();
+    private List<Vector3> myScales = new List<Vector3>();
     private List<string> myPrefabs = new List<string>();
     private List<int> myIndex = new List<int>();
 
@@ -41,13 +47,17 @@ public class SaveLoadLevel : MonoBehaviour
     public void SaveData()
     {
         myPositions.Clear();
+        myRotations.Clear();
+        myScales.Clear();
         myPrefabs.Clear();
         myIndex.Clear();
 
         int newIndex = 0;
         foreach (GameObject obj in manager.placedObject)
         {
-            myPositions.Add(obj.transform.position);       
+            myPositions.Add(obj.transform.position);
+            myRotations.Add(obj.transform.rotation);
+            myScales.Add(obj.transform.localScale);
             myPrefabs.Add(obj.name.Replace("(Clone)", string.Empty));
             myIndex.Add(newIndex);
             newIndex++;
@@ -57,6 +67,8 @@ public class SaveLoadLevel : MonoBehaviour
         {
             positions = myPositions,
             prefabs = myPrefabs,
+            rotations = myRotations,
+            scales = myScales,
             index = myIndex
         };
 
@@ -75,6 +87,8 @@ public class SaveLoadLevel : MonoBehaviour
         SavedLevel loadedData = SaveLoad<SavedLevel>.Load(testFile) ?? new SavedLevel();
 
         myPositions = loadedData.positions;
+        myRotations = loadedData.rotations;
+        myScales = loadedData.scales;
         myPrefabs = loadedData.prefabs;
         myIndex = loadedData.index;
 
@@ -83,6 +97,8 @@ public class SaveLoadLevel : MonoBehaviour
             GameObject myObject = Instantiate(GetPrefab(myPrefabs[i]));
             manager.placedObject.Add(myObject);
             myObject.transform.position = myPositions[i];
+            myObject.transform.rotation = myRotations[i];
+            myObject.transform.localScale = myScales[i];
         }
 
         //default

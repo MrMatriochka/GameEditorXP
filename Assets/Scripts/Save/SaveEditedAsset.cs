@@ -10,7 +10,7 @@ public class SavedAsset
         List<int> index = new List<int>();
         List<Vector3> positions = new List<Vector3>();
         List<Quaternion> rotations = new List<Quaternion>();
-        List<Vector3> scaless = new List<Vector3>();
+        List<Vector3> scales = new List<Vector3>();
         List<string> sprites = new List<string>(); ;
     }
 
