@@ -146,6 +146,8 @@ public class BuildingManager : MonoBehaviour
         cam.GetComponent<CameraController>().enabled = true;
         cam.GetComponent<CameraController>().camLimit = camLimit;
         cam.GetComponent<CameraController>().FindPlayer(cam.GetComponent<CameraController>().faceLeft);
+
+        deselectBugFixer.SetActive(false);
     }
 
     public void Stop()
@@ -166,6 +168,8 @@ public class BuildingManager : MonoBehaviour
         cam.GetComponent<CameraController>().enabled = false;
         
         cam.transform.position = new Vector3(0, 0, -10);
+
+        deselectBugFixer.SetActive(true);
     }
 
     public void Delete()
