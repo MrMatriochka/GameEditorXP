@@ -78,7 +78,7 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &4340852842687137138
 MonoBehaviour:
@@ -252,7 +252,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 1099360178, guid: 3dc75f3009282b44082569d68f538beb, type: 3}
   m_Color: {r: 0, g: 0.6226415, b: 0.061043244, a: 1}
   m_FlipX: 0
@@ -355,8 +355,8 @@ MonoBehaviour:
   codeList: 
   boss: {fileID: 0}
   player: {fileID: 0}
+  checkpoint: {fileID: 0}
   speed: 0
-  baseSpeed: 0
   playerIsDead: 0
 --- !u!1 &4179888645472165067
 GameObject:
@@ -431,7 +431,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 668205257, guid: 3dc75f3009282b44082569d68f538beb, type: 3}
   m_Color: {r: 0, g: 0.6226415, b: 0.061043244, a: 1}
   m_FlipX: 0
@@ -541,7 +541,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: 1
   m_Sprite: {fileID: 1498458843, guid: 3dc75f3009282b44082569d68f538beb, type: 3}
   m_Color: {r: 0, g: 0.6226415, b: 0.061043244, a: 1}
   m_FlipX: 0

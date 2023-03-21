@@ -50,6 +50,7 @@ public class SpriteEditor : MonoBehaviour
 
     public void OpenSpriteEditor()
     {
+        ClearZ();
         cam.orthographicSize = 3;
         foreach (GameObject prefab in dictionary)
         {
@@ -60,7 +61,7 @@ public class SpriteEditor : MonoBehaviour
         editedPrefab.transform.position = Vector3.zero;
 
         int startChildCount = editedPrefab.transform.childCount;
-        for (int i = 1; i < startChildCount; i++)
+        for (int i = 2; i < startChildCount; i++)
         {
             if(!editedPrefab.transform.GetChild(i).gameObject.CompareTag("DontDestroy"))
             Destroy(editedPrefab.transform.GetChild(i).gameObject);
@@ -98,6 +99,11 @@ public class SpriteEditor : MonoBehaviour
         {
             Delete();
         }
+
+        if(Input.GetKeyDown(KeyCode.B))
+        {
+            LoadZ();
+        }
     }
 
     void PlaceObject()
@@ -110,7 +116,9 @@ public class SpriteEditor : MonoBehaviour
                 firstPlacement = false;
             }
             pendingObj = null;
+            
         }
+        
     }
     private void FixedUpdate()
     {
@@ -120,11 +128,14 @@ public class SpriteEditor : MonoBehaviour
 
     public void SelectObject(Sprite localSprite)
     {
+        SaveZ();
         pendingObj = Instantiate(SpriteTemplate, pos, transform.rotation);
         pendingObj.transform.position += new Vector3(0,0,-1);
         pendingObj.transform.rotation = Quaternion.Euler(0, 0, -10);
         pendingObj.GetComponent<SpriteRenderer>().sprite = localSprite;
         firstPlacement = true;
+
+        GetComponent<SelectSprite>().selectedObj = pendingObj;
     }
 
     public void SelectMaterial(Material localMaterial)
@@ -142,6 +153,7 @@ public class SpriteEditor : MonoBehaviour
         }
         pendingObj = null;
         resizeHUD.SetActive(false);
+        
     }
 
     public void MouseEnterTrash()
@@ -158,6 +170,7 @@ public class SpriteEditor : MonoBehaviour
         if(editedPrefab.name == "Player")
         {
             editedPrefab.GetComponent<SaveBodyParts>().SaveData("BodyParts");
+            editedPrefab.transform.GetChild(0).gameObject.SetActive(true);
         }
 
 
@@ -183,7 +196,7 @@ public class SpriteEditor : MonoBehaviour
             prefab.GetComponent<CheckPlacement>().enabled = true;
         }
 
-        buildingManager.GetComponent<SaveLoadLevel>().LoadData();
+        buildingManager.GetComponent<SaveLoadLevel>().LoadData("Level");
         cam.orthographicSize = 10;
     }
 
@@ -196,5 +209,32 @@ public class SpriteEditor : MonoBehaviour
         }
     }
 
-    
+
+    List<string> saveZID = new List<string>();
+    // ctrlZ
+    public void SaveZ()
+    {
+        GetComponent<SaveEditedAsset>().SaveData("Z"+saveZID.Count);
+        saveZID.Add("Z" + saveZID.Count);
+    }
+
+    public void LoadZ()
+    {
+        if(saveZID.Count !=0)
+        {
+            resizeHUD.SetActive(false);
+            GetComponent<SaveEditedAsset>().LoadData(saveZID[saveZID.Count - 1]);
+            saveZID.RemoveAt(saveZID.Count - 1);
+        }
+        
+    }
+
+    public void ClearZ()
+    {
+        foreach (string save in saveZID)
+        {
+            PlayerPrefs.DeleteKey(save);
+        }
+        saveZID.Clear();
+    }
 }

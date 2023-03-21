@@ -44,7 +44,7 @@ public class SaveLoadLevel : MonoBehaviour
     }
 
 
-    public void SaveData()
+    public void SaveData(string filename)
     {
         myPositions.Clear();
         myRotations.Clear();
@@ -72,10 +72,10 @@ public class SaveLoadLevel : MonoBehaviour
             index = myIndex
         };
 
-        SaveLoad<SavedLevel>.Save(dataToSave, testFile);
+        SaveLoad<SavedLevel>.Save(dataToSave, filename);
     }
 
-    public void LoadData()
+    public void LoadData(string filename)
     {
         foreach (GameObject obj in manager.placedObject)
         {
@@ -83,23 +83,26 @@ public class SaveLoadLevel : MonoBehaviour
         }
         manager.placedObject.Clear();
 
-
-        SavedLevel loadedData = SaveLoad<SavedLevel>.Load(testFile) ?? new SavedLevel();
-
-        myPositions = loadedData.positions;
-        myRotations = loadedData.rotations;
-        myScales = loadedData.scales;
-        myPrefabs = loadedData.prefabs;
-        myIndex = loadedData.index;
-
-        foreach (int i in myIndex)
+        if(PlayerPrefs.HasKey(filename))
         {
-            GameObject myObject = Instantiate(GetPrefab(myPrefabs[i]));
-            manager.placedObject.Add(myObject);
-            myObject.transform.position = myPositions[i];
-            myObject.transform.rotation = myRotations[i];
-            myObject.transform.localScale = myScales[i];
+            SavedLevel loadedData = SaveLoad<SavedLevel>.Load(filename) ?? new SavedLevel();
+
+            myPositions = loadedData.positions;
+            myRotations = loadedData.rotations;
+            myScales = loadedData.scales;
+            myPrefabs = loadedData.prefabs;
+            myIndex = loadedData.index;
+
+            foreach (int i in myIndex)
+            {
+                GameObject myObject = Instantiate(GetPrefab(myPrefabs[i]));
+                manager.placedObject.Add(myObject);
+                myObject.transform.position = myPositions[i];
+                myObject.transform.rotation = myRotations[i];
+                myObject.transform.localScale = myScales[i];
+            }
         }
+        
 
         //default
         if(manager.placedObject.Count == 0)
@@ -136,7 +139,7 @@ public class SaveLoadLevel : MonoBehaviour
     public void ClearData()
     {
         PlayerPrefs.DeleteKey(testFile);
-        LoadData();
+        LoadData("Level");
     }
 
     void Initialize()

@@ -22,6 +22,7 @@ public class SelectSprite : MonoBehaviour
             {
                 if (hit.collider.gameObject.CompareTag("Sprite"))
                 {
+                    spriteEditor.SaveZ();
                     Select(hit.collider.gameObject);
                 }
                 //else
@@ -50,6 +51,7 @@ public class SelectSprite : MonoBehaviour
 
         //selectedObj.transform.GetChild(1).gameObject.SetActive(true);
         resizeHUD.SetActive(true);
+        selectedObj.GetComponent<Renderer>().material.SetFloat("_Thickness", 5);
         Move();
     }
 
@@ -57,6 +59,7 @@ public class SelectSprite : MonoBehaviour
     {
         //selectedObj.transform.GetChild(1).gameObject.SetActive(false);
         resizeHUD.SetActive(false);
+        selectedObj.GetComponent<Renderer>().material.SetFloat("_Thickness", 0);
         selectedObj = null;
     }
 
@@ -74,23 +77,33 @@ public class SelectSprite : MonoBehaviour
     public void SizeUp()
     {
         if (selectedObj.transform.localScale.x <2)
-            selectedObj.transform.localScale += new Vector3(0.25f,0.25f,0.25f);
+        {
+            spriteEditor.SaveZ();
+            selectedObj.transform.localScale += new Vector3(0.25f, 0.25f, 0.25f);
+        }
+            
         
     }
 
     public void SizeDown()
     {
         if (selectedObj.transform.localScale.x > 0.25f)
+        {
+            spriteEditor.SaveZ();
             selectedObj.transform.localScale -= new Vector3(0.25f, 0.25f, 0.25f);
+        }
+            
     }
 
     public void RotateLeft()
     {
+        spriteEditor.SaveZ();
         selectedObj.transform.Rotate(Vector3.forward, -10);
     }
 
     public void RotateRight()
     {
+        spriteEditor.SaveZ();
         selectedObj.transform.Rotate(Vector3.forward, 10);
     }
 }

@@ -23,6 +23,7 @@ public class SelectObject : MonoBehaviour
             {
                 if(hit.collider.gameObject.CompareTag("Placement"))
                 {
+                    buildManager.SaveZ();
                     Select(hit.collider.gameObject);
                 }
                 //else
@@ -72,23 +73,33 @@ public class SelectObject : MonoBehaviour
     public void SizeUp()
     {
         if (selectedObj.transform.localScale.x < 2)
+        {
+            buildManager.SaveZ();
             selectedObj.transform.localScale += new Vector3(0.25f, 0.25f, 0.25f);
+        }
+            
 
     }
 
     public void SizeDown()
     {
         if (selectedObj.transform.localScale.x > 0.25f)
+        {
+            buildManager.SaveZ();
             selectedObj.transform.localScale -= new Vector3(0.25f, 0.25f, 0.25f);
+        }
+            
     }
 
     public void RotateLeft()
     {
+        buildManager.SaveZ();
         selectedObj.transform.Rotate(Vector3.forward, -10);
     }
 
     public void RotateRight()
     {
+        buildManager.SaveZ();
         selectedObj.transform.Rotate(Vector3.forward, 10);
     }
 }

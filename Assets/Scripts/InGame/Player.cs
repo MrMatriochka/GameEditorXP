@@ -63,6 +63,7 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             rb.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
+            
             GetComponent<AudioSource>().PlayOneShot(jumpSFX);
         }
 
@@ -200,7 +201,7 @@ public class Player : MonoBehaviour
 
     public void Bounce(Vector2 force)
     {
-        rb.AddForce(force, ForceMode2D.Impulse);
+        rb.AddForce(force , ForceMode2D.Impulse );
         GetComponent<AudioSource>().PlayOneShot(jumpSFX);
     }
 }
