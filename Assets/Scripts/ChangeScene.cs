@@ -17,4 +17,9 @@ public class ChangeScene : MonoBehaviour
             SceneManager.LoadScene(1 + SceneManager.GetActiveScene().buildIndex);
         }
     }
+
+    public void StartScene()
+    {
+        SceneManager.LoadScene(1 + SceneManager.GetActiveScene().buildIndex);
+    }
 }

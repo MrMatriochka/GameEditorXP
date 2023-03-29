@@ -236,8 +236,8 @@ public class BuildingManager : MonoBehaviour
 
     public void OpenSpriteEditor(GameObject prefabToEdit)
     {
-        if(Input.GetKeyDown(KeyCode.Mouse1))
-        {
+        //if(Input.GetKeyDown(KeyCode.Mouse1))
+        //{
             saveZID.Clear();
             mouseOnTrash = false;
             spriteEditor.SetActive(true);
@@ -251,7 +251,7 @@ public class BuildingManager : MonoBehaviour
 
             spriteEditor.transform.GetChild(0).GetComponent<SpriteEditor>().editedPrefab = prefabToEdit;
             spriteEditor.transform.GetChild(0).GetComponent<SpriteEditor>().OpenSpriteEditor();
-        }
+        //}
     }
 
     public void Reset()
