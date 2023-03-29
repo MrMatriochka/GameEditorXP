@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class PreviewBoss : MonoBehaviour
 {
-    public LayerMask ground;
+    public LayerMask player;
     public Collider2D triggerCollider;
-    [HideInInspector]public bool isGrounded;
+    [HideInInspector]public bool playerHere;
     void FixedUpdate()
     {
-        if (triggerCollider.IsTouchingLayers(ground))
+        if (triggerCollider.IsTouchingLayers(player))
         {
-            isGrounded = true;
+            playerHere = true;
         }
-        else { isGrounded = false; }
+        else { playerHere = false; }
 
     }
 }

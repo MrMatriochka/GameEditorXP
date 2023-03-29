@@ -197,7 +197,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 10
   m_TargetDisplay: 0
 --- !u!114 &8522410022668871710
 MonoBehaviour:
@@ -255,6 +255,7 @@ MonoBehaviour:
   gridSize: 0
   gridOn: 1
   maxBlocNb: 2
+  blocNb: 0
 --- !u!114 &8522410022668871709
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -17,7 +17,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3416840130568941302, guid: 7b72d33e66aef0949b0ec087be7c3550, type: 3}
       propertyPath: m_Name
-      value: SiObstacle_blocIf
+      value: SiPasJoueur_blocIf
       objectReference: {fileID: 0}
     - target: {fileID: 6606012667014710488, guid: 7b72d33e66aef0949b0ec087be7c3550, type: 3}
       propertyPath: m_Color.b
@@ -81,7 +81,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8836704762372952688, guid: 7b72d33e66aef0949b0ec087be7c3550, type: 3}
       propertyPath: m_text
-      value: Si Obstacle
+      value: 'Si pas Joueur '
+      objectReference: {fileID: 0}
+    - target: {fileID: 8836704762372952688, guid: 7b72d33e66aef0949b0ec087be7c3550, type: 3}
+      propertyPath: m_margin.z
+      value: -1.0265646
+      objectReference: {fileID: 0}
+    - target: {fileID: 9221212112567641553, guid: 7b72d33e66aef0949b0ec087be7c3550, type: 3}
+      propertyPath: function
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b72d33e66aef0949b0ec087be7c3550, type: 3}

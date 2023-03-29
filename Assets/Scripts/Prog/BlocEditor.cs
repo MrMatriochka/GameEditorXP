@@ -83,7 +83,7 @@ public class BlocEditor : MonoBehaviour
                 }
             }
             
-
+            
             pendingObj = null;
         }
     }

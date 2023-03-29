@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class BlocAssemble : MonoBehaviour
 {
-    [HideInInspector] public GameObject previousBloc;
-    [HideInInspector] public GameObject midBloc;
-    [HideInInspector] public GameObject nextBloc;
+    public GameObject previousBloc;
+     public GameObject midBloc;
+     public GameObject nextBloc;
      
     [HideInInspector] public bool canAssembleNext;
     [HideInInspector] public bool canAssemblePrevious;
@@ -33,7 +33,8 @@ public class BlocAssemble : MonoBehaviour
     {
         Normal,
         If,
-        Boucle
+        Boucle,
+        Start
     }
 
     public BlocType type;
@@ -61,7 +62,7 @@ public class BlocAssemble : MonoBehaviour
             previousBlocPosition.GetComponent<BlocPreviousPosition>().enabled = true;
             nextBlocPosition.GetComponent<BlocNextPosition>().enabled = true;
         }
-        else if(type != BlocType.Boucle)
+        else if(type != BlocType.Start)
         {
             previousBlocPosition.GetComponent<BlocPreviousPosition>().enabled = false;
             nextBlocPosition.GetComponent<BlocNextPosition>().enabled = false;
@@ -83,7 +84,7 @@ public class BlocAssemble : MonoBehaviour
             
             previousBlocPosition.SetActive(false);
         }
-        else if (type != BlocType.Boucle)
+        else if (type != BlocType.Start)
         {
             previousBlocPosition.SetActive(true);
         }
@@ -154,7 +155,7 @@ public class BlocAssemble : MonoBehaviour
             int objCount = 0;
             foreach(GameObject obj in codeList)
             {
-                if (obj.GetComponent<BlocAssemble>().type == BlocAssemble.BlocType.If) objCount += 3;
+                if (obj.GetComponent<BlocAssemble>().type == BlocAssemble.BlocType.If || obj.GetComponent<BlocAssemble>().type == BlocAssemble.BlocType.Boucle) objCount += 3;
                 else objCount++;
             }
             return objCount;

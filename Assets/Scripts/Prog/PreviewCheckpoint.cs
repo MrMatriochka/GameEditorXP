@@ -7,13 +7,12 @@ public class PreviewCheckpoint : MonoBehaviour
     public GameObject winScreen;
     public BlocCodeCheck codeCheck;
     [HideInInspector]public int nbOfPassage;
-    public int nbOfPassageNeeded;
+    public int nbOfPassageNeeded=0;
     private void OnTriggerEnter2D(Collider2D other)
     {
         if(other.CompareTag("Enemy"))
         {
             nbOfPassage++;
-
             if (nbOfPassage == nbOfPassageNeeded)
             {
                 if (codeCheck.player != null)
