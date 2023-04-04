@@ -19,8 +19,11 @@ EditorBuildSettings:
     guid: f29e694017154f941ab313cc20e542e1
   - enabled: 1
     path: Assets/Scenes/ExerciceProg/Exo3.unity
-    guid: d7e776a12dc6e3f429bd3b2109a6c4f2
+    guid: 642466dc3b0e1394286724e870a9c150
   - enabled: 1
     path: Assets/Scenes/ExerciceProg/Exo4.unity
-    guid: e4246eecaa507d14ebc59011ffb5f9c3
+    guid: b30487e39c65f164abf423151160386c
+  - enabled: 1
+    path: Assets/Scenes/ExerciceProg/Exo5.unity
+    guid: 850c9e071d370144fb4781441cb14a3a
   m_configObjects: {}

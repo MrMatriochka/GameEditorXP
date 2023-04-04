@@ -15,9 +15,13 @@ PrefabInstance:
       propertyPath: m_Color.g
       value: 0.60784316
       objectReference: {fileID: 0}
+    - target: {fileID: 2172138975677043496, guid: 7b72d33e66aef0949b0ec087be7c3550, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3416840130568941302, guid: 7b72d33e66aef0949b0ec087be7c3550, type: 3}
       propertyPath: m_Name
-      value: SiPasJoueur_blocIf
+      value: SiJoueur_blocIf
       objectReference: {fileID: 0}
     - target: {fileID: 6606012667014710488, guid: 7b72d33e66aef0949b0ec087be7c3550, type: 3}
       propertyPath: m_Color.b
@@ -81,7 +85,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8836704762372952688, guid: 7b72d33e66aef0949b0ec087be7c3550, type: 3}
       propertyPath: m_text
-      value: 'Si pas Joueur '
+      value: 'Si Joueur '
       objectReference: {fileID: 0}
     - target: {fileID: 8836704762372952688, guid: 7b72d33e66aef0949b0ec087be7c3550, type: 3}
       propertyPath: m_margin.z

@@ -6,28 +6,29 @@ public class PreviewCheckpoint : MonoBehaviour
 {
     public GameObject winScreen;
     public BlocCodeCheck codeCheck;
-    [HideInInspector]public int nbOfPassage;
-    public int nbOfPassageNeeded=0;
-    private void OnTriggerEnter2D(Collider2D other)
+    public float enemyTotal;
+    [HideInInspector] public float enemyCount;
+
+    public float checkpointTotal;
+    [HideInInspector] public float checkpointCount;
+
+    private void Start()
     {
-        if(other.CompareTag("Enemy"))
+        enemyCount = enemyTotal;
+        checkpointCount = checkpointTotal;
+    }
+    private void Update()
+    {
+        if (enemyCount == 0 && checkpointCount == 0)
         {
-            nbOfPassage++;
-            if (nbOfPassage == nbOfPassageNeeded)
-            {
-                if (codeCheck.player != null)
-                {
-                    if (codeCheck.playerIsDead)
-                        winScreen.SetActive(true);
-                }
-                else
-                {
-                    winScreen.SetActive(true);
-                }
-
-
-            }
-            
+            StartCoroutine(Win());
         }
+    }
+
+    IEnumerator Win()
+    {
+        yield return new WaitForSeconds(2f);
+        winScreen.SetActive(true);
+        yield return null;
     }
 }

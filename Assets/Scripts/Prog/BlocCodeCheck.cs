@@ -6,6 +6,7 @@ public class BlocCodeCheck : MonoBehaviour
 {
     public List<BlocFunction.Function> codeList = new List<BlocFunction.Function>();
     List<GameObject> bloc = new List<GameObject>();
+    public List<GameObject> ennemyList = new List<GameObject>();
     GameObject pendingObj;
 
     bool startPreview;
@@ -15,7 +16,6 @@ public class BlocCodeCheck : MonoBehaviour
     public delegate IEnumerator Methods();
 
     public GameObject boss;
-    public GameObject player;
     public GameObject checkpoint;
     public float speed;
     float baseSpeed;
@@ -25,22 +25,23 @@ public class BlocCodeCheck : MonoBehaviour
     public float waitTime;
     bool boucleOn;
     int boucleIndex;
+
     private void Start()
     {
         startPosition = boss.transform.position;
         startScale = boss.transform.localScale;
         baseSpeed = speed;
 
-        if (player != null) playerStartPosition = player.transform.position;
         Initialize();
     }
 
     public void CreateCodeList()
     {
 
-
         ResetPreview();
-        startPreview = true;
+        codeList.Clear();
+        bloc.Clear();
+
         pendingObj = gameObject;
         
         if(pendingObj.GetComponent<BlocAssemble>().nextBloc != null)
@@ -58,6 +59,7 @@ public class BlocCodeCheck : MonoBehaviour
                     ReadBlocIf();
                     pendingObj = saveIf;
                     codeList.Add(BlocFunction.Function.EndIf);
+                    bloc.Add(pendingObj.transform.GetChild(0).gameObject);
                 }
 
                 if (pendingObj.GetComponent<BlocAssemble>().nextBloc == null && pendingObj.GetComponent<BlocAssemble>().midBloc != null)
@@ -79,7 +81,11 @@ public class BlocCodeCheck : MonoBehaviour
             codeList.Add(pendingObj.GetComponent<BlocFunction>().function);
             bloc.Add(pendingObj);
             if (pendingObj.GetComponent<BlocAssemble>().type == BlocAssemble.BlocType.If)
+            {
                 codeList.Add(BlocFunction.Function.EndIf);
+                bloc.Add(pendingObj.transform.GetChild(0).gameObject);
+            }
+                
 
 
             index = 0;
@@ -107,13 +113,16 @@ public class BlocCodeCheck : MonoBehaviour
                     ReadBlocIf();
                     pendingObj = saveIf;
                     codeList.Add(BlocFunction.Function.EndIf);
+                    bloc.Add(pendingObj.transform.GetChild(0).gameObject);
                 }
 
                 if (pendingObj.GetComponent<BlocAssemble>().nextBloc == null && pendingObj.GetComponent<BlocAssemble>().midBloc != null)
                     return;
                 if (pendingObj.GetComponent<BlocAssemble>().nextBloc != null)
+                {
                     pendingObj = pendingObj.GetComponent<BlocAssemble>().nextBloc;
-                
+                }
+
 
             }
             
@@ -131,34 +140,38 @@ public class BlocCodeCheck : MonoBehaviour
         boss.transform.localScale = startScale;
         boss.transform.rotation = Quaternion.Euler(Vector3.zero);
         speed = baseSpeed;
-        checkpoint.GetComponent<PreviewCheckpoint>().nbOfPassage = 0;
-        if (player != null)
+        checkpoint.GetComponent<PreviewCheckpoint>().enemyCount = checkpoint.GetComponent<PreviewCheckpoint>().enemyTotal;
+        checkpoint.GetComponent<PreviewCheckpoint>().checkpointCount = checkpoint.GetComponent<PreviewCheckpoint>().checkpointTotal;
+        foreach(Transform obj in checkpoint.transform)
         {
-            playerIsDead = false;
-            player.GetComponent<PreviewPlayer>().triggerCollider.enabled = true;
-            player.transform.position = playerStartPosition;
+            obj.gameObject.SetActive(true);
         }
+        foreach(GameObject obj in ennemyList)
+        {
+            obj.SetActive(true);
+        }
+  
 
-        codeList.Clear();
-        startPreview = false;
     }
 
     //Function List
     void Initialize()
     {
         methodByName.Add(BlocFunction.Function.Avancer, Avancer);
+        methodByName.Add(BlocFunction.Function.Attaquer, Attaquer);
         methodByName.Add(BlocFunction.Function.Flip, Flip);
         methodByName.Add(BlocFunction.Function.Boucle, Boucle);
-        methodByName.Add(BlocFunction.Function.IfPasJoueur, IfPasJoueur);
+        methodByName.Add(BlocFunction.Function.IfJoueur, IfJoueur);
+        methodByName.Add(BlocFunction.Function.IfObstacle, IfObstacle);
         methodByName.Add(BlocFunction.Function.EndIf, EndIf);
     }
 
 
     IEnumerator Avancer()
     {
-        //bloc[index].GetComponent<Renderer>().material.SetFloat("_Thickness", 5);
+        bloc[index].GetComponent<Renderer>().material.SetFloat("_Thickness", 5);
         index++;
-        print("Avancer");
+        print(index + ": Avancer");
         float elapsedTime = 0f;
         Vector3 currentPos = boss.transform.position;
         Vector3 goToPos = boss.transform.position + (Vector3.left * speed);
@@ -174,7 +187,7 @@ public class BlocCodeCheck : MonoBehaviour
 
         yield return new WaitForSeconds(0.5f);
 
-        //bloc[index-1].GetComponent<Renderer>().material.SetFloat("_Thickness", 0);
+        bloc[index-1].GetComponent<Renderer>().material.SetFloat("_Thickness", 0);
         if (index<codeList.Count)
         StartCoroutine(methodByName[codeList[index]]());
         else if (boucleOn)
@@ -185,16 +198,41 @@ public class BlocCodeCheck : MonoBehaviour
 
         yield return null;
     }
-    IEnumerator Flip()
+
+    IEnumerator Attaquer()
     {
+        bloc[index].GetComponent<Renderer>().material.SetFloat("_Thickness", 5);
         index++;
-        print("Flip");
-        boss.transform.localScale = new Vector3(-boss.transform.localScale.x, boss.transform.localScale.y, boss.transform.localScale.z);
-        speed = -speed;
+        print(index + ": Attaquer");
+
+        boss.GetComponent<PreviewBoss>().Attack();
 
         yield return new WaitForSeconds(0.5f);
 
-        //bloc[index-1].GetComponent<Renderer>().material.SetFloat("_Thickness", 0);
+        bloc[index - 1].GetComponent<Renderer>().material.SetFloat("_Thickness", 0);
+        if (index < codeList.Count)
+            StartCoroutine(methodByName[codeList[index]]());
+        else if (boucleOn)
+        {
+            index = boucleIndex;
+            StartCoroutine(methodByName[codeList[index]]());
+        }
+
+        yield return null;
+    }
+
+    IEnumerator Flip()
+    {
+        bloc[index].GetComponent<Renderer>().material.SetFloat("_Thickness", 5);
+        index++;
+        print(index + ": Flip");
+        boss.transform.localScale = new Vector3(-boss.transform.localScale.x, boss.transform.localScale.y, boss.transform.localScale.z);
+        speed = -speed;
+        boss.GetComponent<PreviewBoss>().facing *= -1;
+
+        yield return new WaitForSeconds(0.5f);
+
+        bloc[index-1].GetComponent<Renderer>().material.SetFloat("_Thickness", 0);
         if (index < codeList.Count)
             StartCoroutine(methodByName[codeList[index]]());
         else if (boucleOn)
@@ -211,11 +249,12 @@ public class BlocCodeCheck : MonoBehaviour
         boucleOn = true;
         boucleIndex = index;
 
+        bloc[index].GetComponent<Renderer>().material.SetFloat("_Thickness", 5);
         index++;
-        print("Boucle");
+        print(index + ": Boucle");
         yield return new WaitForSeconds(0.5f);
 
-        //bloc[index-1].GetComponent<Renderer>().material.SetFloat("_Thickness", 0);
+        bloc[index-1].GetComponent<Renderer>().material.SetFloat("_Thickness", 0);
         if (index < codeList.Count)
             StartCoroutine(methodByName[codeList[index]]());
         else if (boucleOn)
@@ -228,16 +267,17 @@ public class BlocCodeCheck : MonoBehaviour
         yield return null;
     }
 
-    IEnumerator IfPasJoueur()
-    {
 
+    IEnumerator IfJoueur()
+    {
+        bloc[index].GetComponent<Renderer>().material.SetFloat("_Thickness", 5);
         index++;
-        print("IfpasJouer");
+        print("IfJoueur");
         yield return new WaitForSeconds(0.5f);
 
-        //bloc[index-1].GetComponent<Renderer>().material.SetFloat("_Thickness", 0);
+        bloc[index - 1].GetComponent<Renderer>().material.SetFloat("_Thickness", 0);
 
-        if (!boss.GetComponent<PreviewBoss>().playerHere)
+        if (boss.GetComponent<PreviewBoss>().seePlayer)
         {
             StartCoroutine(methodByName[codeList[index]]());
         }
@@ -254,13 +294,40 @@ public class BlocCodeCheck : MonoBehaviour
         yield return null;
     }
 
-    IEnumerator EndIf()
+    IEnumerator IfObstacle()
     {
+        bloc[index].GetComponent<Renderer>().material.SetFloat("_Thickness", 5);
         index++;
-        print("EndIf");
+        print(index+": IfObstacle");
         yield return new WaitForSeconds(0.5f);
 
-        //bloc[index-1].GetComponent<Renderer>().material.SetFloat("_Thickness", 0);
+        bloc[index - 1].GetComponent<Renderer>().material.SetFloat("_Thickness", 0);
+
+        if (boss.GetComponent<PreviewBoss>().hole)
+        {
+            StartCoroutine(methodByName[codeList[index]]());
+        }
+        else
+        {
+            while (codeList[index] != BlocFunction.Function.EndIf)
+            {
+                index++;
+            }
+            StartCoroutine(methodByName[codeList[index]]());
+        }
+
+        yield return null;
+    }
+
+    IEnumerator EndIf()
+    {
+        bloc[index].GetComponent<Renderer>().material.SetFloat("_Thickness", 5);
+        index++;
+        print(index + ": EndIf");
+        yield return new WaitForSeconds(0.5f);
+
+        bloc[index-1].GetComponent<Renderer>().material.SetFloat("_Thickness", 0);
+
         if (index < codeList.Count)
             StartCoroutine(methodByName[codeList[index]]());
         else if (boucleOn)

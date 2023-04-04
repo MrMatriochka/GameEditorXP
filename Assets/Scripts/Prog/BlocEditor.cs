@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 using UnityEngine.SceneManagement;
 public class BlocEditor : MonoBehaviour
 {
     Vector3 pos;
     public Vector3 posOffset;
     public static GameObject pendingObj;
+    [SerializeField] TMP_Text blocRestant;
 
 
     public float gridSize;
@@ -38,7 +40,9 @@ public class BlocEditor : MonoBehaviour
         {
             Delete();
         }
-        
+
+        if(blocRestant != null)
+        blocRestant.text = "Blocs restants: " + (maxBlocNb - blocNb);
     }
     void PlaceObject()
     {

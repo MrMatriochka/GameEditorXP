@@ -78,7 +78,7 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &4340852842687137138
 MonoBehaviour:
@@ -233,7 +233,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 5ea5e69bac2288f49a20f21894e5d475, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -353,7 +353,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6cfda33067925449b4d7a82c2ab1b0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  function: 3
+  function: 5
 --- !u!1 &4179888645472165067
 GameObject:
   m_ObjectHideFlags: 0
@@ -427,7 +427,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: 668205257, guid: 3dc75f3009282b44082569d68f538beb, type: 3}
   m_Color: {r: 0, g: 0.6226415, b: 0.061043244, a: 1}
   m_FlipX: 0
@@ -661,7 +661,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 3
   m_Sprite: {fileID: 1498458843, guid: 3dc75f3009282b44082569d68f538beb, type: 3}
   m_Color: {r: 0, g: 0.6226415, b: 0.061043244, a: 1}
   m_FlipX: 0

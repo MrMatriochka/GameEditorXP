@@ -357,9 +357,9 @@ MonoBehaviour:
   boss: {fileID: 0}
   player: {fileID: 0}
   checkpoint: {fileID: 0}
-  speed: 3
+  speed: 2.2
   playerIsDead: 0
-  waitTime: 0.5
+  waitTime: 1
 --- !u!1 &4179888645472165067
 GameObject:
   m_ObjectHideFlags: 0

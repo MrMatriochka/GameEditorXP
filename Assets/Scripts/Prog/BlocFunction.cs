@@ -8,7 +8,9 @@ public class BlocFunction : MonoBehaviour
     {
         Avancer,
         Flip,
-        IfPasJoueur,
+        IfJoueur,
+        IfObstacle,
+        Attaquer,
         Boucle,
         EndIf
     }

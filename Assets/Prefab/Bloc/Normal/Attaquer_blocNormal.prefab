@@ -9,15 +9,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3416840130568941302, guid: 2574632d1ba33f84ebc00ce8369523c0, type: 3}
       propertyPath: m_Name
-      value: Avancer_blocNormal 1
+      value: Attaquer_blocNormal
       objectReference: {fileID: 0}
     - target: {fileID: 3662560677009265432, guid: 2574632d1ba33f84ebc00ce8369523c0, type: 3}
       propertyPath: m_text
-      value: Avancer
+      value: Attaquer
       objectReference: {fileID: 0}
-    - target: {fileID: 7364012528029161834, guid: 2574632d1ba33f84ebc00ce8369523c0, type: 3}
-      propertyPath: m_SortingOrder
-      value: 1
+    - target: {fileID: 5066833291329602819, guid: 2574632d1ba33f84ebc00ce8369523c0, type: 3}
+      propertyPath: function
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7590383873465392616, guid: 2574632d1ba33f84ebc00ce8369523c0, type: 3}
       propertyPath: m_Color.b
