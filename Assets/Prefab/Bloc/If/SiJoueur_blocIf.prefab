@@ -85,7 +85,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8836704762372952688, guid: 7b72d33e66aef0949b0ec087be7c3550, type: 3}
       propertyPath: m_text
-      value: 'Si Joueur '
+      value: 'Si voit Joueur '
       objectReference: {fileID: 0}
     - target: {fileID: 8836704762372952688, guid: 7b72d33e66aef0949b0ec087be7c3550, type: 3}
       propertyPath: m_margin.z

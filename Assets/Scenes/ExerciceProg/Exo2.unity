@@ -1840,8 +1840,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6658647019485061322, guid: 2a1bc6342e8f16343b61f57f52e3d2de, type: 3}
       propertyPath: m_text
-      value: "Apprends au dragon \xE0 lancer des boules de feu.\r\n-Atteins \U0001F3C1\r\n-\xC9limine
-        \U0001F9D2"
+      value: "Apprends au dragon \xE0 lancer des boules de feu.\r\n-Atteins le drapeau\n-\xC9limine
+        le joueur"
       objectReference: {fileID: 0}
     - target: {fileID: 6658647019485061323, guid: 2a1bc6342e8f16343b61f57f52e3d2de, type: 3}
       propertyPath: m_AnchoredPosition.y

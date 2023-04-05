@@ -33,6 +33,11 @@ public class BlocCodeCheck : MonoBehaviour
         baseSpeed = speed;
 
         Initialize();
+
+        foreach(GameObject obj in ennemyList)
+        {
+            obj.GetComponent<Animator>().SetBool("Start", true);
+        }
     }
 
     public void CreateCodeList()
@@ -136,6 +141,7 @@ public class BlocCodeCheck : MonoBehaviour
 
     public void ResetPreview()
     {
+        StopAllCoroutines();
         boss.transform.position = startPosition;
         boss.transform.localScale = startScale;
         boss.transform.rotation = Quaternion.Euler(Vector3.zero);
@@ -150,7 +156,10 @@ public class BlocCodeCheck : MonoBehaviour
         {
             obj.SetActive(true);
         }
-  
+        foreach(GameObject obj in bloc)
+        {
+            obj.GetComponent<Renderer>().material.SetFloat("_Thickness", 0);
+        }
 
     }
 

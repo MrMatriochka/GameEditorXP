@@ -13,11 +13,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3662560677009265432, guid: 2574632d1ba33f84ebc00ce8369523c0, type: 3}
       propertyPath: m_text
-      value: Flip
+      value: Se retourner
       objectReference: {fileID: 0}
     - target: {fileID: 5066833291329602819, guid: 2574632d1ba33f84ebc00ce8369523c0, type: 3}
       propertyPath: function
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7513018929094854171, guid: 2574632d1ba33f84ebc00ce8369523c0, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 3.913
+      objectReference: {fileID: 0}
+    - target: {fileID: 7513018929094854171, guid: 2574632d1ba33f84ebc00ce8369523c0, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0.534
+      objectReference: {fileID: 0}
+    - target: {fileID: 7513018929094854171, guid: 2574632d1ba33f84ebc00ce8369523c0, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 2.306
+      objectReference: {fileID: 0}
+    - target: {fileID: 7513018929094854171, guid: 2574632d1ba33f84ebc00ce8369523c0, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.004
       objectReference: {fileID: 0}
     - target: {fileID: 7590383873465392616, guid: 2574632d1ba33f84ebc00ce8369523c0, type: 3}
       propertyPath: m_Color.b

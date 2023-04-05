@@ -240,7 +240,7 @@ RectTransform:
   m_Children:
   - {fileID: 520737246}
   m_Father: {fileID: 1867480975}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1536,6 +1536,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &529096469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 529096463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58d725c5fce3ff248bb68c33772296c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &636889748
 GameObject:
   m_ObjectHideFlags: 0
@@ -1569,7 +1581,7 @@ RectTransform:
   m_Children:
   - {fileID: 513564916}
   m_Father: {fileID: 1867480975}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2527,7 +2539,7 @@ RectTransform:
   m_Children:
   - {fileID: 1826544684}
   m_Father: {fileID: 1867480975}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2871,6 +2883,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &1190507958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1190507951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58d725c5fce3ff248bb68c33772296c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1244244782
 GameObject:
   m_ObjectHideFlags: 0
@@ -3011,7 +3035,7 @@ RectTransform:
   m_Children:
   - {fileID: 1460331966}
   m_Father: {fileID: 1867480975}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3737,8 +3761,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6658647019485061322, guid: 2a1bc6342e8f16343b61f57f52e3d2de, type: 3}
       propertyPath: m_text
-      value: "Apprends au dragon \xE0 attaquer au bon moment.\r\n-Atteins \U0001F3C1\r\n-\xC9limine
-        \U0001F9D2\r\n-\xC9pargne \U0001F344\r\n"
+      value: "Apprends au dragon \xE0 attaquer au bon moment.\r\n-Atteins le drapeau\n-\xC9limine
+        les joueurs\n-\xC9pargne le champignon\n"
       objectReference: {fileID: 0}
     - target: {fileID: 6658647019485061323, guid: 2a1bc6342e8f16343b61f57f52e3d2de, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -3927,8 +3951,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -76, y: 2}
-  m_SizeDelta: {x: 2.1, y: 0.51}
+  m_AnchoredPosition: {x: -2.72, y: 6.78}
+  m_SizeDelta: {x: 3.54, y: 0.42}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1826544685
 MonoBehaviour:
@@ -3950,7 +3974,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Flip
+  m_text: Se retourner
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 50230e06093646f429052ca613ddebf9, type: 2}
   m_sharedMaterial: {fileID: 4904050327934917893, guid: 50230e06093646f429052ca613ddebf9, type: 2}
