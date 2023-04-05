@@ -25,6 +25,8 @@ public class SpriteEditor : MonoBehaviour
     public Camera cam;
     public GameObject resizeHUD;
     public GameObject deselectBugFixer;
+
+    static bool firstLaunch = true;
     private void Awake()
     {
         foreach (GameObject prefab in dictionary)
@@ -44,8 +46,13 @@ public class SpriteEditor : MonoBehaviour
         
     }
     private void Start()
-    {
+    {      
         OpenSpriteEditor();
+
+        if (firstLaunch == false)
+        {
+            SaveNewPrefab();
+        }
     }
 
     public void OpenSpriteEditor()
@@ -198,6 +205,8 @@ public class SpriteEditor : MonoBehaviour
 
         buildingManager.GetComponent<SaveLoadLevel>().LoadData("Level");
         cam.orthographicSize = 10;
+
+        firstLaunch = false;
     }
 
     public void Reset()
