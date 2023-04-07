@@ -158,7 +158,7 @@ MonoBehaviour:
     m_Bits: 8
   ennemi:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   triggerCollider: {fileID: 8073075644334120940}
 --- !u!70 &8073075644334120940
 CapsuleCollider2D:

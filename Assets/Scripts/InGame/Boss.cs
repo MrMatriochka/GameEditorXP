@@ -1,86 +1,86 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class Boss : MonoBehaviour
 {
     public float moveSpeed = 1f;
-    public float jumpHeight = 10f;
-    public float jumpDistance = 10f;
-    public float jumpDelay = 2;
     public LayerMask ground;
-    public float invincibilityTime;
-    public int maxHp;
-    [HideInInspector] public int hp;
-    [HideInInspector] public bool isInvincible;
-    private SpriteRenderer renderer;
-    private GameObject player;
+    public LayerMask ennemi;
+
     private Rigidbody2D rb;
+    private Animator anim;
     public Collider2D triggerCollider;
 
-    private bool isGrounded;
-    public Transform groundCheck;
-
-    float startScale;
-    private bool canJump = true;
-    private int playerPos = 1;
-
-    states state = states.Jump;
-    enum states
-    {
-        Jump,
-        Run
-    }
-
+    public GameObject fireball;
+    public GameObject mouth;
     void Start()
     {
-        player = FindObjectOfType<Player>().gameObject;
-        startScale = transform.localScale.x;
         rb = GetComponent<Rigidbody2D>();
-        renderer = GetComponent<SpriteRenderer>();
-    }
+        anim = GetComponent<Animator>();
 
-    private void OnEnable()
-    {
-        state = states.Jump;
-        hp = maxHp;
-        isInvincible = false;
-        renderer = GetComponent<SpriteRenderer>();
-        renderer.color = new Color(1, 1, 1, 1);
-    }
-  
-
-    private void Update()
-    {
-        if(hp == 0)
+        if (PlayerPrefs.HasKey("ProgLvl"))
         {
-            gameObject.SetActive(false);
+            if (PlayerPrefs.GetInt("ProgLvl") == SceneManager.GetActiveScene().buildIndex +2)
+            {
+                StartCoroutine(Avancer());
+            }
+            if (PlayerPrefs.GetInt("ProgLvl") == SceneManager.GetActiveScene().buildIndex + 3)
+            {
+                StartCoroutine(Avancer());
+                Attack();
+            }
+            if (PlayerPrefs.GetInt("ProgLvl") == SceneManager.GetActiveScene().buildIndex + 4)
+            {
+                StartCoroutine(AttackBoucle());
+            }
+            if (PlayerPrefs.GetInt("ProgLvl") == SceneManager.GetActiveScene().buildIndex + 5)
+            {
+                StartCoroutine(AttackBoucle());
+            }
         }
-        switch (state)
+    }
+
+
+    void FixedUpdate()
+    {
+        if (PlayerPrefs.HasKey("ProgLvl"))
         {
-            case states.Run:
+            if (PlayerPrefs.GetInt("ProgLvl") == SceneManager.GetActiveScene().buildIndex + 4)
+            {
+                anim.SetBool("IsWalking", true);
                 rb.velocity = new Vector2(moveSpeed, rb.velocity.y);
-                if (!triggerCollider.IsTouchingLayers(ground))
+            }
+            if (PlayerPrefs.GetInt("ProgLvl") == SceneManager.GetActiveScene().buildIndex + 5)
+            {
+                anim.SetBool("IsWalking", true);
+                rb.velocity = new Vector2(moveSpeed, rb.velocity.y);
+                if (!triggerCollider.IsTouchingLayers(ground) || triggerCollider.IsTouchingLayers(ennemi))
                 {
                     Flip();
                 }
-                break;
-
-            case states.Jump:
-
-                CheckPlayerPos();
-                CheckGround();
-                if (isGrounded && canJump)
+            }
+            if (PlayerPrefs.GetInt("ProgLvl") == SceneManager.GetActiveScene().buildIndex + 6)
+            {
+                anim.SetBool("IsWalking", true);
+                rb.velocity = new Vector2(moveSpeed, rb.velocity.y);
+                if (!triggerCollider.IsTouchingLayers(ground) || triggerCollider.IsTouchingLayers(ennemi))
                 {
-                    StartCoroutine(Jump());
-                    canJump = false;
+                    Flip();
                 }
-                break;
 
-            default:
-                Debug.Log("NOTHING");
-                break;
+                RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.left * moveSpeed, 10);
+
+                if (hit.collider != null)
+                {
+                    if (hit.collider.CompareTag("Player"))
+                    {
+                        anim.SetTrigger("Attack"); 
+                    }
+                }
+            }
         }
+        
     }
 
     private void Flip()
@@ -89,44 +89,34 @@ public class Boss : MonoBehaviour
         moveSpeed *= -1;
     }
 
-    IEnumerator Jump()
+    public void Attack()
     {
-        rb.AddForce(new Vector2(jumpDistance*playerPos, jumpHeight), ForceMode2D.Impulse);
-        yield return new WaitForSeconds(jumpDelay);
-        canJump = true;
+        GameObject obj = Instantiate(fireball, mouth.transform.position, Quaternion.identity);
+        obj.GetComponent<Fireball>().speed *= moveSpeed;
+    }
+    
+    IEnumerator AttackBoucle()
+    {
+        yield return new WaitForSeconds(5f);
+        anim.SetTrigger("Attack"); 
+        StartCoroutine(AttackBoucle());
         yield return null;
     }
-
-    private void CheckGround()
+    IEnumerator Avancer()
     {
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(groundCheck.transform.position, 0.2f);
-        isGrounded = colliders.Length > 1;
-    }
-
-    private void CheckPlayerPos()
-    {
-        float checkPlayerPos = player.transform.position.x - transform.position.x;
-        if (checkPlayerPos > 0)
+        float elapsedTime = 0f;
+        Vector3 currentPos = transform.position;
+        Vector3 goToPos = transform.position + (Vector3.right * moveSpeed*5f);
+        anim.SetBool("IsWalking", true);
+        while (elapsedTime < 2)
         {
-            transform.localScale = new Vector2(startScale, transform.localScale.y);
-            playerPos = 1;
-        }
-        if (checkPlayerPos < 0)
-        {
-            transform.localScale = new Vector2(startScale * -1, transform.localScale.y);
-            playerPos = -1;
-        }
-    }
+            transform.position = Vector3.Lerp(currentPos, goToPos, (elapsedTime / 2));
+            elapsedTime += Time.deltaTime;
 
-    public IEnumerator InvincibleTimer()
-    {
-        isInvincible = true;
-        renderer.color = new Color(1, 1, 1, 0.2f);
-        state = states.Run;
-        yield return new WaitForSeconds(invincibilityTime);
-        renderer.color = new Color(1, 1, 1, 1);
-        isInvincible = false;
-        state = states.Jump;
+            yield return null;
+        }
+        transform.position = goToPos;
+        anim.SetBool("IsWalking", false);
         yield return null;
     }
 }

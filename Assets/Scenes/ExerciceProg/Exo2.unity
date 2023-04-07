@@ -915,12 +915,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e96aa3ac4287404d9db65395dcca2f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boss:
-    serializedVersion: 2
-    m_Bits: 256
-  triggerCollider: {fileID: 529096466}
-  knockback: {x: -30, y: 50}
-  touchBoss: 0
 --- !u!95 &529096465
 Animator:
   serializedVersion: 4
@@ -1664,8 +1658,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8516772188844845793, guid: e1b3a1f241649b44c96d9ac596ffbfb5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.29
+      objectReference: {fileID: 0}
+    - target: {fileID: 8516772188844845793, guid: e1b3a1f241649b44c96d9ac596ffbfb5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.17
+      value: 1.82
+      objectReference: {fileID: 0}
+    - target: {fileID: 8516772188844845807, guid: e1b3a1f241649b44c96d9ac596ffbfb5, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 50.74101
+      objectReference: {fileID: 0}
+    - target: {fileID: 8516772188844845807, guid: e1b3a1f241649b44c96d9ac596ffbfb5, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 46.43
       objectReference: {fileID: 0}
     - target: {fileID: 8516772189989776416, guid: e1b3a1f241649b44c96d9ac596ffbfb5, type: 3}
       propertyPath: codeCheck

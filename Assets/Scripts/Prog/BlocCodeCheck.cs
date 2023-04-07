@@ -142,6 +142,7 @@ public class BlocCodeCheck : MonoBehaviour
     public void ResetPreview()
     {
         StopAllCoroutines();
+        boss.GetComponent<Animator>().SetBool("IsWalking", false);
         boss.transform.position = startPosition;
         boss.transform.localScale = startScale;
         boss.transform.rotation = Quaternion.Euler(Vector3.zero);
@@ -185,6 +186,8 @@ public class BlocCodeCheck : MonoBehaviour
         Vector3 currentPos = boss.transform.position;
         Vector3 goToPos = boss.transform.position + (Vector3.left * speed);
 
+        boss.GetComponent<Animator>().SetBool("IsWalking", true);
+
         while (elapsedTime < waitTime)
         {
             boss.transform.position = Vector3.Lerp(currentPos, goToPos, (elapsedTime / waitTime));
@@ -193,7 +196,7 @@ public class BlocCodeCheck : MonoBehaviour
             yield return null;
         }
         boss.transform.position = goToPos;
-
+        boss.GetComponent<Animator>().SetBool("IsWalking", false);
         yield return new WaitForSeconds(0.5f);
 
         bloc[index-1].GetComponent<Renderer>().material.SetFloat("_Thickness", 0);
@@ -214,9 +217,9 @@ public class BlocCodeCheck : MonoBehaviour
         index++;
         print(index + ": Attaquer");
 
-        boss.GetComponent<PreviewBoss>().Attack();
-
-        yield return new WaitForSeconds(0.5f);
+        //boss.GetComponent<PreviewBoss>().Attack();
+        boss.GetComponent<Animator>().SetTrigger("Attack");
+        yield return new WaitForSeconds(1f);
 
         bloc[index - 1].GetComponent<Renderer>().material.SetFloat("_Thickness", 0);
         if (index < codeList.Count)

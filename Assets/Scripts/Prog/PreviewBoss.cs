@@ -11,6 +11,7 @@ public class PreviewBoss : MonoBehaviour
     [HideInInspector]public float facing = 1;
 
     public GameObject fireball;
+    public GameObject mouth;
     void FixedUpdate()
     {
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.left*facing,20);
@@ -41,7 +42,7 @@ public class PreviewBoss : MonoBehaviour
 
     public void Attack()
     {
-        GameObject obj = Instantiate(fireball, transform.position, Quaternion.identity);
+        GameObject obj = Instantiate(fireball, mouth.transform.position, Quaternion.identity);
         obj.GetComponent<PreviewFirebal>().speed *= facing;
     }
 }
