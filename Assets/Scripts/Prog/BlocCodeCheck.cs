@@ -159,6 +159,7 @@ public class BlocCodeCheck : MonoBehaviour
         }
         foreach(GameObject obj in bloc)
         {
+            if(obj != null)
             obj.GetComponent<Renderer>().material.SetFloat("_Thickness", 0);
         }
 

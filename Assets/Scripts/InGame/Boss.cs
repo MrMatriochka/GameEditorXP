@@ -27,8 +27,9 @@ public class Boss : MonoBehaviour
             }
             if (PlayerPrefs.GetInt("ProgLvl") == SceneManager.GetActiveScene().buildIndex + 3)
             {
+                anim.SetTrigger("Attack");
                 StartCoroutine(Avancer());
-                Attack();
+                
             }
             if (PlayerPrefs.GetInt("ProgLvl") == SceneManager.GetActiveScene().buildIndex + 4)
             {
@@ -92,7 +93,7 @@ public class Boss : MonoBehaviour
     public void Attack()
     {
         GameObject obj = Instantiate(fireball, mouth.transform.position, Quaternion.identity);
-        obj.GetComponent<Fireball>().speed *= moveSpeed;
+        obj.GetComponent<Fireball>().speed *= -moveSpeed;
     }
     
     IEnumerator AttackBoucle()
