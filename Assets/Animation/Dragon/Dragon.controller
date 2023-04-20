@@ -33,7 +33,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Dragon_walk
-  m_Speed: 0.1
+  m_Speed: 0.15
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 8987498182521937409}
@@ -208,7 +208,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Dragon_Dead
-  m_Speed: 0.1
+  m_Speed: 0.25
   m_CycleOffset: 0
   m_Transitions: []
   m_StateMachineBehaviours: []

@@ -11,7 +11,7 @@ public class SavedLevel
         List<Vector3> positions =new List<Vector3>(); ;
         List<Quaternion> rotations = new List<Quaternion>();
         List<Vector3> scales = new List<Vector3>();
-        List<string> prefabs = new List<string>(); ;
+        List<string> prefabs = new List<string>();
     }
 
     public List<int> index = new List<int>();

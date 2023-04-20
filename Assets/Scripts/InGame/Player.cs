@@ -60,7 +60,7 @@ public class Player : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, transform.position + direction, movingSpeed * Time.deltaTime);
         } 
             
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        if (Input.GetButtonDown("Jump") && isGrounded)
         {
             rb.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
             
