@@ -481,6 +481,7 @@ GameObject:
   - component: {fileID: 6952628394585513908}
   - component: {fileID: 1970442854654190451}
   - component: {fileID: 5031525797143950704}
+  - component: {fileID: 1988390888668840003}
   m_Layer: 7
   m_Name: Player
   m_TagString: Placement
@@ -640,6 +641,21 @@ MonoBehaviour:
   materialsList: []
   testFile: Asset_
   myMaterials: []
+--- !u!114 &1988390888668840003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6952628394585513906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e67779d05e251b44dbf46dd8c44c644a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxSize: 2
+  minSize: 0.5
+  canRotate: 0
 --- !u!1001 &3806507621856997287
 PrefabInstance:
   m_ObjectHideFlags: 0

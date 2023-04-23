@@ -27,6 +27,8 @@ public class SpriteEditor : MonoBehaviour
     public GameObject deselectBugFixer;
 
     static bool firstLaunch = true;
+
+    SelectSprite selecSprite;
     private void Awake()
     {
         foreach (GameObject prefab in dictionary)
@@ -48,7 +50,7 @@ public class SpriteEditor : MonoBehaviour
     private void Start()
     {      
         OpenSpriteEditor();
-
+        selecSprite = GetComponent<SelectSprite>();
         if (firstLaunch == false)
         {
             SaveNewPrefab();
@@ -142,7 +144,7 @@ public class SpriteEditor : MonoBehaviour
         pendingObj.GetComponent<SpriteRenderer>().sprite = localSprite;
         firstPlacement = true;
 
-        GetComponent<SelectSprite>().selectedObj = pendingObj;
+        selecSprite.selectedObj = pendingObj;
     }
 
     public void SelectMaterial(Material localMaterial)
@@ -163,13 +165,17 @@ public class SpriteEditor : MonoBehaviour
         
     }
 
-    public void MouseEnterTrash()
+    public void MouseEnterTrash(GameObject obj)
     {
         mouseOnTrash = true;
+        if(selecSprite.selectedObj != null)
+        obj.SetActive(true);
     }
-    public void MousExitTrash()
+    public void MousExitTrash(GameObject obj)
     {
         mouseOnTrash = false;
+
+            obj.SetActive(false);
     }
 
     public void SaveNewPrefab()

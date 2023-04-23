@@ -323,7 +323,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6658647018380611407, guid: 2a1bc6342e8f16343b61f57f52e3d2de, type: 3}
       propertyPath: m_text
-      value: Exercice 1
+      value: 'Programmation: Exercice 1'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6658647018380611407, guid: 2a1bc6342e8f16343b61f57f52e3d2de, type: 3}
+      propertyPath: m_margin.z
+      value: -140.37411
       objectReference: {fileID: 0}
     - target: {fileID: 6658647019055897930, guid: 2a1bc6342e8f16343b61f57f52e3d2de, type: 3}
       propertyPath: maxBlocNb

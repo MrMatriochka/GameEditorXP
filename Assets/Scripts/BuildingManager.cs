@@ -33,12 +33,15 @@ public class BuildingManager : MonoBehaviour
 
     public GameObject resizeHUD;
     public GameObject deselectBugFixer;
+
+    SelectObject selectObj;
     void Start()
     {
         cam = GameObject.Find("Main Camera");
         saveLvl = GetComponent<SaveLoadLevel>();
         saveLvl.LoadData("Level");
         saveZID.Clear();
+        selectObj = GetComponent<SelectObject>();
     }
 
     void Update()
@@ -111,7 +114,7 @@ public class BuildingManager : MonoBehaviour
             SaveZ();
             pendingObj = Instantiate(objectToSpawn, pos, transform.rotation);
             firstPlacement = true;
-            GetComponent<SelectObject>().selectedObj = pendingObj;
+            selectObj.selectedObj = pendingObj;
         }
     }
 
@@ -192,13 +195,17 @@ public class BuildingManager : MonoBehaviour
         resizeHUD.SetActive(false);
     }
 
-    public void MouseEnterTrash()
+    public void MouseEnterTrash(GameObject obj)
     {
         mouseOnTrash = true;
+        if (selectObj.selectedObj != null)
+            obj.SetActive(true);
     }
-    public void MousExitTrash()
+    public void MousExitTrash(GameObject obj)
     {
         mouseOnTrash = false;
+
+            obj.SetActive(false);
     }
 
     public bool IsPrefabLimitExceeded(GameObject prefab)

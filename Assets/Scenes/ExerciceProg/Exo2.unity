@@ -1469,7 +1469,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6658647018380611407, guid: 2a1bc6342e8f16343b61f57f52e3d2de, type: 3}
       propertyPath: m_text
-      value: Exercice 2
+      value: 'Programmation: Exercice 2'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6658647018380611407, guid: 2a1bc6342e8f16343b61f57f52e3d2de, type: 3}
+      propertyPath: m_margin.z
+      value: -150.7427
       objectReference: {fileID: 0}
     - target: {fileID: 6658647018380611407, guid: 2a1bc6342e8f16343b61f57f52e3d2de, type: 3}
       propertyPath: m_fontAsset

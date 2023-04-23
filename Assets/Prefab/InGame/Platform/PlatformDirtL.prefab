@@ -222,6 +222,7 @@ GameObject:
   - component: {fileID: 7116163340910287808}
   - component: {fileID: 7371674108012335585}
   - component: {fileID: 5297744543013869651}
+  - component: {fileID: 8287611267474691545}
   m_Layer: 7
   m_Name: PlatformDirtL
   m_TagString: Placement
@@ -358,3 +359,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nbLimit: 0
+--- !u!114 &8287611267474691545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7116163340910287809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e67779d05e251b44dbf46dd8c44c644a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxSize: 2
+  minSize: 0.25
+  canRotate: 1

@@ -7,6 +7,7 @@ public class SelectObject : MonoBehaviour
 {
     public GameObject selectedObj;
     public GameObject resizeHUD;
+    public GameObject rotateHUD;
     BuildingManager buildManager;
 
     void Start()
@@ -50,6 +51,10 @@ public class SelectObject : MonoBehaviour
 
         selectedObj = obj;
         resizeHUD.SetActive(true);
+        if(selectedObj.GetComponent<ObjInfo>().canRotate)
+            rotateHUD.SetActive(true);
+        else
+            rotateHUD.SetActive(false);
         Move();
     }
 
@@ -72,7 +77,7 @@ public class SelectObject : MonoBehaviour
 
     public void SizeUp()
     {
-        if (selectedObj.transform.localScale.x < 2)
+        if (selectedObj.transform.localScale.x < selectedObj.GetComponent<ObjInfo>().maxSize)
         {
             buildManager.SaveZ();
             selectedObj.transform.localScale += new Vector3(0.25f, 0.25f, 0.25f);
@@ -83,7 +88,7 @@ public class SelectObject : MonoBehaviour
 
     public void SizeDown()
     {
-        if (selectedObj.transform.localScale.x > 0.25f)
+        if (selectedObj.transform.localScale.x > selectedObj.GetComponent<ObjInfo>().minSize)
         {
             buildManager.SaveZ();
             selectedObj.transform.localScale -= new Vector3(0.25f, 0.25f, 0.25f);
