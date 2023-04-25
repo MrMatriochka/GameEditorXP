@@ -53,6 +53,11 @@ public class BlocEditor : MonoBehaviour
             BlocAssemble lastAssembler = GetLastObjOfbloc().GetComponent<BlocAssemble>();
             if (assembler.collidingBloc != null)
             {
+                if (assembler.canAssembleNext && assembler.canAssemblePrevious)
+                {
+                    pendingObj = null;
+                    return;
+                }
                 if (assembler.canAssembleNext && assembler.collidingBloc.GetComponent<BlocAssemble>().previousBloc == null)
                 {
                     assembler.transform.position = assembler.collidingBloc.GetComponent<BlocAssemble>().previousBlocPosition.transform.position;

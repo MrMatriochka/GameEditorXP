@@ -8,13 +8,13 @@ public class BlocAssemble : MonoBehaviour
      public GameObject midBloc;
      public GameObject nextBloc;
      
-    [HideInInspector] public bool canAssembleNext;
-    [HideInInspector] public bool canAssemblePrevious;
+     public bool canAssembleNext;
+     public bool canAssemblePrevious;
     [HideInInspector] public GameObject collidingBloc;
 
-    public GameObject previousBlocPosition;
-    public GameObject nextBlocPosition;
-    public GameObject midBlocPosition;
+    [HideInInspector] public GameObject previousBlocPosition;
+    [HideInInspector] public GameObject nextBlocPosition;
+    [HideInInspector] public GameObject midBlocPosition;
 
     [HideInInspector] public bool lastOfThePendingBloc;
 
