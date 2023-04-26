@@ -51,10 +51,32 @@ public class BlocEditor : MonoBehaviour
 
             BlocAssemble assembler = pendingObj.GetComponent<BlocAssemble>();
             BlocAssemble lastAssembler = GetLastObjOfbloc().GetComponent<BlocAssemble>();
+
             if (assembler.collidingBloc != null)
             {
                 if (assembler.canAssembleNext && assembler.canAssemblePrevious)
                 {
+                    if (assembler.canAssemblePrevious && assembler.collidingBloc.GetComponent<BlocAssemble>().nextBloc == null)
+                    {
+                        if (assembler.collidingBloc.GetComponent<BlocAssemble>().type == BlocAssemble.BlocType.If && !assembler.collidingWithBlocEnd)
+                        {
+                            assembler.collidingBloc.GetComponent<BlocAssemble>().midBloc = pendingObj;
+                            assembler.previousBloc = assembler.collidingBloc;
+                        }
+                        else
+                        {
+                            assembler.collidingBloc.GetComponent<BlocAssemble>().nextBloc = pendingObj;
+                            assembler.previousBloc = assembler.collidingBloc;
+                        }
+                    }
+
+                    if (assembler.canAssembleNext && assembler.collidingNextBloc.GetComponent<BlocAssemble>().previousBloc == null)
+                    {
+                        assembler.transform.position = assembler.collidingNextBloc.GetComponent<BlocAssemble>().previousBlocPosition.transform.position;
+                        assembler.collidingNextBloc.GetComponent<BlocAssemble>().previousBloc = pendingObj;
+                        assembler.nextBloc = assembler.collidingNextBloc;
+                    }
+
                     pendingObj = null;
                     return;
                 }
@@ -77,11 +99,7 @@ public class BlocEditor : MonoBehaviour
                         assembler.previousBloc = assembler.collidingBloc;
                     }
                 }
-                else if (lastAssembler.canAssembleNext && lastAssembler.collidingBloc.GetComponent<BlocAssemble>().previousBloc == null)
-                {
-                    lastAssembler.collidingBloc.GetComponent<BlocAssemble>().previousBloc = lastAssembler.gameObject;
-                    lastAssembler.nextBloc = lastAssembler.collidingBloc;
-                }
+                
                 else if (assembler.collidingBloc.GetComponent<BlocAssemble>().type == BlocAssemble.BlocType.If)
                 {
                     if (assembler.canAssemblePrevious && assembler.collidingBloc.GetComponent<BlocAssemble>().midBloc == null)
@@ -91,8 +109,12 @@ public class BlocEditor : MonoBehaviour
                     }
                 }
             }
-            
-            
+            else if (lastAssembler.canAssembleNext && lastAssembler.collidingBloc.GetComponent<BlocAssemble>().previousBloc == null)
+            {
+                lastAssembler.collidingBloc.GetComponent<BlocAssemble>().previousBloc = lastAssembler.gameObject;
+                lastAssembler.nextBloc = lastAssembler.collidingBloc;
+            }
+
             pendingObj = null;
         }
     }

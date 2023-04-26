@@ -16,6 +16,7 @@ public class BlocNextPosition : MonoBehaviour
         {
             assembler.canAssembleNext = true;
             assembler.collidingBloc = other.gameObject;
+            assembler.collidingNextBloc = other.gameObject;
 
             other.GetComponent<BlocAssemble>().previousBlocPosition.GetComponent<SpriteRenderer>().enabled = true;
         }
@@ -26,6 +27,7 @@ public class BlocNextPosition : MonoBehaviour
         {
             assembler.canAssembleNext = false;
             assembler.collidingBloc = null;
+            assembler.collidingNextBloc = null;
 
             if (other.GetComponent<BlocAssemble>().type != BlocAssemble.BlocType.Start)
                 other.GetComponent<BlocAssemble>().previousBlocPosition.GetComponent<SpriteRenderer>().enabled = false;

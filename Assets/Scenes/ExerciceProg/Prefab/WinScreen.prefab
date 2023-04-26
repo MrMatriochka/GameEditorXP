@@ -416,8 +416,6 @@ GameObject:
   - component: {fileID: 8522410022668871905}
   - component: {fileID: 8522410022668871710}
   - component: {fileID: 8522410022668871711}
-  - component: {fileID: 8522410022668871708}
-  - component: {fileID: 8522410022668871709}
   m_Layer: 5
   m_Name: WinScreen
   m_TagString: Untagged
@@ -509,37 +507,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &8522410022668871708
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8522410022668871706}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: febfe33c68526ef4888be154754f2fa1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  posOffset: {x: 0, y: 0, z: 0}
-  blocRestant: {fileID: 0}
-  gridSize: 0
-  gridOn: 1
-  maxBlocNb: 2
-  blocNb: 0
---- !u!114 &8522410022668871709
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8522410022668871706}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10e5b51e1c3eae247aad5dc3c036de4c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  selectedObj: {fileID: 0}
 --- !u!1 &8522410024532941560
 GameObject:
   m_ObjectHideFlags: 0

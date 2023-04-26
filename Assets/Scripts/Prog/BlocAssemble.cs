@@ -10,7 +10,8 @@ public class BlocAssemble : MonoBehaviour
      
      public bool canAssembleNext;
      public bool canAssemblePrevious;
-    [HideInInspector] public GameObject collidingBloc;
+     public GameObject collidingBloc;
+     public GameObject collidingNextBloc;
 
     [HideInInspector] public GameObject previousBlocPosition;
     [HideInInspector] public GameObject nextBlocPosition;
