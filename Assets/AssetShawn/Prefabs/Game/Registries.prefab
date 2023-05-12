@@ -1,0 +1,175 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2898239426863099724
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2898239426863099713}
+  - component: {fileID: 2898239426863099714}
+  - component: {fileID: 2898239426863099715}
+  - component: {fileID: 443328092697027799}
+  - component: {fileID: 5717773894452973351}
+  m_Layer: 0
+  m_Name: Registries
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2898239426863099713
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2898239426863099724}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2898239426863099714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2898239426863099724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96bc8ac45fee31f4492dc861434a7398, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  elements:
+  - name: Coin
+    startingValue: 0
+    hasMaximum: 1
+    maximum: 100
+    onMinimumReached:
+      m_PersistentCalls:
+        m_Calls: []
+    onMaximumReached:
+      m_PersistentCalls:
+        m_Calls: []
+  - name: Key
+    startingValue: 0
+    hasMaximum: 0
+    maximum: 0
+    onMinimumReached:
+      m_PersistentCalls:
+        m_Calls: []
+    onMaximumReached:
+      m_PersistentCalls:
+        m_Calls: []
+  - name: Life
+    startingValue: 3
+    hasMaximum: 0
+    maximum: 0
+    onMinimumReached:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: StudioXP.Scripts.UI.MenuController, Assembly-CSharp
+          m_MethodName: SetGameOver
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    onMaximumReached:
+      m_PersistentCalls:
+        m_Calls: []
+--- !u!114 &2898239426863099715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2898239426863099724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a89353ac7e716a4784fbda2384c4377, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  elements:
+  - name: BubDeath
+    audioClip: {fileID: 8300000, guid: d13cb695228a4694385ce817e550a0cf, type: 3}
+    volume: 0.4
+  - name: CoinPickup
+    audioClip: {fileID: 8300000, guid: 0f64e4483c50db542939292095f1295f, type: 3}
+    volume: 0.4
+  - name: PlayerDeath
+    audioClip: {fileID: 8300000, guid: 11405d9032051da47b4d6a45bf74696f, type: 3}
+    volume: 0.4
+  - name: PlayerHurt
+    audioClip: {fileID: 8300000, guid: 7f7f6e9ba4bf98b41a84bf0b55ac88a6, type: 3}
+    volume: 0.4
+  - name: PlayerJump
+    audioClip: {fileID: 8300000, guid: 467778431153cbf4980cedd939c7805d, type: 3}
+    volume: 0.4
+  - name: SpringBounce
+    audioClip: {fileID: 8300000, guid: e60867df9a4d1e84fae3ed19cdb292a0, type: 3}
+    volume: 0.4
+  - name: DoorOpen
+    audioClip: {fileID: 8300000, guid: 801ac51f20c94b94b9740f3659fbd797, type: 3}
+    volume: 0.4
+  - name: BossSpawn
+    audioClip: {fileID: 8300000, guid: 4fc0d0e2c0fa0744fa4eb75648be9371, type: 3}
+    volume: 0.4
+--- !u!114 &443328092697027799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2898239426863099724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a304905754bad5644a607a438f607c3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  elements:
+  - name: Player
+  - name: Enemy
+  - name: Object
+  - name: ClimbSurface
+  - name: HurtsPlayer
+  - name: HurtsEnemy
+  - name: HurtsPlayerFeet
+  - name: Parentable
+  - name: Pickable
+  - name: Pushable
+  - name: Interactable
+  - name: Invincibility
+  - name: Floating
+  - name: Jumping
+  - name: PlayerWeakness
+  - name: EnemyWeakness
+  - name: Poison
+--- !u!114 &5717773894452973351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2898239426863099724}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9563120c529fb104795ca8b6397619c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  elements:
+  - name: Horizontal
+  - name: Vertical
+  - name: Jump

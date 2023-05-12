@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
 public class BlocCodeCheck : MonoBehaviour
 {
     public List<BlocFunction.Function> codeList = new List<BlocFunction.Function>();
@@ -9,7 +9,6 @@ public class BlocCodeCheck : MonoBehaviour
     public List<GameObject> ennemyList = new List<GameObject>();
     GameObject pendingObj;
 
-    bool startPreview;
     Vector3 startPosition;
     Vector3 startScale;
     public Dictionary<BlocFunction.Function, Methods> methodByName = new Dictionary<BlocFunction.Function, Methods>();
@@ -71,6 +70,7 @@ public class BlocCodeCheck : MonoBehaviour
                 {
                     index = 0;
                     boucleOn = false;
+                    CodeString();
                     StartCoroutine(methodByName[codeList[0]]());
                     return;
                 }
@@ -95,8 +95,9 @@ public class BlocCodeCheck : MonoBehaviour
 
             index = 0;
             boucleOn = false;
+            CodeString();
             StartCoroutine(methodByName[codeList[0]]());
-
+           
         }
 
         
@@ -353,6 +354,64 @@ public class BlocCodeCheck : MonoBehaviour
         yield return null;
     }
 
-    
+
+    public TMP_Text codeText;
+    public void CodeString()
+    {
+        string code = "Start() \n{\n";
+        int tabNb = 1;
+        foreach (BlocFunction.Function line in codeList)
+        {
+            if (line == BlocFunction.Function.EndIf)
+                tabNb--;
+
+            for (int i = 0; i < tabNb; i++)
+            {
+                code += "\t";
+            }
+            
+            if(line == BlocFunction.Function.EndIf)
+            {
+                code += "}\n";
+            }   
+            else if(line == BlocFunction.Function.IfJoueur)
+            {
+                code += "If(Joueur)\n";
+                for (int i = 0; i < tabNb; i++)
+                {
+                    code += "\t";
+                }
+                code += "{\n";
+                tabNb++;
+            }
+            else if (line == BlocFunction.Function.IfObstacle)
+            {
+                code += "If(Obstacle)\n";
+                for (int i = 0; i < tabNb; i++)
+                {
+                    code += "\t";
+                }
+                code += "{\n";
+                tabNb++;
+            }
+            else if (line == BlocFunction.Function.Boucle)
+            {
+                code += "Boucle()\n";
+                for (int i = 0; i < tabNb; i++)
+                {
+                    code += "\t";
+                }
+                code += "{\n";
+                tabNb++;
+            }
+            else
+            {
+                code += line.ToString() + "();\n";
+            }
+          
+        }
+        code += "}";
+        codeText.text = code;
+    }
 
 }

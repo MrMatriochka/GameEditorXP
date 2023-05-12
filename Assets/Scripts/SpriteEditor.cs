@@ -51,10 +51,10 @@ public class SpriteEditor : MonoBehaviour
     {      
         OpenSpriteEditor();
         selecSprite = GetComponent<SelectSprite>();
-        if (firstLaunch == false)
-        {
+        //if (firstLaunch == false)
+        //{
             SaveNewPrefab();
-        }
+        //}
     }
 
     public void OpenSpriteEditor()
@@ -82,6 +82,8 @@ public class SpriteEditor : MonoBehaviour
         {
             editedPrefab.GetComponent<SaveBodyParts>().LoadData("BodyParts");
         }
+
+        editedPrefab.transform.GetChild(0).gameObject.SetActive(false);
     }
 
     void Update()
