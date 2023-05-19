@@ -6,6 +6,7 @@ public class CheckPlacement : MonoBehaviour
 {
     BuildingManager buildManager;
     public int nbLimit;
+
     void Start()
     {
         buildManager = GameObject.Find("GameManager").GetComponent<BuildingManager>();

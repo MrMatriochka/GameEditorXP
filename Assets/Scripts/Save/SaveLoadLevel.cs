@@ -110,29 +110,29 @@ public class SaveLoadLevel : MonoBehaviour
             //player
             GameObject myObject = Instantiate(GetPrefab("Player"));
             manager.placedObject.Add(myObject);
-            myObject.transform.position = new Vector3(-14, -6.5f, 0);
+            myObject.transform.position = new Vector3(-2, -1.3f, 0);
 
             //finish
             myObject = Instantiate(GetPrefab("Finish"));
             manager.placedObject.Add(myObject);
-            myObject.transform.position = new Vector3(16, -6.5f, 0);
+            myObject.transform.position = new Vector3(7.5f, -1.5f, 0);
 
             //platforms
             myObject = Instantiate(GetPrefab("PlatformDirtL"));
             manager.placedObject.Add(myObject);
-            myObject.transform.position = new Vector3(-13.5f, -9, 0);
+            myObject.transform.position = new Vector3(-1.5f, -3.5f, 0);
 
             myObject = Instantiate(GetPrefab("PlatformDirtL"));
             manager.placedObject.Add(myObject);
-            myObject.transform.position = new Vector3(-5, -9, 0);
+            myObject.transform.position = new Vector3(1.5f, -3.5f, 0);
 
             myObject = Instantiate(GetPrefab("PlatformDirtL"));
             manager.placedObject.Add(myObject);
-            myObject.transform.position = new Vector3(3.5f, -9, 0);
+            myObject.transform.position = new Vector3(4.5f, -3.5f, 0);
 
             myObject = Instantiate(GetPrefab("PlatformDirtL"));
             manager.placedObject.Add(myObject);
-            myObject.transform.position = new Vector3(12f, -9, 0);
+            myObject.transform.position = new Vector3(7.5f, -3.5f, 0);
         }
     }
 
