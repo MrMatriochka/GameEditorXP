@@ -30,7 +30,7 @@ public class Player : MonoBehaviour
     [HideInInspector] public int score;
     private Text scoreUI;
 
-    public Animator anim;
+    Animator anim;
 
     public GameObject feet;
     public AudioClip jumpSFX;
@@ -38,6 +38,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
         scoreUI = GameObject.Find("ScoreText").GetComponent<Text>();
         lastCheckpoint = transform.position;
         
@@ -48,7 +49,6 @@ public class Player : MonoBehaviour
         hp = maxHp;
         UpdateLife();
         UpdateScore();
-        anim.SetBool("Start", true);
     }
 
     void Update()
@@ -98,11 +98,11 @@ public class Player : MonoBehaviour
         moveInput = Input.GetAxisRaw("Horizontal");
         if (moveInput != 0)
         {
-            anim.SetBool("IsMoving", true);
+            anim.SetBool("isMoving", true);
         }
         else
         {
-            anim.SetBool("IsMoving", false);
+            anim.SetBool("isMoving", false);
         }
     }
 

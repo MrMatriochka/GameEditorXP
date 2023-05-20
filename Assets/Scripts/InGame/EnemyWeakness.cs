@@ -13,6 +13,9 @@ public class EnemyWeakness : MonoBehaviour
                 Player player = other.GetComponentInParent<Player>();
                 player.Bounce(force);
                 enemy.SetBool("IsDead", true);
+            transform.parent.GetComponent<BoxCollider2D>().enabled = false;
+            transform.parent.GetComponent<Rigidbody2D>().simulated = false;
+            transform.parent.GetComponent<Bub>().enabled = false;
         }
     }
 }

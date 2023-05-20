@@ -78,6 +78,7 @@ public class BuildingManager : MonoBehaviour
                 Delete();
                 firstPlacement = false;
             }
+
         }
 
         if (Input.GetKeyDown(KeyCode.B))
