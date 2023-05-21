@@ -175,8 +175,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fffbd89f1c4a70343accadd95adbbff7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene: {fileID: 102900000, guid: 0d9a13eb20a7e8c499ca143a1763d6b0, type: 3}
   anim: {fileID: 100416046}
+  speed: 1
+  scene: {fileID: 0}
 --- !u!95 &100416046
 Animator:
   serializedVersion: 4
@@ -548,8 +549,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fffbd89f1c4a70343accadd95adbbff7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene: {fileID: 102900000, guid: 0d9a13eb20a7e8c499ca143a1763d6b0, type: 3}
   anim: {fileID: 757857011}
+  speed: 1
+  scene: {fileID: 102900000, guid: 0d9a13eb20a7e8c499ca143a1763d6b0, type: 3}
 --- !u!1 &1299162109
 GameObject:
   m_ObjectHideFlags: 0
