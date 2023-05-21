@@ -23,6 +23,8 @@ public class Player : MonoBehaviour
     private bool isGrounded;
     public Transform groundCheck;
 
+    public Animator dustParticlesAnimator;
+
     [HideInInspector]  public Vector3 lastCheckpoint;
 
     private Rigidbody2D rb;
@@ -99,10 +101,17 @@ public class Player : MonoBehaviour
         if (moveInput != 0)
         {
             anim.SetBool("isMoving", true);
+            if (isGrounded)
+            {
+                dustParticlesAnimator.SetBool("active", true);
+                dustParticlesAnimator.Play("Run_dust", 0, anim.GetCurrentAnimatorStateInfo(0).normalizedTime);
+            }
+            else dustParticlesAnimator.SetBool("active", false);
         }
         else
         {
             anim.SetBool("isMoving", false);
+            dustParticlesAnimator.SetBool("active", false); 
         }
     }
 

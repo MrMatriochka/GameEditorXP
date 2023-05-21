@@ -120,12 +120,12 @@ TextureImporter:
       name: Biker_run_0
       rect:
         serializedVersion: 2
-        x: 3
+        x: 0
         y: 0
-        width: 25
-        height: 32
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5625}
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -141,12 +141,12 @@ TextureImporter:
       name: Biker_run_1
       rect:
         serializedVersion: 2
-        x: 56
+        x: 48
         y: 0
-        width: 18
-        height: 32
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5625}
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -162,12 +162,12 @@ TextureImporter:
       name: Biker_run_2
       rect:
         serializedVersion: 2
-        x: 99
+        x: 96
         y: 0
-        width: 29
-        height: 31
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5645161}
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -183,12 +183,12 @@ TextureImporter:
       name: Biker_run_3
       rect:
         serializedVersion: 2
-        x: 146
+        x: 144
         y: 0
-        width: 33
-        height: 32
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5625}
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -204,12 +204,12 @@ TextureImporter:
       name: Biker_run_4
       rect:
         serializedVersion: 2
-        x: 200
+        x: 192
         y: 0
-        width: 18
-        height: 32
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5625}
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -225,12 +225,12 @@ TextureImporter:
       name: Biker_run_5
       rect:
         serializedVersion: 2
-        x: 243
+        x: 240
         y: 0
-        width: 24
-        height: 31
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5645161}
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

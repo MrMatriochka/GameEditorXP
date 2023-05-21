@@ -120,10 +120,10 @@ TextureImporter:
       name: Biker_jump_0
       rect:
         serializedVersion: 2
-        x: 3
-        y: 1
-        width: 29
-        height: 32
+        x: 0
+        y: 0
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,10 +141,10 @@ TextureImporter:
       name: Biker_jump_1
       rect:
         serializedVersion: 2
-        x: 51
-        y: 4
-        width: 26
-        height: 32
+        x: 48
+        y: 0
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -162,10 +162,10 @@ TextureImporter:
       name: Biker_jump_2
       rect:
         serializedVersion: 2
-        x: 99
-        y: 2
-        width: 26
-        height: 31
+        x: 96
+        y: 0
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -183,10 +183,10 @@ TextureImporter:
       name: Biker_jump_3
       rect:
         serializedVersion: 2
-        x: 146
+        x: 144
         y: 0
-        width: 27
-        height: 32
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
