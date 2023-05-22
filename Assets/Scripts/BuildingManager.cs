@@ -64,7 +64,7 @@ public class BuildingManager : MonoBehaviour
                 pendingObj.transform.position = new Vector3(Snapping.Snap(pos.x,gridSize), Snapping.Snap(pos.y, gridSize), 0);
             }
             else { pendingObj.transform.position = pos; }
-            resizeHUD.transform.position = cam.GetComponent<Camera>().WorldToScreenPoint(pendingObj.transform.position);
+            //resizeHUD.transform.position = cam.GetComponent<Camera>().WorldToScreenPoint(pendingObj.transform.position);
             deselectBugFixer.transform.position = pendingObj.transform.position - new Vector3(0, 0.4f, 0);
             UpdateMaterials();
 
@@ -193,7 +193,7 @@ public class BuildingManager : MonoBehaviour
             placedObject.RemoveAt(index);
         }
         pendingObj = null;
-        resizeHUD.SetActive(false);
+        //resizeHUD.SetActive(false);
     }
 
     public void MouseEnterTrash(GameObject obj)
@@ -279,7 +279,7 @@ public class BuildingManager : MonoBehaviour
     {
         if (saveZID.Count != 0)
         {
-            resizeHUD.SetActive(false);
+            //resizeHUD.SetActive(false);
             saveLvl.LoadData(saveZID[saveZID.Count - 1]);
             saveZID.RemoveAt(saveZID.Count - 1);
         }
