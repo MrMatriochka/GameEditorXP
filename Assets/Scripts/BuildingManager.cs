@@ -106,9 +106,11 @@ public class BuildingManager : MonoBehaviour
         pos = mousePosition;
     }
 
-    public void SelectObject(GameObject objectToSpawn)
+    public void SelectObject(PrefabInButton script)
     {
         if (Input.GetKeyDown(KeyCode.Mouse1)) return;
+
+        GameObject objectToSpawn = script.prefab;
 
         if (!IsPrefabLimitExceeded(objectToSpawn))
         {
