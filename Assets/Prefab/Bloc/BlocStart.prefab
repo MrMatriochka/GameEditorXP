@@ -109,7 +109,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 4278190080
   m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -254,7 +254,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 1099360178, guid: 3dc75f3009282b44082569d68f538beb, type: 3}
+  m_Sprite: {fileID: 1770428523, guid: a4d62ad6102313b4494ef33420d53aeb, type: 3}
   m_Color: {r: 1, g: 0.8970643, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -303,7 +303,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0.5}
-    oldSize: {x: 4.14, y: 0.95}
+    oldSize: {x: 3.5, y: 0.625}
     newSize: {x: 4.16, y: 1.11}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -330,6 +330,7 @@ MonoBehaviour:
   canAssembleNext: 0
   canAssemblePrevious: 0
   collidingBloc: {fileID: 0}
+  collidingNextBloc: {fileID: 0}
   previousBlocPosition: {fileID: 9097591986026225080}
   nextBlocPosition: {fileID: 8116589066035420459}
   midBlocPosition: {fileID: 0}
@@ -360,6 +361,7 @@ MonoBehaviour:
   speed: 2.2
   playerIsDead: 0
   waitTime: 1
+  codeText: {fileID: 0}
 --- !u!1 &4179888645472165067
 GameObject:
   m_ObjectHideFlags: 0

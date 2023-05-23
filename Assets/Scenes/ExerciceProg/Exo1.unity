@@ -293,46 +293,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 59393338594212792, guid: 2a1bc6342e8f16343b61f57f52e3d2de, type: 3}
-      propertyPath: m_text
-      value: Conception
-      objectReference: {fileID: 0}
-    - target: {fileID: 1383088190046621411, guid: 2a1bc6342e8f16343b61f57f52e3d2de, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 42
-      objectReference: {fileID: 0}
-    - target: {fileID: 1383088190046621411, guid: 2a1bc6342e8f16343b61f57f52e3d2de, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -15
-      objectReference: {fileID: 0}
-    - target: {fileID: 6658647018054651383, guid: 2a1bc6342e8f16343b61f57f52e3d2de, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 522.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 6658647018054651383, guid: 2a1bc6342e8f16343b61f57f52e3d2de, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 77.26
-      objectReference: {fileID: 0}
-    - target: {fileID: 6658647018054651383, guid: 2a1bc6342e8f16343b61f57f52e3d2de, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -2.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 6658647018054651383, guid: 2a1bc6342e8f16343b61f57f52e3d2de, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 167.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 6658647018380611407, guid: 2a1bc6342e8f16343b61f57f52e3d2de, type: 3}
-      propertyPath: m_text
-      value: 'Programmation: Exercice 1'
-      objectReference: {fileID: 0}
-    - target: {fileID: 6658647018380611407, guid: 2a1bc6342e8f16343b61f57f52e3d2de, type: 3}
-      propertyPath: m_margin.z
-      value: -140.37411
-      objectReference: {fileID: 0}
-    - target: {fileID: 6658647019055897930, guid: 2a1bc6342e8f16343b61f57f52e3d2de, type: 3}
-      propertyPath: maxBlocNb
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 6658647019055898032, guid: 2a1bc6342e8f16343b61f57f52e3d2de, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -420,50 +380,6 @@ PrefabInstance:
     - target: {fileID: 6658647019055898036, guid: 2a1bc6342e8f16343b61f57f52e3d2de, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6658647019055898037, guid: 2a1bc6342e8f16343b61f57f52e3d2de, type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 391527051}
-    - target: {fileID: 6658647019383756436, guid: 2a1bc6342e8f16343b61f57f52e3d2de, type: 3}
-      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 6566390905800632654, guid: 52e64f3eaa7ccde47856d27f9f9bafad, type: 3}
-    - target: {fileID: 6658647019467761009, guid: 2a1bc6342e8f16343b61f57f52e3d2de, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0.000009059906
-      objectReference: {fileID: 0}
-    - target: {fileID: 6658647019467761009, guid: 2a1bc6342e8f16343b61f57f52e3d2de, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -4.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6658647019485061322, guid: 2a1bc6342e8f16343b61f57f52e3d2de, type: 3}
-      propertyPath: m_text
-      value: "Apprends au dragon \xE0 marcher.\r\n- Atteins le drapeau pour valider.\r\n"
-      objectReference: {fileID: 0}
-    - target: {fileID: 6658647019519592851, guid: 2a1bc6342e8f16343b61f57f52e3d2de, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 725864555}
-    - target: {fileID: 6658647019519592851, guid: 2a1bc6342e8f16343b61f57f52e3d2de, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: CreateCodeList
-      objectReference: {fileID: 0}
-    - target: {fileID: 6658647019602280356, guid: 2a1bc6342e8f16343b61f57f52e3d2de, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 110
-      objectReference: {fileID: 0}
-    - target: {fileID: 6658647019865415249, guid: 2a1bc6342e8f16343b61f57f52e3d2de, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -76
-      objectReference: {fileID: 0}
-    - target: {fileID: 6658647019865415249, guid: 2a1bc6342e8f16343b61f57f52e3d2de, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 9011659025363946804, guid: 2a1bc6342e8f16343b61f57f52e3d2de, type: 3}
-      propertyPath: m_Name
-      value: Retour Bouton
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a1bc6342e8f16343b61f57f52e3d2de, type: 3}
