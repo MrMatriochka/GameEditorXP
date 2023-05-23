@@ -37,10 +37,10 @@ public class SelectObject : MonoBehaviour
                 if (selectedObj != null) Deselect();
             }
         }
-        //if (Input.GetMouseButtonUp(0) && selectedObj != null)
-        //{
-        //    Deselect();
-        //}
+        if (Input.GetMouseButtonUp(0) && selectedObj != null)
+        {
+            Deselect();
+        }
     }
 
     void Select(GameObject obj)
@@ -50,7 +50,7 @@ public class SelectObject : MonoBehaviour
         if (selectedObj != null) Deselect();
 
         selectedObj = obj;
-        resizeHUD.SetActive(true);
+        //resizeHUD.SetActive(true);
         if(selectedObj.GetComponent<ObjInfo>().canRotate)
             rotateHUD.SetActive(true);
         else
@@ -60,7 +60,7 @@ public class SelectObject : MonoBehaviour
 
     void Deselect()
     {
-        resizeHUD.SetActive(false);
+        //resizeHUD.SetActive(false);
         selectedObj = null;
     }
 
