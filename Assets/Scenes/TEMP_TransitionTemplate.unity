@@ -134,7 +134,6 @@ GameObject:
   - component: {fileID: 100416044}
   - component: {fileID: 100416048}
   - component: {fileID: 100416047}
-  - component: {fileID: 100416046}
   - component: {fileID: 100416045}
   m_Layer: 5
   m_Name: Transition_CircleWipe
@@ -175,29 +174,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fffbd89f1c4a70343accadd95adbbff7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 100416046}
-  speed: 1
+  direction: 2
+  duration: 0.5
+  easing: 0
+  reverseTransitionOut: 1
+  reverseEasingOut: 1
   scene: {fileID: 0}
---- !u!95 &100416046
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 100416043}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e84594d010aaed94bb9b8bec953a0107, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &100416047
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -549,8 +531,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fffbd89f1c4a70343accadd95adbbff7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 757857011}
-  speed: 1
+  direction: 0
+  duration: 1
+  easing: 0
+  reverseTransitionOut: 0
+  reverseEasingOut: 1
   scene: {fileID: 102900000, guid: 0d9a13eb20a7e8c499ca143a1763d6b0, type: 3}
 --- !u!1 &1299162109
 GameObject:
