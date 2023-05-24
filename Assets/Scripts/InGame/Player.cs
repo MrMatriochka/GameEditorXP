@@ -101,6 +101,7 @@ public class Player : MonoBehaviour
         if (moveInput != 0)
         {
             anim.SetBool("isMoving", true);
+            if (dustParticlesAnimator == null) return;
             if (isGrounded)
             {
                 dustParticlesAnimator.SetBool("active", true);
@@ -111,7 +112,7 @@ public class Player : MonoBehaviour
         else
         {
             anim.SetBool("isMoving", false);
-            dustParticlesAnimator.SetBool("active", false); 
+            if (dustParticlesAnimator != null) dustParticlesAnimator.SetBool("active", false); 
         }
     }
 
