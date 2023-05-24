@@ -108,7 +108,7 @@ public class BlocAssemble : MonoBehaviour
                 bot.transform.localPosition = botBasePos - new Vector3(0, nextPosRescaleOffset * nbOfMidBloc, 0);
                 nextBlocPosition.transform.localPosition = nextBlocPosBasePos - new Vector3(0, nextPosRescaleOffset * nbOfMidBloc, 0);
 
-                midBase.transform.localPosition = midBaseBlocPosBasePos - new Vector3(0, midBasePosRescaleOffset * nbOfMidBloc, 0);
+                //midBase.transform.localPosition = midBaseBlocPosBasePos - new Vector3(0, midBasePosRescaleOffset * nbOfMidBloc, 0);
                 midBase.transform.localScale = new Vector3(1, (nbOfMidBloc+1)* midBaseRescaleOffset, 1);
             }
 
@@ -131,7 +131,7 @@ public class BlocAssemble : MonoBehaviour
                 float nbOfMidBloc = GetNumberOfMidBloc();
                 bot.transform.localPosition = botBasePos - new Vector3(0, nextPosRescaleOffset * nbOfMidBloc, 0);
 
-                midBase.transform.localPosition = midBaseBlocPosBasePos - new Vector3(0, midBasePosRescaleOffset * nbOfMidBloc, 0);
+                //midBase.transform.localPosition = midBaseBlocPosBasePos - new Vector3(0, midBasePosRescaleOffset * nbOfMidBloc, 0);
                 midBase.transform.localScale = new Vector3(1, (nbOfMidBloc + 1) * midBaseRescaleOffset, 1);
             }
         }

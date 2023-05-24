@@ -394,11 +394,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 448
-        y: 104
+        y: 108
         width: 16
-        height: 20
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
+        height: 16
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -415,9 +415,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 448
-        y: 84
+        y: 88
         width: 112
-        height: 20
+        height: 16
       alignment: 4
       pivot: {x: 0, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -771,6 +771,48 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: tiledark_v1_31
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 88
+        width: 112
+        height: 16
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 044f33a4e69e85f48903f065d4a0cd71
+      internalID: 1882751547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiledark_v1_32
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 84
+        width: 112
+        height: 20
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42e716f63de63ad40aa53806e5eb1e42
+      internalID: -1677786143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -807,7 +849,9 @@ TextureImporter:
       tiledark_v1_15: -1078267109
       tiledark_v1_20: -697474638
       tiledark_v1_6: -527896116
+      tiledark_v1_32: -1677786143
       tiledark_v1_10: 923730995
+      tiledark_v1_31: 1882751547
       tiledark_v1_25: -1773738218
       tiledark_v1_5: -1644637384
       tiledark_v1_14: -637495196

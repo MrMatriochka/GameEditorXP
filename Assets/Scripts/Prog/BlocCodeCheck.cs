@@ -33,10 +33,10 @@ public class BlocCodeCheck : MonoBehaviour
 
         Initialize();
 
-        foreach(GameObject obj in ennemyList)
-        {
-            obj.GetComponent<Animator>().SetBool("Start", true);
-        }
+        //foreach(GameObject obj in ennemyList)
+        //{
+        //    obj.GetComponent<Animator>().SetBool("Start", true);
+        //}
     }
 
     public void CreateCodeList()
