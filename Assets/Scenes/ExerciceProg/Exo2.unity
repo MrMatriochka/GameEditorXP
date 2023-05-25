@@ -1382,6 +1382,18 @@ PrefabInstance:
       propertyPath: codeCheck
       value: 
       objectReference: {fileID: 2014397781}
+    - target: {fileID: 2965545553309104365, guid: e1b3a1f241649b44c96d9ac596ffbfb5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.68
+      objectReference: {fileID: 0}
+    - target: {fileID: 2965545553309104365, guid: e1b3a1f241649b44c96d9ac596ffbfb5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.67
+      objectReference: {fileID: 0}
+    - target: {fileID: 8422635772070622026, guid: e1b3a1f241649b44c96d9ac596ffbfb5, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.77
+      objectReference: {fileID: 0}
     - target: {fileID: 8516772188800843084, guid: e1b3a1f241649b44c96d9ac596ffbfb5, type: 3}
       propertyPath: m_Name
       value: Preview (1)
@@ -1436,7 +1448,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8516772188844845793, guid: e1b3a1f241649b44c96d9ac596ffbfb5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.51
+      value: 0.86
+      objectReference: {fileID: 0}
+    - target: {fileID: 8516772188844845807, guid: e1b3a1f241649b44c96d9ac596ffbfb5, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.09
       objectReference: {fileID: 0}
     - target: {fileID: 8516772188844845807, guid: e1b3a1f241649b44c96d9ac596ffbfb5, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
@@ -1468,7 +1484,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8516772189989776431, guid: e1b3a1f241649b44c96d9ac596ffbfb5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.59
+      value: 1.3
       objectReference: {fileID: 0}
     - target: {fileID: 8621792071865881399, guid: e1b3a1f241649b44c96d9ac596ffbfb5, type: 3}
       propertyPath: m_Size.y
@@ -1476,7 +1492,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8621792071865881399, guid: e1b3a1f241649b44c96d9ac596ffbfb5, type: 3}
       propertyPath: m_Offset.y
-      value: 0.026841253
+      value: 0.48
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1b3a1f241649b44c96d9ac596ffbfb5, type: 3}

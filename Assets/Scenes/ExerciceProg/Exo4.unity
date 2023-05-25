@@ -2857,6 +2857,14 @@ PrefabInstance:
       propertyPath: codeCheck
       value: 
       objectReference: {fileID: 2014397781}
+    - target: {fileID: 2965545553309104365, guid: e1b3a1f241649b44c96d9ac596ffbfb5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8422635772070622026, guid: e1b3a1f241649b44c96d9ac596ffbfb5, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.83
+      objectReference: {fileID: 0}
     - target: {fileID: 8516772188501032081, guid: e1b3a1f241649b44c96d9ac596ffbfb5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.341198
@@ -2923,7 +2931,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8516772188844845793, guid: e1b3a1f241649b44c96d9ac596ffbfb5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.51
+      value: 0.84
+      objectReference: {fileID: 0}
+    - target: {fileID: 8516772188844845807, guid: e1b3a1f241649b44c96d9ac596ffbfb5, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.13
       objectReference: {fileID: 0}
     - target: {fileID: 8516772189280413669, guid: e1b3a1f241649b44c96d9ac596ffbfb5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2963,11 +2975,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8516772189989776431, guid: e1b3a1f241649b44c96d9ac596ffbfb5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.59
+      value: 1.31
       objectReference: {fileID: 0}
     - target: {fileID: 8619210222454244012, guid: e1b3a1f241649b44c96d9ac596ffbfb5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.99549866
+      objectReference: {fileID: 0}
+    - target: {fileID: 8621792071865881399, guid: e1b3a1f241649b44c96d9ac596ffbfb5, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.45
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1b3a1f241649b44c96d9ac596ffbfb5, type: 3}
@@ -3547,10 +3563,10 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.45}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0}
     oldSize: {x: 0.9375, y: 0.9375}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5

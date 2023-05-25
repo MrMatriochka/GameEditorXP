@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 98e0c7d4577f82b41983f2eb858c3a7d
+guid: 787b35cc3ad59de448708a4f067ae771
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -42,10 +42,10 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 0
+  alignment: 6
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
@@ -115,91 +115,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: Ooze_boss_sneer_0
-      rect:
-        serializedVersion: 2
-        x: 41
-        y: 0
-        width: 55
-        height: 43
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 78e6dfbdd96dcce41b248e7c6e9aea31
-      internalID: -1862149163
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Ooze_boss_sneer_1
-      rect:
-        serializedVersion: 2
-        x: 141
-        y: 0
-        width: 50
-        height: 47
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 66e49e8c311ad454bb991d26482cf057
-      internalID: -123367362
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Ooze_boss_sneer_2
-      rect:
-        serializedVersion: 2
-        x: 228
-        y: 0
-        width: 60
-        height: 45
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 790c82e9e8729e44db594b8cf1dddbf8
-      internalID: 1533606579
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Ooze_boss_sneer_4
-      rect:
-        serializedVersion: 2
-        x: 326
-        y: 0
-        width: 58
-        height: 45
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f5429ef82f169ba4c882a5fcbd2b62e2
-      internalID: -701045514
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
@@ -210,12 +126,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      Ooze_boss_sneer_4: -701045514
-      Ooze_boss_sneer_0: -1862149163
-      Ooze_boss_sneer_3: 182494007
-      Ooze_boss_sneer_1: -123367362
-      Ooze_boss_sneer_2: 1533606579
+    nameFileIdTable: {}
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
