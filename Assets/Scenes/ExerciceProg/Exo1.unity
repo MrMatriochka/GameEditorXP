@@ -625,18 +625,6 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: 0.09
       objectReference: {fileID: 0}
-    - target: {fileID: 8516772189280413670, guid: e1b3a1f241649b44c96d9ac596ffbfb5, type: 3}
-      propertyPath: m_BackGroundColor.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8516772189280413670, guid: e1b3a1f241649b44c96d9ac596ffbfb5, type: 3}
-      propertyPath: m_BackGroundColor.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8516772189280413670, guid: e1b3a1f241649b44c96d9ac596ffbfb5, type: 3}
-      propertyPath: m_BackGroundColor.r
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8516772189989776416, guid: e1b3a1f241649b44c96d9ac596ffbfb5, type: 3}
       propertyPath: codeCheck
       value: 

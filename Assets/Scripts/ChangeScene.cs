@@ -5,9 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class ChangeScene : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public Password password;
     public void GoToScene()
     {
+        if (!password.done) return;
+
+
         if(PlayerPrefs.HasKey("ProgLvl"))
         {
             if (PlayerPrefs.GetInt("ProgLvl") + 1 < SceneManager.sceneCountInBuildSettings)
