@@ -12,6 +12,7 @@ Material:
   m_ValidKeywords: []
   m_InvalidKeywords:
   - ETC1_EXTERNAL_ALPHA
+  - _CONNECTEDALPHA_ON
   - _FRAMEMODE_GENERAL
   - _OUTLINEENABLED_ON
   - _OUTLINEMODE_SOLID
@@ -77,7 +78,7 @@ Material:
     - _AlphaThreshold: 0
     - _Angle: 45
     - _BumpScale: 1
-    - _ConnectedAlpha: 0
+    - _ConnectedAlpha: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
@@ -109,5 +110,5 @@ Material:
     - _GradientOutline2: {r: 1, g: 1, b: 1, a: 1}
     - _ImageOutline: {r: 1, g: 1, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
-    - _SolidOutline: {r: 0.41101444, g: 1, b: 0.25, a: 1}
+    - _SolidOutline: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
