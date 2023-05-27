@@ -181,7 +181,7 @@ public class BlocCodeCheck : MonoBehaviour
 
     IEnumerator Avancer()
     {
-        bloc[index].GetComponent<Renderer>().material.SetFloat("_Thickness", 5);
+        bloc[index].GetComponent<Renderer>().material.SetFloat("_Thickness", 1.5f);
         index++;
         print(index + ": Avancer");
         float elapsedTime = 0f;
@@ -215,7 +215,7 @@ public class BlocCodeCheck : MonoBehaviour
 
     IEnumerator Attaquer()
     {
-        bloc[index].GetComponent<Renderer>().material.SetFloat("_Thickness", 5);
+        bloc[index].GetComponent<Renderer>().material.SetFloat("_Thickness", 1.5f);
         index++;
         print(index + ": Attaquer");
 
@@ -237,7 +237,7 @@ public class BlocCodeCheck : MonoBehaviour
 
     IEnumerator Flip()
     {
-        bloc[index].GetComponent<Renderer>().material.SetFloat("_Thickness", 5);
+        bloc[index].GetComponent<Renderer>().material.SetFloat("_Thickness", 1.5f);
         index++;
         print(index + ": Flip");
         boss.transform.localScale = new Vector3(-boss.transform.localScale.x, boss.transform.localScale.y, boss.transform.localScale.z);
@@ -263,7 +263,7 @@ public class BlocCodeCheck : MonoBehaviour
         boucleOn = true;
         boucleIndex = index;
 
-        bloc[index].GetComponent<Renderer>().material.SetFloat("_Thickness", 5);
+        bloc[index].GetComponent<Renderer>().material.SetFloat("_Thickness", 1.5f);
         index++;
         print(index + ": Boucle");
         yield return new WaitForSeconds(0.5f);
@@ -284,7 +284,7 @@ public class BlocCodeCheck : MonoBehaviour
 
     IEnumerator IfJoueur()
     {
-        bloc[index].GetComponent<Renderer>().material.SetFloat("_Thickness", 5);
+        bloc[index].GetComponent<Renderer>().material.SetFloat("_Thickness", 1.5f);
         index++;
         print("IfJoueur");
         yield return new WaitForSeconds(0.5f);
@@ -310,7 +310,7 @@ public class BlocCodeCheck : MonoBehaviour
 
     IEnumerator IfObstacle()
     {
-        bloc[index].GetComponent<Renderer>().material.SetFloat("_Thickness", 5);
+        bloc[index].GetComponent<Renderer>().material.SetFloat("_Thickness", 1.5f);
         index++;
         print(index+": IfObstacle");
         yield return new WaitForSeconds(0.5f);
@@ -335,7 +335,7 @@ public class BlocCodeCheck : MonoBehaviour
 
     IEnumerator EndIf()
     {
-        bloc[index].GetComponent<Renderer>().material.SetFloat("_Thickness", 5);
+        bloc[index].GetComponent<Renderer>().material.SetFloat("_Thickness", 1.5f);
         index++;
         print(index + ": EndIf");
         yield return new WaitForSeconds(0.5f);
