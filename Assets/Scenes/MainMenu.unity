@@ -1557,6 +1557,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7818228415460844516, guid: 5f7b00153b17c2c499d0bd43d23141e4, type: 3}
+      propertyPath: password
+      value: mario
+      objectReference: {fileID: 0}
     - target: {fileID: 7818228415460844517, guid: 5f7b00153b17c2c499d0bd43d23141e4, type: 3}
       propertyPath: m_Pivot.x
       value: 0
