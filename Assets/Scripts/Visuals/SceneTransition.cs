@@ -26,20 +26,23 @@ namespace Visuals
     
     public class SceneTransition : MonoBehaviour
     {
-        private enum Direction
+        private enum TransitionType
         {
             Left,
             Right,
             Up,
-            Down
+            Down,
+            Static
         }
     
         [Header("Transition Settings")] 
-        [SerializeField] private Direction direction;
+        [SerializeField] private TransitionType transitionType;
         [SerializeField] private float duration = 1;
         [SerializeField] private Easings.Type easing;
         [SerializeField] private bool reverseTransitionOut = true;
         [SerializeField] private bool reverseEasingOut = true;
+        [SerializeField] private bool fade = false;
+
 
         //public Animator anim;    
 
@@ -52,35 +55,41 @@ namespace Visuals
         private Vector2 basePosition;
         private Vector2 basePivot;
         private float lerpElapsedTime;
+        private SpriteRenderer sprite;
 
         private void Start()
         {
+            sprite = GetComponent<SpriteRenderer>();
             lerpElapsedTime = duration;
             imageTransform = GetComponent<RectTransform>();
-            if (!reverseTransitionOut) InvertDirection();
+            if (!reverseTransitionOut) InvertTransitionDirection();
             if (!reverseEasingOut) InvertEasing();
             else InitTargetPositions();
         }
 
         private void InitTargetPositions()
         {
-            switch(direction)
+            switch(transitionType)
             {
-                case Direction.Left:
+                case TransitionType.Left:
                     basePosition = new Vector2(Screen.width / 2, 0);
                     basePivot = new Vector2(0, 0.5f);
                     break;
-                case Direction.Right:
+                case TransitionType.Right:
                     basePosition = new Vector2(0 - Screen.width / 2, 0);
                     basePivot = new Vector2(1, 0.5f);
                     break;
-                case Direction.Up:
+                case TransitionType.Up:
                     basePosition = new Vector2(0, 0 - Screen.height/2);
                     basePivot = new Vector2(0.5f, 1);
                     break;
-                case Direction.Down:
+                case TransitionType.Down:
                     basePosition = new Vector2(0, Screen.height/2);
                     basePivot = new Vector2(0.5f, 0);
+                    break;
+                case TransitionType.Static: 
+                    basePosition = new Vector2(0, 0);
+                    basePivot = new Vector2(0.5f, 0.5f);
                     break;
             }
         }
@@ -109,11 +118,12 @@ namespace Visuals
         
         private void Update()
         {
-            float lerpInterpolation = GetLerpInterpolation();
-            
             if (!inPlaying && !outPlaying) return;
+            
+            float lerpInterpolation = GetLerpInterpolation();
             imageTransform.pivot = Vector2.Lerp(basePivot, new Vector2(0.5f, 0.5f), lerpInterpolation);
             imageTransform.localPosition = Vector2.Lerp(basePosition, new Vector2(0, 0), lerpInterpolation);
+            if (fade) sprite.color = sprite.color.WithAlpha(Mathf.Lerp(0, 1, lerpInterpolation));
                 
             if (inPlaying)
             {
@@ -126,7 +136,7 @@ namespace Visuals
                 lerpElapsedTime -= Time.deltaTime;
                 if (lerpElapsedTime <= 0)
                 {
-                    if (!reverseTransitionOut) InvertDirection();
+                    if (!reverseTransitionOut) InvertTransitionDirection();
                     if (!reverseEasingOut) InvertEasing();
                     imageTransform.pivot = basePivot;
                     imageTransform.localPosition = basePosition;
@@ -135,15 +145,15 @@ namespace Visuals
             }
         }
 
-        private void InvertDirection()
+        private void InvertTransitionDirection()
         {
-            direction = direction switch
+            transitionType = transitionType switch
             {
-                Direction.Left => Direction.Right,
-                Direction.Right => Direction.Left,
-                Direction.Up => Direction.Down,
-                Direction.Down => Direction.Up,
-                _ => direction
+                TransitionType.Left => TransitionType.Right,
+                TransitionType.Right => TransitionType.Left,
+                TransitionType.Up => TransitionType.Down,
+                TransitionType.Down => TransitionType.Up,
+                _ => transitionType
             };
             InitTargetPositions();
         }
@@ -166,7 +176,7 @@ namespace Visuals
                 SceneManager.LoadScene(scene.name);
             else
             {
-                if (!reverseTransitionOut) InvertDirection();
+                if (!reverseTransitionOut) InvertTransitionDirection();
                 if (!reverseEasingOut) InvertEasing();
                 outPlaying = true;
                 lerpElapsedTime = duration;
