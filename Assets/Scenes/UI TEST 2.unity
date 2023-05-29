@@ -257,11 +257,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 14193428}
   m_CullTransparentMesh: 1
---- !u!1 &14891515 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7818228416271161482, guid: 5f7b00153b17c2c499d0bd43d23141e4, type: 3}
-  m_PrefabInstance: {fileID: 786294783}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &59449461
 GameObject:
   m_ObjectHideFlags: 0
@@ -2591,7 +2586,7 @@ PrefabInstance:
     - target: {fileID: 4052226251739883906, guid: 23b367c7f420b134e957334e1e218eef, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 14891515}
+      objectReference: {fileID: 519940037}
     - target: {fileID: 4052226251739883906, guid: 23b367c7f420b134e957334e1e218eef, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
@@ -5042,6 +5037,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 518316280}
   m_CullTransparentMesh: 1
+--- !u!1 &519940037 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3583680307526097126, guid: 5f7b00153b17c2c499d0bd43d23141e4, type: 3}
+  m_PrefabInstance: {fileID: 786294783}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &522915353
 GameObject:
   m_ObjectHideFlags: 0
@@ -13787,6 +13787,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0.86005485
       objectReference: {fileID: 0}
+    - target: {fileID: 4976334554611636591, guid: a3b0ebacd0d73c245b8c7335dc12d6e5, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5031525797143950704, guid: a3b0ebacd0d73c245b8c7335dc12d6e5, type: 3}
       propertyPath: materialsList.Array.size
       value: 11
@@ -22039,7 +22043,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1933588909}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -987, y: -545, z: 0}
+  m_LocalPosition: {x: -985, y: -551, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -22092,7 +22096,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
-  m_Size: {x: 86.194145, y: 14.321283}
+  m_Size: {x: 85, y: 22}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
