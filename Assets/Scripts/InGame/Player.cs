@@ -55,6 +55,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        
         if (Input.GetButton("Horizontal")&&canMove)
         {
             moveInput = Input.GetAxisRaw("Horizontal");
@@ -114,6 +115,16 @@ public class Player : MonoBehaviour
             anim.SetBool("isMoving", false);
             if (dustParticlesAnimator != null) dustParticlesAnimator.SetBool("active", false); 
         }
+
+        if (rb.velocity.x > 10)
+            rb.velocity = new Vector2(10,rb.velocity.y);
+        if (rb.velocity.y > 10)
+            rb.velocity = new Vector2(rb.velocity.x,10);
+
+        if (rb.velocity.x < -10)
+            rb.velocity = new Vector2(-10, rb.velocity.y);
+        if (rb.velocity.y < -10)
+            rb.velocity = new Vector2(rb.velocity.x, -10);
     }
 
     private void Flip()

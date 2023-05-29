@@ -35,6 +35,8 @@ public class BuildingManager : MonoBehaviour
     public GameObject deselectBugFixer;
 
     SelectObject selectObj;
+
+    [HideInInspector] public Vector3 decalage;
     void Start()
     {
         cam = GameObject.Find("Main Camera");
@@ -103,12 +105,14 @@ public class BuildingManager : MonoBehaviour
     private void FixedUpdate()
     {
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        pos = mousePosition;
+        pos = new Vector3(mousePosition.x, mousePosition.y, 0) - decalage;
     }
 
-    public void SelectObject(GameObject objectToSpawn)
+    public void SelectObject(PrefabInButton script)
     {
         if (Input.GetKeyDown(KeyCode.Mouse1)) return;
+
+        GameObject objectToSpawn = script.prefab;
 
         if (!IsPrefabLimitExceeded(objectToSpawn))
         {
