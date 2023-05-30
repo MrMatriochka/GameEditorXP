@@ -48,10 +48,10 @@ public class BuildingManager : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.R))
-        {
-            Reset();
-        }
+        //if(Input.GetKeyDown(KeyCode.R))
+        //{
+        //    Reset();
+        //}
 
         if (Input.GetMouseButtonUp(0) && mouseOnTrash && pendingObj != null)
         {

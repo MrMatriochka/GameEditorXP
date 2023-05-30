@@ -186,7 +186,7 @@ public class Player : MonoBehaviour
         yield return null;
     }
 
-    void Death()
+    public void Death()
     {
         hp = maxHp;
         //GetComponent<Renderer>().color = new Color(1, 1, 1, 1);
