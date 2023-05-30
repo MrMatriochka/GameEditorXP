@@ -21,14 +21,8 @@ public class Fireball : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            collision.gameObject.SetActive(false);
-            GameObject.Find("Checkpoint").GetComponent<PreviewCheckpoint>().enemyCount--;
-            Destroy(gameObject);
+            collision.GetComponent<Player>().hp--;
+            collision.GetComponent<Player>().UpdateLife();
         }
-        //if (collision.CompareTag("Enemy"))
-        //{
-        //    GameObject.Find("BlocStart").GetComponent<BlocCodeCheck>().ResetPreview();
-        //    Destroy(gameObject);
-        //}
     }
 }
