@@ -6,7 +6,7 @@ public class Password : MonoBehaviour
 {
     public string password;
     public bool done;
-
+    public LerpCurve lerp;
     private void Start()
     {
         if (PlayerPrefs.HasKey(SceneManager.GetActiveScene().name + "password"))
@@ -18,16 +18,22 @@ public class Password : MonoBehaviour
         {
             done = true;
             PlayerPrefs.SetFloat(SceneManager.GetActiveScene().name + "password", 1);
-            int i = SceneManager.GetActiveScene().buildIndex+1;
-            SceneManager.LoadScene(i);
+            lerp.StartCoroutine(lerp.Lerp());
+            transform.GetChild(0).gameObject.SetActive(false);
         }
     }
     public void AlreadyDone()
     {
         if (done)
         {
-            int i = SceneManager.GetActiveScene().buildIndex + 1;
-            SceneManager.LoadScene(i);
+            lerp.StartCoroutine(lerp.Lerp());
+            transform.GetChild(0).gameObject.SetActive(false);
         }
+    }
+
+    public void Loading()
+    {
+        int i = SceneManager.GetActiveScene().buildIndex + 1;
+        SceneManager.LoadScene(i);
     }
 }
