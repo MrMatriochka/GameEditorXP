@@ -1433,7 +1433,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1383088190046621411, guid: 2a1bc6342e8f16343b61f57f52e3d2de, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -20.600006
+      value: -20.599976
       objectReference: {fileID: 0}
     - target: {fileID: 2248924641025145548, guid: 2a1bc6342e8f16343b61f57f52e3d2de, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -1670,6 +1670,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2248924641025145548, guid: 2a1bc6342e8f16343b61f57f52e3d2de, type: 3}
   m_PrefabInstance: {fileID: 1612225909}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1612225912 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5771979212106977018, guid: 2a1bc6342e8f16343b61f57f52e3d2de, type: 3}
+  m_PrefabInstance: {fileID: 1612225909}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2385ae823c27a744926c99189c1cdd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1764145826
 GameObject:
   m_ObjectHideFlags: 0
@@ -1813,12 +1824,24 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 6229886698615250789, guid: 07b4e83cf0f934d47bfb33126c0cdce6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6229886698615250789, guid: 07b4e83cf0f934d47bfb33126c0cdce6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1612225910}
+      objectReference: {fileID: 1612225912}
     - target: {fileID: 6229886698615250789, guid: 07b4e83cf0f934d47bfb33126c0cdce6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: NextScene
+      value: AlreadyDone
+      objectReference: {fileID: 0}
+    - target: {fileID: 6229886698615250789, guid: 07b4e83cf0f934d47bfb33126c0cdce6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Password, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6229886698615250789, guid: 07b4e83cf0f934d47bfb33126c0cdce6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 8522410022668871706, guid: 07b4e83cf0f934d47bfb33126c0cdce6, type: 3}
       propertyPath: m_Name

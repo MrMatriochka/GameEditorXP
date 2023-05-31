@@ -14,7 +14,7 @@ public class PreviewBoss : MonoBehaviour
     public GameObject mouth;
     void FixedUpdate()
     {
-        RaycastHit2D hit = Physics2D.Raycast(mouth.transform.position, Vector2.left*facing,2000);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position+Vector3.up/2, Vector2.left*facing,2000);
 
         if (hit.collider != null)
         {

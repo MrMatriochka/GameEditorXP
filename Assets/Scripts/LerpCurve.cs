@@ -16,8 +16,8 @@ public class LerpCurve : MonoBehaviour
     void Start()
     {
         startPosition = transform.position;
-        endPosition = endPos.transform.position;
-        if (startTransi) StartCoroutine(Lerp());
+        if(endPos != null) endPosition = endPos.transform.position;
+        if (startTransi) StartCoroutine(FadeIn());
     }
     //void FixedUpdate()
     //{
@@ -28,6 +28,7 @@ public class LerpCurve : MonoBehaviour
 
     public IEnumerator Lerp()
     {
+        elapsedTime = 0;
         while (elapsedTime < duration)
         {
             transform.position = Vector3.Lerp(startPosition, endPosition, (elapsedTime / duration));
@@ -38,6 +39,38 @@ public class LerpCurve : MonoBehaviour
 
         transform.position = endPosition;
         if (startTransi) Destroy(gameObject);
+        yield return null;
+        password.Loading();
+        yield return null;
+    }
+
+    public IEnumerator FadeIn()
+    {
+        SpriteRenderer sprite = GetComponent<SpriteRenderer>();
+        elapsedTime = 0;
+        while (elapsedTime < duration)
+        {
+            sprite.color = new Color(sprite.color.r, sprite.color.g, sprite.color.b, Mathf.Lerp(1, 0, (elapsedTime / duration)));
+            elapsedTime += Time.deltaTime;
+
+            yield return null;
+        }
+        
+        yield return null;
+    }
+
+    public IEnumerator FadeOut()
+    {
+        SpriteRenderer sprite = GetComponent<SpriteRenderer>();
+        elapsedTime = 0;
+        while (elapsedTime < duration)
+        {
+            sprite.color = new Color(sprite.color.r, sprite.color.g, sprite.color.b, Mathf.Lerp(0, 1, (elapsedTime / duration)));
+            elapsedTime += Time.deltaTime;
+
+            yield return null;
+        }
+
         yield return null;
         password.Loading();
         yield return null;
