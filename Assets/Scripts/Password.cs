@@ -18,7 +18,7 @@ public class Password : MonoBehaviour
         {
             done = true;
             PlayerPrefs.SetFloat(SceneManager.GetActiveScene().name + "password", 1);
-            lerp.StartCoroutine(lerp.Lerp());
+            lerp.StartCoroutine(lerp.FadeOut());
             transform.GetChild(0).gameObject.SetActive(false);
         }
     }
@@ -26,14 +26,20 @@ public class Password : MonoBehaviour
     {
         if (done)
         {
-            lerp.StartCoroutine(lerp.Lerp());
-            transform.GetChild(0).gameObject.SetActive(false);
+            lerp.StartCoroutine(lerp.FadeOut());
+            if(transform.childCount>0) transform.GetChild(0).gameObject.SetActive(false);
         }
     }
 
     public void Loading()
     {
-        int i = SceneManager.GetActiveScene().buildIndex + 1;
-        SceneManager.LoadScene(i);
+        int sceneIndex = SceneManager.GetActiveScene().buildIndex;
+        PlayerPrefs.SetInt("ProgLvl", sceneIndex + 1);
+        if (sceneIndex + 1 < SceneManager.sceneCountInBuildSettings)
+        {
+            SceneManager.LoadScene(sceneIndex + 1);
+        }
+        else
+            SceneManager.LoadScene(1);
     }
 }
