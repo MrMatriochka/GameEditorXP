@@ -33,6 +33,31 @@ public class Password : MonoBehaviour
 
     public void Loading()
     {
+        if(SceneManager.GetActiveScene().buildIndex == 0)
+        {
+            SceneManager.LoadScene(1);
+            return;
+        }
+        if(SceneManager.GetActiveScene().buildIndex == 1)
+        {
+            if (PlayerPrefs.HasKey("ProgLvl"))
+            {
+                if (PlayerPrefs.GetInt("ProgLvl") + 1 < SceneManager.sceneCountInBuildSettings)
+                {
+                    SceneManager.LoadScene(PlayerPrefs.GetInt("ProgLvl"));
+
+                }
+                else
+                    SceneManager.LoadScene(PlayerPrefs.GetInt("ProgLvl") - 1);
+
+            }
+            else
+            {
+                SceneManager.LoadScene(1 + SceneManager.GetActiveScene().buildIndex);
+            }
+            return;
+        }
+
         int sceneIndex = SceneManager.GetActiveScene().buildIndex;
         PlayerPrefs.SetInt("ProgLvl", sceneIndex + 1);
         if (sceneIndex + 1 < SceneManager.sceneCountInBuildSettings)
