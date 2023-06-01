@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,9 +10,12 @@ namespace Shawn.Scripts
         public Image sourceImage;
         public Sprite hoveredSprite;
         public Sprite pressedSprite;
+        // public GameObject placementPoofFX;
+        // public GameObject levelEditorCanvas;
 
         private bool hovered = false;
         private bool active = false;
+        private bool bm_couldPlace = false;
 
         private Sprite sourceBaseSprite;
     
@@ -23,19 +27,27 @@ namespace Shawn.Scripts
 
         private void Update()
         {
-            if (!active && hovered && buildingManager.pendingObj != null)
+            bool pendingExists = buildingManager.pendingObj != null;
+            
+            if (!active && hovered && pendingExists)
             {
                 active = true;
                 sourceImage.sprite = pressedSprite;
                 MouseIconHandler.Instance.SetCursorHandHold();
             }
 
-            if (active && buildingManager.pendingObj == null)
+            if (active && !pendingExists)
             {
                 active = false;
                 sourceImage.sprite = sourceBaseSprite;
                 MouseIconHandler.Instance.SetCursorDefault();
+                if (bm_couldPlace)
+                {
+                    // Instantiate(placementPoofFX, Input.mousePosition, Quaternion.identity, levelEditorCanvas.transform);
+                }
             }
+
+            bm_couldPlace = pendingExists && buildingManager.canPlace;
         }
 
         public void SetMouseEntered()

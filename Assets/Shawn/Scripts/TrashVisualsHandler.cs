@@ -1,54 +1,83 @@
-using System.Collections;
-using System.Collections.Generic;
+using System.ComponentModel;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
-public class TrashVisualsHandler : MonoBehaviour
+namespace Shawn.Scripts
 {
-    public GameObject[] buttonsToDeactivate;
-    public BuildingManager bm;
-
-    private Image img;
-
-    private bool holding;
-
-    // Start is called before the first frame update
-    void Start()
+    public class TrashVisualsHandler : MonoBehaviour
     {
-        img = GetComponent<Image>();
-        img.enabled = false;
-    }
+        [Category("Dependencies")]
+        public BuildingManager bm;
+        
+        [Category("Parameters")]
+        public GameObject[] buttonsToDeactivate;
+        public GameObject disappearFXPrefab;
+        public bool invisibleOnStart;
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (bm.pendingObj != null && !holding)
+        private Image img;
+        private Image childImg;
+
+        private bool holding;
+        private bool bm_couldPlace;
+
+        // Start is called before the first frame update
+        void Start()
         {
-            OnObjectHeld();
-            holding = true;
+            img = GetComponent<Image>();
+            childImg = GetComponentInChildren<Image>();
+            if (invisibleOnStart)
+            {
+                img.enabled = false;
+                childImg.enabled = false;
+            }
         }
-        else if(bm.pendingObj == null && holding)
-        {
-            OnObjectLetGo();
-            holding = false;
-        }
-    }
 
-    void OnObjectLetGo()
-    {
-        img.enabled = false;
-        foreach (GameObject o in buttonsToDeactivate)
+        // Update is called once per frame
+        void Update()
         {
-            o.SetActive(true);
+            bool pendingExists = bm.pendingObj != null;
+            
+            if (pendingExists && !holding)
+            {
+                OnObjectHeld();
+                holding = true;
+            }
+            else if(!pendingExists && holding)
+            {
+                OnObjectLetGo();
+                if(!bm_couldPlace)
+                    Instantiate(disappearFXPrefab, Input.mousePosition, Quaternion.identity, transform.parent);
+                holding = false;
+            }
+            
+            bm_couldPlace = pendingExists && bm.canPlace;
         }
-    }
 
-    void OnObjectHeld()
-    {
-        img.enabled = true;
-        foreach (GameObject o in buttonsToDeactivate)
+        void OnObjectLetGo()
         {
-            o.SetActive(false);
+            if (invisibleOnStart)
+            {
+                img.enabled = false;
+                childImg.enabled = false;
+                foreach (GameObject o in buttonsToDeactivate)
+                {
+                    o.SetActive(true);
+                }
+            }
+        }
+
+        void OnObjectHeld()
+        {
+            if (invisibleOnStart)
+            {
+                img.enabled = true;
+                childImg.enabled = true;
+                foreach (GameObject o in buttonsToDeactivate)
+                {
+                    o.SetActive(false);
+                }
+            }
         }
     }
 }
