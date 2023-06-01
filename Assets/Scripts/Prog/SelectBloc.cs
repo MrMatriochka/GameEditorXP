@@ -5,7 +5,12 @@ using UnityEngine;
 public class SelectBloc : MonoBehaviour
 {
     public GameObject selectedObj;
+    BlocEditor blocEditor;
 
+    void Start()
+    {
+        blocEditor = GetComponent<BlocEditor>();
+    }
     void Update()
     {
         if (Input.GetMouseButtonDown(0) && BlocEditor.pendingObj == null)
@@ -39,11 +44,10 @@ public class SelectBloc : MonoBehaviour
 
         if (selectedObj != null) Deselect();
 
+        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        blocEditor.decalage = new Vector3(mousePosition.x, mousePosition.y, 0) - obj.transform.position;
+
         selectedObj = obj;
-
-        
-
-
 
 
         if(selectedObj.GetComponent<BlocAssemble>().previousBloc != null)

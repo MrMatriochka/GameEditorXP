@@ -299,7 +299,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 2.0634248, y: 0.055003762}
+  m_Offset: {x: 1.7493651, y: 0.06717658}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0.5}
@@ -310,7 +310,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.144181, y: 0.8087094}
+  m_Size: {x: 3.4673696, y: 0.5019536}
   m_EdgeRadius: 0
 --- !u!114 &-4636672876015617933
 MonoBehaviour:
@@ -453,7 +453,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.17520803}
+  m_Offset: {x: 1.7564797, y: -0.0018916726}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0.5}
@@ -464,7 +464,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.12, y: 0.36958396}
+  m_Size: {x: 3.4625874, y: 0.47990835}
   m_EdgeRadius: 0
 --- !u!1 &6156612775461020400
 GameObject:
@@ -513,7 +513,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 2.48, y: 0.12}
+  m_Offset: {x: 1.7919239, y: 0.009675577}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0.5}
@@ -524,7 +524,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.72, y: 0.4}
+  m_Size: {x: 3.2612836, y: 0.17935118}
   m_EdgeRadius: 0
 --- !u!212 &7382637183894919297
 SpriteRenderer:
@@ -721,7 +721,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 2.48, y: 0.12}
+  m_Offset: {x: 1.4870807, y: 0.015482143}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0.5}
@@ -732,7 +732,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.72, y: 0.4}
+  m_Size: {x: 2.7793396, y: 0.19096431}
   m_EdgeRadius: 0
 --- !u!212 &5810111265553468720
 SpriteRenderer:

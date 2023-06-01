@@ -19,6 +19,7 @@ public class BlocEditor : MonoBehaviour
     public int maxBlocNb;
     public int blocNb = 0;
 
+    [HideInInspector] public Vector3 decalage;
     void Update()
     {
         if (pendingObj != null)
@@ -121,7 +122,7 @@ public class BlocEditor : MonoBehaviour
     private void FixedUpdate()
     {
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        pos = mousePosition;
+        pos = new Vector3(mousePosition.x, mousePosition.y, 0) - decalage;
     }
     public void SelectObject(GameObject bloc)
     {
