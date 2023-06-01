@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b77774883b6e4fb4787158886670843b
+guid: 90999d4e879507746877c846c6eeaa6b
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -42,13 +42,13 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 32
-  spriteBorder: {x: 4, y: 5, z: 4, w: 4}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -101,227 +101,131 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: yellow_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 44
-        width: 4
-        height: 4
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 88e27643b878da44c842460a5c599057
-      internalID: -363488054
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: yellow_1
-      rect:
-        serializedVersion: 2
-        x: 4
-        y: 44
-        width: 40
-        height: 4
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 118051c84deb1314894df1c44c40c2c8
-      internalID: 495720269
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: yellow_2
-      rect:
-        serializedVersion: 2
-        x: 44
-        y: 44
-        width: 4
-        height: 4
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ef147401118a1e54f8ffdd28152f4b2f
-      internalID: 1956211941
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: yellow_3
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 5
-        width: 4
-        height: 39
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5a479495dbd58d445961ce3aab74d898
-      internalID: -1815063073
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: yellow_4
-      rect:
-        serializedVersion: 2
-        x: 4
-        y: 5
-        width: 40
-        height: 39
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d2ea5c52fe3c9604fb90d44f1c1983fc
-      internalID: -1770820260
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: yellow_5
-      rect:
-        serializedVersion: 2
-        x: 44
-        y: 5
-        width: 4
-        height: 39
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ea4b70ee987762b42b19d94429ad1691
-      internalID: -432499073
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: yellow_6
+      name: Buttons_Code_Swap_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 4
-        height: 5
+        width: 10
+        height: 10
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e215fb39f96f6a848999361ea86512c8
-      internalID: 162843459
+      spriteID: 3e0c26f96a97624499e6f007c63c5933
+      internalID: -913284152
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: yellow_7
+      name: Buttons_Code_Swap_1
       rect:
         serializedVersion: 2
-        x: 4
+        x: 10
         y: 0
-        width: 40
-        height: 5
+        width: 10
+        height: 10
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fb8b2488a75cf434a885e225fbbbb818
-      internalID: 863105420
+      spriteID: df24014dfeb0b154ca5a91a30f83eaa1
+      internalID: -557638502
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: yellow_8
+      name: Buttons_Code_Swap_2
       rect:
         serializedVersion: 2
-        x: 44
+        x: 20
         y: 0
-        width: 4
-        height: 5
+        width: 10
+        height: 10
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3a224f839fb37744f8fb82b53f1d7933
-      internalID: 641177062
+      spriteID: 8dd78b711d91b4140a476d72c7d92d53
+      internalID: -581291443
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: yellow_9
+      name: Buttons_Code_Swap_3
       rect:
         serializedVersion: 2
-        x: 0
+        x: 30
         y: 0
-        width: 48
-        height: 48
+        width: 10
+        height: 10
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 4, y: 5, z: 4, w: 4}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d7de4e6cda5d4de479b01e26ed8fb4f4
-      internalID: 1844306825
+      spriteID: 2299f6f04e5bc854dbd3ea4b32f26679
+      internalID: 913793436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Buttons_Code_Swap_4
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 0
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: addedb28c6bc696478e6d270ed70f9d7
+      internalID: 1435087411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Buttons_Code_Swap_5
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 0
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed0836cfd3960cc4288aa1943f216e0f
+      internalID: 1333610346
       vertices: []
       indices: 
       edges: []
@@ -330,23 +234,19 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      yellow_0: -363488054
-      yellow_2: 1956211941
-      yellow_8: 641177062
-      yellow_9: 1844306825
-      yellow_4: -1770820260
-      yellow_6: 162843459
-      yellow_1: 495720269
-      yellow_5: -432499073
-      yellow_7: 863105420
-      yellow_3: -1815063073
+      Buttons_Code_Swap_4: 1435087411
+      Buttons_Code_Swap_0: -913284152
+      Buttons_Code_Swap_3: 913793436
+      Buttons_Code_Swap_2: -581291443
+      Buttons_Code_Swap_5: 1333610346
+      Buttons_Code_Swap_1: -557638502
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
