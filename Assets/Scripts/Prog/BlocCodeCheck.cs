@@ -147,6 +147,7 @@ public class BlocCodeCheck : MonoBehaviour
         boss.transform.position = startPosition;
         boss.transform.localScale = startScale;
         boss.transform.rotation = Quaternion.Euler(Vector3.zero);
+        boss.GetComponent<PreviewBoss>().facing = 1;
         speed = baseSpeed;
         checkpoint.GetComponent<PreviewCheckpoint>().enemyCount = checkpoint.GetComponent<PreviewCheckpoint>().enemyTotal;
         checkpoint.GetComponent<PreviewCheckpoint>().checkpointCount = checkpoint.GetComponent<PreviewCheckpoint>().checkpointTotal;

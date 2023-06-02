@@ -13,7 +13,7 @@ public class ChangeScene : MonoBehaviour
 
         if(PlayerPrefs.HasKey("ProgLvl"))
         {
-            if (PlayerPrefs.GetInt("ProgLvl") + 1 < SceneManager.sceneCountInBuildSettings)
+            if (PlayerPrefs.GetInt("ProgLvl")  < SceneManager.sceneCountInBuildSettings)
             {
                 SceneManager.LoadScene(PlayerPrefs.GetInt("ProgLvl"));
                 

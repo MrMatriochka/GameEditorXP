@@ -2360,8 +2360,12 @@ PrefabInstance:
       value: 0.99549866
       objectReference: {fileID: 0}
     - target: {fileID: 8621792071865881399, guid: e1b3a1f241649b44c96d9ac596ffbfb5, type: 3}
+      propertyPath: m_Size.y
+      value: 0.47555715
+      objectReference: {fileID: 0}
+    - target: {fileID: 8621792071865881399, guid: e1b3a1f241649b44c96d9ac596ffbfb5, type: 3}
       propertyPath: m_Offset.y
-      value: 0.45
+      value: 0.18777853
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1b3a1f241649b44c96d9ac596ffbfb5, type: 3}
@@ -2988,7 +2992,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.45}
+  m_Offset: {x: 0, y: 0.16017593}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
@@ -2999,7 +3003,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 0.4203519}
   m_EdgeRadius: 0
 --- !u!212 &1961616457
 SpriteRenderer:

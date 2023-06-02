@@ -10,7 +10,8 @@ public class Boss : MonoBehaviour
 
     private Rigidbody2D rb;
     private Animator anim;
-    public Collider2D triggerCollider;
+    public Collider2D triggerColliderGround;
+    public Collider2D triggerColliderWall;
 
     public GameObject fireball;
     public GameObject mouth;
@@ -56,7 +57,7 @@ public class Boss : MonoBehaviour
             {
                 anim.SetBool("IsWalking", true);
                 rb.velocity = new Vector2(moveSpeed, rb.velocity.y);
-                if (!triggerCollider.IsTouchingLayers(ground) || triggerCollider.IsTouchingLayers(ennemi))
+                if (!triggerColliderGround.IsTouchingLayers(ground) || triggerColliderWall.IsTouchingLayers(ennemi))
                 {
                     Flip();
                 }
@@ -65,7 +66,7 @@ public class Boss : MonoBehaviour
             {
                 anim.SetBool("IsWalking", true);
                 rb.velocity = new Vector2(moveSpeed, rb.velocity.y);
-                if (!triggerCollider.IsTouchingLayers(ground) || triggerCollider.IsTouchingLayers(ennemi))
+                if (!triggerColliderGround.IsTouchingLayers(ground) || triggerColliderWall.IsTouchingLayers(ennemi))
                 {
                     Flip();
                 }
@@ -98,7 +99,7 @@ public class Boss : MonoBehaviour
     
     IEnumerator AttackBoucle()
     {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(2f);
         anim.SetTrigger("Attack"); 
         StartCoroutine(AttackBoucle());
         yield return null;
