@@ -24,10 +24,12 @@ public class Boss : MonoBehaviour
         {
             if (PlayerPrefs.GetInt("ProgLvl") == SceneManager.GetActiveScene().buildIndex +2)
             {
+                Flip();
                 StartCoroutine(Avancer());
             }
             if (PlayerPrefs.GetInt("ProgLvl") == SceneManager.GetActiveScene().buildIndex + 3)
             {
+                Flip();
                 anim.SetTrigger("Attack");
                 StartCoroutine(Avancer());
                 
@@ -107,17 +109,17 @@ public class Boss : MonoBehaviour
     IEnumerator Avancer()
     {
         float elapsedTime = 0f;
-        Vector3 currentPos = transform.position;
-        Vector3 goToPos = transform.position + (Vector3.right * moveSpeed*5f);
+        //////Vector3 currentPos = transform.position;
+        //////Vector3 goToPos = transform.position + (Vector3.right * moveSpeed*5f);
         anim.SetBool("IsWalking", true);
-        while (elapsedTime < 2)
+        while (elapsedTime < 5)
         {
-            transform.position = Vector3.Lerp(currentPos, goToPos, (elapsedTime / 2));
+            rb.velocity = new Vector2(moveSpeed, rb.velocity.y);
             elapsedTime += Time.deltaTime;
 
             yield return null;
         }
-        transform.position = goToPos;
+        //transform.position = goToPos;
         anim.SetBool("IsWalking", false);
         yield return null;
     }
