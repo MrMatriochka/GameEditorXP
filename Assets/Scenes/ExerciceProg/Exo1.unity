@@ -295,7 +295,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1383088190046621411, guid: 2a1bc6342e8f16343b61f57f52e3d2de, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 81.13403
+      value: 27.724976
       objectReference: {fileID: 0}
     - target: {fileID: 1383088190046621411, guid: 2a1bc6342e8f16343b61f57f52e3d2de, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -309,9 +309,17 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 42.4
       objectReference: {fileID: 0}
+    - target: {fileID: 4522847383716476274, guid: 2a1bc6342e8f16343b61f57f52e3d2de, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4576610165085021754, guid: 2a1bc6342e8f16343b61f57f52e3d2de, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -10.899994
+      objectReference: {fileID: 0}
+    - target: {fileID: 4576610165085021754, guid: 2a1bc6342e8f16343b61f57f52e3d2de, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 54.800003
       objectReference: {fileID: 0}
     - target: {fileID: 5639666840898126861, guid: 2a1bc6342e8f16343b61f57f52e3d2de, type: 3}
       propertyPath: m_fontAsset
@@ -327,7 +335,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6658647017799888952, guid: 2a1bc6342e8f16343b61f57f52e3d2de, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -2.8325005
+      value: -0.0000019073486
       objectReference: {fileID: 0}
     - target: {fileID: 6658647018380611400, guid: 2a1bc6342e8f16343b61f57f52e3d2de, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -475,14 +483,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6658647019485061322, guid: 2a1bc6342e8f16343b61f57f52e3d2de, type: 3}
       propertyPath: m_text
-      value: 'Apprend au BOSS a marcher vers la gauche :
-
-        - Atteins le drapeau
-        pour valider'
+      value: "Apprend au BOSS \xE0 marcher vers la gauche :\n-Atteins le drapeau
+        pour valider"
       objectReference: {fileID: 0}
     - target: {fileID: 6658647019485061322, guid: 2a1bc6342e8f16343b61f57f52e3d2de, type: 3}
       propertyPath: m_fontSize
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6658647019485061322, guid: 2a1bc6342e8f16343b61f57f52e3d2de, type: 3}
+      propertyPath: m_wordSpacing
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6658647019485061322, guid: 2a1bc6342e8f16343b61f57f52e3d2de, type: 3}
+      propertyPath: m_characterSpacing
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6658647019485061322, guid: 2a1bc6342e8f16343b61f57f52e3d2de, type: 3}
       propertyPath: m_enableAutoSizing
