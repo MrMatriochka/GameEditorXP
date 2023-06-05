@@ -70,3 +70,9 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+
+.idea/.idea.GameEditorXP/.idea/workspace.xml
+
+UserSettings/EditorUserSettings.asset
+
+UserSettings/Layouts/CurrentMaximizeLayout.dwlt

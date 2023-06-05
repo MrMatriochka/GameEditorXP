@@ -1311,36 +1311,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af8f68e7a827bf2418546784b21b8d34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseEnterEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 615438829}
-        m_TargetAssemblyTypeName: MouseIconHandler, Assembly-CSharp
-        m_MethodName: ChangeCursor
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 793132692}
-          m_ObjectArgumentAssemblyTypeName: GetMouseButtonEnum, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  mouseExitEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 615438829}
-        m_TargetAssemblyTypeName: MouseIconHandler, Assembly-CSharp
-        m_MethodName: ChangeCursor
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 793132693}
-          m_ObjectArgumentAssemblyTypeName: GetMouseButtonEnum, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &793132695
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1939,36 +1909,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af8f68e7a827bf2418546784b21b8d34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseEnterEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 615438829}
-        m_TargetAssemblyTypeName: MouseIconHandler, Assembly-CSharp
-        m_MethodName: ChangeCursor
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 1182905252}
-          m_ObjectArgumentAssemblyTypeName: GetMouseButtonEnum, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  mouseExitEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 615438829}
-        m_TargetAssemblyTypeName: MouseIconHandler, Assembly-CSharp
-        m_MethodName: ChangeCursor
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 1182905253}
-          m_ObjectArgumentAssemblyTypeName: GetMouseButtonEnum, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &1182905255
 MonoBehaviour:
   m_ObjectHideFlags: 0

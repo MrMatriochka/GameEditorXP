@@ -35,7 +35,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.579, y: -0.033}
+  m_AnchoredPosition: {x: 1.587, y: 0.05}
   m_SizeDelta: {x: 2.1, y: 0.51}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &4481965128202794204
@@ -58,7 +58,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 3724715991063812913, guid: cfc69f70564a8eb4bad7fd38b8f8da89, type: 2}
+  - {fileID: -7428218135550665364, guid: 463458885781b93469c87a269a9db58e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -102,8 +102,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Start
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: cfc69f70564a8eb4bad7fd38b8f8da89, type: 2}
-  m_sharedMaterial: {fileID: 3724715991063812913, guid: cfc69f70564a8eb4bad7fd38b8f8da89, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 463458885781b93469c87a269a9db58e, type: 2}
+  m_sharedMaterial: {fileID: -7428218135550665364, guid: 463458885781b93469c87a269a9db58e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
