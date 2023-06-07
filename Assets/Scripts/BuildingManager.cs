@@ -37,6 +37,9 @@ public class BuildingManager : MonoBehaviour
     SelectObject selectObj;
 
     [HideInInspector] public Vector3 decalage;
+
+    public Sprite trashIn;
+    public Sprite trashOut;
     void Start()
     {
         cam = GameObject.Find("Main Camera");
@@ -206,12 +209,27 @@ public class BuildingManager : MonoBehaviour
         if (selectObj.selectedObj != null)
             obj.SetActive(true);
     }
+    
+    public void MouseEnterTrashImage(GameObject obj)
+    {
+        mouseOnTrash = true;
+        if (selectObj.selectedObj != null)
+            obj.GetComponent<Image>().sprite = trashIn;
+    }
+
     public void MousExitTrash(GameObject obj)
     {
         mouseOnTrash = false;
 
             obj.SetActive(false);
     }
+    public void MouseExitTrashImage(GameObject obj)
+    {
+        mouseOnTrash = false;
+        if (selectObj.selectedObj != null)
+            obj.GetComponent<Image>().sprite = trashOut;
+    }
+    
 
     public bool IsPrefabLimitExceeded(GameObject prefab)
     {

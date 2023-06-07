@@ -9,6 +9,8 @@ public class Password : MonoBehaviour
     public LerpCurve lerp;
     private void Start()
     {
+        if (PlayerPrefs.HasKey("ProgLvl")) print(PlayerPrefs.GetInt("ProgLvl"));
+
         if (PlayerPrefs.HasKey(SceneManager.GetActiveScene().name + "password"))
             done = true;
     }
@@ -42,10 +44,9 @@ public class Password : MonoBehaviour
         {
             if (PlayerPrefs.HasKey("ProgLvl"))
             {
-                if (PlayerPrefs.GetInt("ProgLvl") + 1 < SceneManager.sceneCountInBuildSettings)
+                if (PlayerPrefs.GetInt("ProgLvl") < SceneManager.sceneCountInBuildSettings+1)
                 {
                     SceneManager.LoadScene(PlayerPrefs.GetInt("ProgLvl"));
-
                 }
                 else
                     SceneManager.LoadScene(PlayerPrefs.GetInt("ProgLvl") - 1);

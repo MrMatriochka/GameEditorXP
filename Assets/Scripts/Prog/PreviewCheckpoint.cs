@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PreviewCheckpoint : MonoBehaviour
 {
@@ -27,6 +28,8 @@ public class PreviewCheckpoint : MonoBehaviour
 
     IEnumerator Win()
     {
+        int sceneIndex = SceneManager.GetActiveScene().buildIndex;
+        PlayerPrefs.SetInt("ProgLvl", sceneIndex + 1);
         yield return new WaitForSeconds(2f);
         winScreen.SetActive(true);
         yield return null;

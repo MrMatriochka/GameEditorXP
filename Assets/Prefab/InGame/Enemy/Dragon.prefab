@@ -33,7 +33,7 @@ Transform:
   m_GameObject: {fileID: 317150859038217479}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: -1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7026274144980813771}
@@ -122,13 +122,13 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 317150859038217479}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -1.6287615, y: -1.2475395}
+  m_Offset: {x: -0.9458282, y: 0.6918061}
   m_SpriteTilingProperty:
     border: {x: 1.28125, y: 0, z: 0, w: 1.65625}
     pivot: {x: 0.7135417, y: 0}
@@ -139,7 +139,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 14.167286, y: 34.56781}
+  m_Size: {x: 0.1568613, y: 1.3675208}
   m_EdgeRadius: 0
 --- !u!114 &8917592902704371906
 MonoBehaviour:
@@ -153,14 +153,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23061fef1c26e1d42b58e8e9f2e5faeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: -1
+  moveSpeed: 1
   ground:
     serializedVersion: 2
     m_Bits: 8
   ennemi:
     serializedVersion: 2
     m_Bits: 256
-  triggerCollider: {fileID: 8073075644334120940}
+  triggerColliderGround: {fileID: 8073075644334120940}
+  triggerColliderWall: {fileID: 6319076560457440076}
   fireball: {fileID: 2345678233526360077, guid: 915576dc742e588408075541f2d3396d, type: 3}
   mouth: {fileID: 1003656137297732681}
 --- !u!70 &8073075644334120940
@@ -176,8 +177,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -1.1224835, y: 0.27}
-  m_Size: {x: 0.38262177, y: 2.1149225}
+  m_Offset: {x: -0.96255064, y: -0.16851717}
+  m_Size: {x: 0.09715128, y: 0.28959143}
   m_Direction: 0
 --- !u!95 &7989053716266411334
 Animator:
