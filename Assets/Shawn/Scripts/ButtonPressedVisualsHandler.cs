@@ -10,14 +10,16 @@ namespace Shawn.Scripts
         public Image sourceImage;
         public Sprite hoveredSprite;
         public Sprite pressedSprite;
-        // public GameObject placementPoofFX;
-        // public GameObject levelEditorCanvas;
+        public GameObject placementPoofFX;
+        public Transform fxCanvas;
 
         private bool hovered = false;
         private bool active = false;
-        private bool bm_couldPlace = false;
+        private bool bmCouldPlace = false;
 
         private Sprite sourceBaseSprite;
+        //private GameObject lastObject;
+        private Vector3 decalage;
     
         // Start is called before the first frame update
         void Start()
@@ -27,27 +29,28 @@ namespace Shawn.Scripts
 
         private void Update()
         {
-            bool pendingExists = buildingManager.pendingObj != null;
+            GameObject pendingObj = buildingManager.pendingObj;
             
-            if (!active && hovered && pendingExists)
+            if (!active && hovered && pendingObj)
             {
                 active = true;
                 sourceImage.sprite = pressedSprite;
                 MouseIconHandler.Instance.SetCursorHandHold();
             }
 
-            if (active && !pendingExists)
+            if (active && !pendingObj)
             {
                 active = false;
                 sourceImage.sprite = sourceBaseSprite;
                 MouseIconHandler.Instance.SetCursorDefault();
-                if (bm_couldPlace)
+                if (bmCouldPlace)
                 {
-                    // Instantiate(placementPoofFX, Input.mousePosition, Quaternion.identity, levelEditorCanvas.transform);
+                    Transform objTransform = buildingManager.placedObject[^1].transform;
+                    Instantiate(placementPoofFX, objTransform.position, Quaternion.identity, fxCanvas);
                 }
             }
 
-            bm_couldPlace = pendingExists && buildingManager.canPlace;
+            bmCouldPlace = pendingObj && buildingManager.canPlace;
         }
 
         public void SetMouseEntered()

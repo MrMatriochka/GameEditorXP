@@ -4,7 +4,67 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="14fc19aa-9b13-4723-a256-4977c0c567e7" name="Changes" comment="" />
+    <list default="true" id="14fc19aa-9b13-4723-a256-4977c0c567e7" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Game Editor/.idea/shelf/Uncommitted_changes_before_Update_at_2023-05-30_11_04_a_m__[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Game Editor/.idea/shelf/Uncommitted_changes_before_Update_at_2023-05-30_11_04_a_m___Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Game Editor/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Game Editor/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shawn/Placed_Poof_Mat.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shawn/Placed_Poof_Mat.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shawn/Prefabs/Explosion.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shawn/Prefabs/Explosion.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shawn/Prefabs/PoofOnPlacement.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shawn/Prefabs/PoofOnPlacement.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shawn/Scenes/DragNDrop.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shawn/Scenes/DragNDrop.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shawn/Scripts/ButtonPressedVisualsHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shawn/Scripts/ButtonPressedVisualsHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shawn/Sprites/Button_9Slice-hovered.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shawn/Sprites/Button_9Slice-hovered.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shawn/Sprites/Button_9Slice-pressed.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shawn/Sprites/Button_9Slice-pressed.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shawn/Sprites/Button_9Slice.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shawn/Sprites/Button_9Slice.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shawn/Sprites/Button_9Slice_Blue-hovered.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shawn/Sprites/Button_9Slice_Blue-hovered.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shawn/Sprites/Button_9Slice_Blue-pressed.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shawn/Sprites/Button_9Slice_Blue-pressed.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shawn/Sprites/Button_9Slice_Blue.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shawn/Sprites/Button_9Slice_Blue.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shawn/Sprites/Button_9Slice_Green-hovered.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shawn/Sprites/Button_9Slice_Green-hovered.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shawn/Sprites/Button_9Slice_Green-pressed.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shawn/Sprites/Button_9Slice_Green-pressed.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shawn/Sprites/Button_9Slice_Green.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shawn/Sprites/Button_9Slice_Green.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shawn/Sprites/Button_9Slice_Red-hovered.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shawn/Sprites/Button_9Slice_Red-hovered.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shawn/Sprites/Button_9Slice_Red-pressed.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shawn/Sprites/Button_9Slice_Red-pressed.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shawn/Sprites/Button_9Slice_Red.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shawn/Sprites/Button_9Slice_Red.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shawn/Sprites/Buttons_Code_Swap.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shawn/Sprites/Buttons_Code_Swap.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shawn/Sprites/Circle.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shawn/Sprites/Circle.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shawn/Sprites/Garbage-XZone-White.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shawn/Sprites/Garbage-XZone-White.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shawn/Sprites/Garbage-XZone.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shawn/Sprites/Garbage-XZone.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shawn/Sprites/Mouse_Icons_Outlined (16 x 16)-export1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shawn/Sprites/Mouse_Icons_Outlined (16 x 16)-export1.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shawn/Sprites/Mouse_Icons_Outlined (16 x 16)-export2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shawn/Sprites/Mouse_Icons_Outlined (16 x 16)-export2.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shawn/Sprites/Mouse_Icons_Outlined (16 x 16)-export3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shawn/Sprites/Mouse_Icons_Outlined (16 x 16)-export3.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shawn/Sprites/Mouse_Icons_Outlined (16 x 16)-export4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shawn/Sprites/Mouse_Icons_Outlined (16 x 16)-export4.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shawn/Sprites/TextureImporter_PixelSprite.preset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shawn/Sprites/TextureImporter_PixelSprite.preset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shawn/Sprites/trash_icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shawn/Sprites/trash_icon.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shawn/Sprites/xp-logo-mask.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shawn/Sprites/xp-logo-mask.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shawn/Sprites/xp-logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shawn/Sprites/xp-logo.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Curated/_RECOMMENDATION/VFX/Platformer Effects/1 Smoke/12.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Curated/_RECOMMENDATION/VFX/Platformer Effects/1 Smoke/12.png.meta" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -62,9 +122,15 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/24d45e813e524a99bfb7a145158a7980157a00/00/6df81217/AnimationCurve.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/24d45e813e524a99bfb7a145158a7980157a00/a8/548d7601/Random.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/StudioXP_Unity/Game Editor/Assets/Shawn/Prefabs/PoofOnPlacement.prefab" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/StudioXP_Unity/Game Editor/Assets/Shawn/Scenes/DragNDrop.unity" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/StudioXP_Unity/Game Editor/Assets/Shawn/Scripts/ButtonPressedVisualsHandler.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Shawn/Scripts/DestroyAfterSeconds.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Shawn/Scripts/DestroySelf.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://D:/StudioXP_Unity/Game Editor/Assets/Sprites/Curated/_RECOMMENDATION/VFX/Platformer Effects/3 Sparks/1.png.meta" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Shawn/Scripts/EventOnAnimEnd.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Shawn/Scripts/SetAnimIndex.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Shawn/Scripts/Utils/DisplayWithoutEdit.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.burst@1.7.3/Runtime/BurstCompiler.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../P2_TestSnapshot/Assets/StudioXP/Scripts/Components/Handlers/ColliderHandler.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -80,29 +146,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Discover.Launch.Via.Unity": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "ignore.virus.scanning.warn.message": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "reference.settings.ide.settings.new.ui",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Discover.Launch.Via.Unity&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;shawn__dev&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.new.ui&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "rider.external.source.directories": [
-      "C:\\Users\\sb810\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\DecompilerCache",
-      "C:\\Users\\sb810\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\SourcesCache",
-      "C:\\Users\\sb810\\AppData\\Local\\Symbols\\src"
+  &quot;keyToStringList&quot;: {
+    &quot;rider.external.source.directories&quot;: [
+      &quot;C:\\Users\\sb810\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\DecompilerCache&quot;,
+      &quot;C:\\Users\\sb810\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\SourcesCache&quot;,
+      &quot;C:\\Users\\sb810\\AppData\\Local\\Symbols\\src&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2021.3.9f1\Editor\Unity.exe" />
@@ -170,6 +237,7 @@
       <workItem from="1685458478125" duration="293000" />
       <workItem from="1685459140205" duration="17639000" />
       <workItem from="1685560310289" duration="9555000" />
+      <workItem from="1685811230645" duration="33445000" />
     </task>
     <task id="LOCAL-00001" summary="added missing main character assets">
       <created>1684507647584</created>
@@ -341,19 +409,7 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="shawn_dev" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
+            <State />
           </value>
         </entry>
       </map>
