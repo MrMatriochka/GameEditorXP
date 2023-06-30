@@ -117,6 +117,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  force: {x: 5, y: 5}
 --- !u!95 &3236360370066897759
 Animator:
   serializedVersion: 4

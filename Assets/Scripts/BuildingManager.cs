@@ -29,11 +29,6 @@ public class BuildingManager : MonoBehaviour
 
     [HideInInspector] public SaveLoadLevel saveLvl;
 
-    public GameObject spriteEditor;
-
-    public GameObject resizeHUD;
-    public GameObject deselectBugFixer;
-
     SelectObject selectObj;
 
     [HideInInspector] public Vector3 decalage;
@@ -51,15 +46,9 @@ public class BuildingManager : MonoBehaviour
 
     void Update()
     {
-        //if(Input.GetKeyDown(KeyCode.R))
-        //{
-        //    Reset();
-        //}
-
         if (Input.GetMouseButtonUp(0) && mouseOnTrash && pendingObj != null)
         {
             Delete();
-            //saveLvl.SaveData();
         }
 
         if (pendingObj != null)
@@ -69,21 +58,18 @@ public class BuildingManager : MonoBehaviour
                 pendingObj.transform.position = new Vector3(Snapping.Snap(pos.x,gridSize), Snapping.Snap(pos.y, gridSize), 0);
             }
             else { pendingObj.transform.position = pos; }
-            //resizeHUD.transform.position = cam.GetComponent<Camera>().WorldToScreenPoint(pendingObj.transform.position);
-            deselectBugFixer.transform.position = pendingObj.transform.position - new Vector3(0, 0.4f, 0);
+
             UpdateMaterials();
 
             if (Input.GetMouseButtonUp(0) && canPlace)
             {
                 PlaceObject();
-                //saveLvl.SaveData();
             }
             else if (Input.GetMouseButtonUp(0) && !canPlace && firstPlacement)
             {
                 Delete();
                 firstPlacement = false;
             }
-
         }
 
         if (Input.GetKeyDown(KeyCode.B))
@@ -165,7 +151,6 @@ public class BuildingManager : MonoBehaviour
         cam.GetComponent<CameraController>().camLimit = camLimit;
         cam.GetComponent<CameraController>().FindPlayer(cam.GetComponent<CameraController>().faceLeft);
 
-        deselectBugFixer.SetActive(false);
         saveZID.Clear();
     }
 
@@ -187,8 +172,6 @@ public class BuildingManager : MonoBehaviour
         cam.GetComponent<CameraController>().enabled = false;
         
         cam.transform.position = new Vector3(0, 0, -10);
-
-        deselectBugFixer.SetActive(true);
     }
 
     public void Delete()
@@ -200,7 +183,6 @@ public class BuildingManager : MonoBehaviour
             placedObject.RemoveAt(index);
         }
         pendingObj = null;
-        //resizeHUD.SetActive(false);
     }
 
     public void MouseEnterTrash(GameObject obj)
@@ -264,33 +246,13 @@ public class BuildingManager : MonoBehaviour
         cam.transform.position = new Vector3(camLimit*map.value, 0, -10);
     }
 
-    public void OpenSpriteEditor(GameObject prefabToEdit)
-    {
-        //if(Input.GetKeyDown(KeyCode.Mouse1))
-        //{
-            saveZID.Clear();
-            mouseOnTrash = false;
-            spriteEditor.SetActive(true);
-            transform.parent.gameObject.SetActive(false);
-
-            saveLvl.SaveData("Level");
-            foreach (GameObject obj in placedObject)
-            {
-                Destroy(obj);
-            }
-
-            spriteEditor.transform.GetChild(0).GetComponent<SpriteEditor>().editedPrefab = prefabToEdit;
-            spriteEditor.transform.GetChild(0).GetComponent<SpriteEditor>().OpenSpriteEditor();
-        //}
-    }
-
     public void Reset()
     {
         saveLvl.ClearData();
     }
 
-    List<string> saveZID = new List<string>();
     // ctrlZ
+    List<string> saveZID = new List<string>();
     public void SaveZ()
     {
         saveLvl.SaveData("Z" + saveZID.Count);
@@ -301,7 +263,6 @@ public class BuildingManager : MonoBehaviour
     {
         if (saveZID.Count != 0)
         {
-            //resizeHUD.SetActive(false);
             saveLvl.LoadData(saveZID[saveZID.Count - 1]);
             saveZID.RemoveAt(saveZID.Count - 1);
         }

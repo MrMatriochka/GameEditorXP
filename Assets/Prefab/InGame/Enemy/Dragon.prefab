@@ -370,7 +370,6 @@ GameObject:
   - component: {fileID: 3744258482846512370}
   - component: {fileID: 1280663284779806912}
   - component: {fileID: 8911205925098191636}
-  - component: {fileID: -8788827833301962102}
   m_Layer: 0
   m_Name: Dragon
   m_TagString: Placement
@@ -507,21 +506,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &-8788827833301962102
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7873588928898685938}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e67779d05e251b44dbf46dd8c44c644a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxSize: 0.6
-  minSize: 0.1
-  canRotate: 0
 --- !u!1 &8058705162620641848
 GameObject:
   m_ObjectHideFlags: 0

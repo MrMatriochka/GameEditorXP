@@ -6,8 +6,6 @@ using TMPro;
 public class SelectObject : MonoBehaviour
 {
     public GameObject selectedObj;
-    public GameObject resizeHUD;
-    public GameObject rotateHUD;
     BuildingManager buildManager;
 
     void Start()
@@ -27,10 +25,6 @@ public class SelectObject : MonoBehaviour
                     buildManager.SaveZ();
                     Select(hit.collider.gameObject);
                 }
-                //else
-                //{
-                //    if (selectedObj != null) Deselect();
-                //}
             }
             else
             {
@@ -45,25 +39,17 @@ public class SelectObject : MonoBehaviour
 
     void Select(GameObject obj)
     {
-        //if (obj == selectedObj) return;
-
         if (selectedObj != null) Deselect();
 
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         buildManager.decalage = new Vector3(mousePosition.x, mousePosition.y, 0) -obj.transform.position;
 
         selectedObj = obj;
-        //resizeHUD.SetActive(true);
-        if(selectedObj.GetComponent<ObjInfo>().canRotate)
-            rotateHUD.SetActive(true);
-        else
-            rotateHUD.SetActive(false);
-        Move();
+        buildManager.pendingObj = selectedObj;
     }
 
     void Deselect()
     {
-        //resizeHUD.SetActive(false);
         selectedObj = null;
     }
 
@@ -72,42 +58,5 @@ public class SelectObject : MonoBehaviour
         GameObject objToDestroy = selectedObj;
         Deselect();
         Destroy(objToDestroy);
-    }
-    public void Move()
-    {
-        buildManager.pendingObj = selectedObj;
-    }
-
-    public void SizeUp()
-    {
-        if (selectedObj.transform.localScale.x < selectedObj.GetComponent<ObjInfo>().maxSize)
-        {
-            buildManager.SaveZ();
-            selectedObj.transform.localScale += new Vector3(0.25f, 0.25f, 0.25f);
-        }
-            
-
-    }
-
-    public void SizeDown()
-    {
-        if (selectedObj.transform.localScale.x > selectedObj.GetComponent<ObjInfo>().minSize)
-        {
-            buildManager.SaveZ();
-            selectedObj.transform.localScale -= new Vector3(0.25f, 0.25f, 0.25f);
-        }
-            
-    }
-
-    public void RotateLeft()
-    {
-        buildManager.SaveZ();
-        selectedObj.transform.Rotate(Vector3.forward, -10);
-    }
-
-    public void RotateRight()
-    {
-        buildManager.SaveZ();
-        selectedObj.transform.Rotate(Vector3.forward, 10);
     }
 }

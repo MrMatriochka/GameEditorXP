@@ -32,11 +32,6 @@ public class BlocCodeCheck : MonoBehaviour
         baseSpeed = speed;
 
         Initialize();
-
-        //foreach(GameObject obj in ennemyList)
-        //{
-        //    obj.GetComponent<Animator>().SetBool("Start", true);
-        //}
     }
 
     public void CreateCodeList()
@@ -80,8 +75,6 @@ public class BlocCodeCheck : MonoBehaviour
                 
             }
 
-            
-
 
             codeList.Add(pendingObj.GetComponent<BlocFunction>().function);
             bloc.Add(pendingObj);
@@ -89,9 +82,7 @@ public class BlocCodeCheck : MonoBehaviour
             {
                 codeList.Add(BlocFunction.Function.EndIf);
                 bloc.Add(pendingObj.transform.GetChild(0).gameObject);
-            }
-                
-
+            }   
 
             index = 0;
             boucleOn = false;
@@ -99,8 +90,6 @@ public class BlocCodeCheck : MonoBehaviour
             StartCoroutine(methodByName[codeList[0]]());
            
         }
-
-        
     }
 
     void ReadBlocIf()
@@ -128,8 +117,6 @@ public class BlocCodeCheck : MonoBehaviour
                 {
                     pendingObj = pendingObj.GetComponent<BlocAssemble>().nextBloc;
                 }
-
-
             }
             
 

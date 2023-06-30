@@ -130,7 +130,6 @@ public class BlocEditor : MonoBehaviour
         {
             blocNb++;
             pendingObj = Instantiate(bloc, pos, transform.rotation);
-            //pendingObj.GetComponent<SpriteRenderer>().color = Random.ColorHSV();
         }
     }
     

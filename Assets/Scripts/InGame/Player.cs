@@ -168,14 +168,14 @@ public class Player : MonoBehaviour
     {
         GetComponent<AudioSource>().PlayOneShot(hitSFX);
         isInvincible = true;
-        //GetComponent<Renderer>().color = new Color(1, 1, 1, 0.2f);
+        GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f);
         canMove = false;
         feet.SetActive(false);
         yield return new WaitForSeconds(loseControlAfterHit);
         canMove = true;
         feet.SetActive(true);
         yield return new WaitForSeconds(invincibilityTime-loseControlAfterHit);
-        //GetComponent<Renderer>().color = new Color(1, 1, 1, 1);
+        GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
         isInvincible = false;
         yield return null;
     }
@@ -222,6 +222,7 @@ public class Player : MonoBehaviour
 
     public void Bounce(Vector2 force)
     {
+        rb.velocity = Vector2.zero;
         rb.AddForce(force , ForceMode2D.Impulse );
         GetComponent<AudioSource>().PlayOneShot(jumpSFX);
     }
