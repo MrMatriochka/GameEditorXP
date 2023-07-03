@@ -225,8 +225,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.057805415, y: 0.08}
-  m_Size: {x: 1.3246021, y: 0.18004717}
+  m_Offset: {x: -0.19582595, y: 0.08000001}
+  m_Size: {x: 1.0485673, y: 0.18004717}
   m_Direction: 1
 --- !u!1 &1003656137297732681
 GameObject:
@@ -252,7 +252,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1003656137297732681}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.75, y: 0.647, z: 0}
+  m_LocalPosition: {x: -0.997, y: 0.647, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -517,9 +517,9 @@ GameObject:
   - component: {fileID: 7026274144980813771}
   - component: {fileID: 954857275750065909}
   - component: {fileID: 1724903517656321327}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: hurtZone
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -552,7 +552,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.14923602, y: 0.5314678}
+  m_Offset: {x: -0.24042714, y: 0.5314678}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -563,7 +563,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.3465174, y: 1.074492}
+  m_Size: {x: 1.1641352, y: 1.074492}
   m_EdgeRadius: 0
 --- !u!114 &1724903517656321327
 MonoBehaviour:
@@ -591,7 +591,7 @@ GameObject:
   - component: {fileID: 1255224896496829068}
   m_Layer: 0
   m_Name: headWeakness
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -649,5 +649,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4b3ebc4b15efec408961de7e8e9c66c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: {x: 0, y: 20}
+  force: {x: 0, y: 5}
   enemy: {fileID: 7989053716266411334}

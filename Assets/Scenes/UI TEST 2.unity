@@ -4150,10 +4150,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -5242,7 +5242,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2be0e3a980288e4a89d517f55544759, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  button: {fileID: 0}
+  button: {fileID: 661320136}
 --- !u!1 &593780300
 GameObject:
   m_ObjectHideFlags: 0
@@ -9029,10 +9029,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -14698,10 +14698,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -16895,11 +16895,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1387818343, guid: 7012534cd2f58bc40b882756233dc1a4, type: 3}
       propertyPath: m_Size.x
-      value: 0.100687504
+      value: 0.106642246
       objectReference: {fileID: 0}
     - target: {fileID: 1387818343, guid: 7012534cd2f58bc40b882756233dc1a4, type: 3}
       propertyPath: m_Offset.x
-      value: 0.44920707
+      value: 0.45218444
       objectReference: {fileID: 0}
     - target: {fileID: 2058914983, guid: 7012534cd2f58bc40b882756233dc1a4, type: 3}
       propertyPath: m_Size.x
@@ -17013,6 +17013,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8058705162620641848, guid: 7012534cd2f58bc40b882756233dc1a4, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 8073075644334120940, guid: 7012534cd2f58bc40b882756233dc1a4, type: 3}
       propertyPath: m_Size.x
       value: 0.11240339
@@ -17020,6 +17024,10 @@ PrefabInstance:
     - target: {fileID: 8073075644334120940, guid: 7012534cd2f58bc40b882756233dc1a4, type: 3}
       propertyPath: m_Offset.x
       value: 0.4950006
+      objectReference: {fileID: 0}
+    - target: {fileID: 8926203860811713258, guid: 7012534cd2f58bc40b882756233dc1a4, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2783539375869108588, guid: 7012534cd2f58bc40b882756233dc1a4, type: 3}
@@ -17544,10 +17552,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3

@@ -48,6 +48,11 @@ public class Boss : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (PlayerPrefs.GetInt("ProgLvl") < SceneManager.GetActiveScene().buildIndex + 5)
+        {
+            if(triggerColliderWall.IsTouchingLayers(ennemi))
+            Flip();
+        }
         if (PlayerPrefs.HasKey("ProgLvl"))
         {
             if (PlayerPrefs.GetInt("ProgLvl") == SceneManager.GetActiveScene().buildIndex + 4)

@@ -60,7 +60,6 @@ public class Player : MonoBehaviour
         
         if (hit.collider != null)
         {
-            print(hit.collider.tag);
             if (hit.collider.CompareTag("Wall"))
             {
                 canMove = false;
