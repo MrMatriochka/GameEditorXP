@@ -19,6 +19,7 @@ public class Player : MonoBehaviour
 
 
     private bool facingRight = true;
+    private float facing = 1f;
 
     private bool isGrounded;
     public Transform groundCheck;
@@ -55,7 +56,25 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        RaycastHit2D hit = Physics2D.Raycast(transform.position + new Vector3(0.35f*facing, 0, 0), Vector2.up, 1);
         
+        if (hit.collider != null)
+        {
+            print(hit.collider.tag);
+            if (hit.collider.CompareTag("Wall"))
+            {
+                canMove = false;
+            }
+            else
+            {
+                canMove = true;
+            }
+        }
+        else
+        {
+            canMove = true;
+        }
+
         if (Input.GetButton("Horizontal")&&canMove)
         {
             moveInput = Input.GetAxisRaw("Horizontal");
@@ -130,6 +149,7 @@ public class Player : MonoBehaviour
     private void Flip()
     {
         facingRight = !facingRight;
+        facing *= -1;
         anim.gameObject.transform.localScale =new Vector3(-anim.gameObject.transform.localScale.x, anim.gameObject.transform.localScale.y, anim.gameObject.transform.localScale.z);
     }
 

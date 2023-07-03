@@ -9,7 +9,6 @@ public class Password : MonoBehaviour
     public LerpCurve lerp;
     private void Start()
     {
-        if (PlayerPrefs.HasKey("ProgLvl")) print(PlayerPrefs.GetInt("ProgLvl"));
 
         if (PlayerPrefs.HasKey(SceneManager.GetActiveScene().name + "password"))
             done = true;

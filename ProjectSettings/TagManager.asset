@@ -15,6 +15,7 @@ TagManager:
   - BlocPos
   - BlocEnd
   - DontDestroy
+  - Wall
   layers:
   - Default
   - TransparentFX
