@@ -18,7 +18,7 @@ public class NetworkManager : MonoBehaviour
 {
     static string myId;
     static string myUsername;
-
+    public bool isProf;
     private void Start()
     {
        if(PlayerPrefs.HasKey("myId"))
@@ -79,35 +79,35 @@ public class NetworkManager : MonoBehaviour
         StartCoroutine(Upload(levelSave));
     }
    
-    IEnumerator GetIdByUsername()
-    {
-        string uri = "https://api.studioxp.ca/items/game_editor_data?filter[username][_eq]=default";
+    //IEnumerator GetIdByUsername()
+    //{
+    //    string uri = "https://api.studioxp.ca/items/game_editor_data?filter[username][_eq]=default";
 
-        using (UnityWebRequest request =UnityWebRequest.Get(uri))
-        {
-            request.SetRequestHeader("Content-Type", "application/json");
-            request.SetRequestHeader("Authorization", "Bearer 3prCBvKlJncjeXjAOROUBQZ3qIUCMHDQ");
-            yield return request.SendWebRequest();
+    //    using (UnityWebRequest request =UnityWebRequest.Get(uri))
+    //    {
+    //        request.SetRequestHeader("Content-Type", "application/json");
+    //        request.SetRequestHeader("Authorization", "Bearer 3prCBvKlJncjeXjAOROUBQZ3qIUCMHDQ");
+    //        yield return request.SendWebRequest();
 
-            if (request.result != UnityWebRequest.Result.Success)
-            {
-                Debug.Log(request.downloadHandler.text);
-            }
-            else
-            {
-                Debug.Log("Form download complete!");
-                print(request.downloadHandler.text);
-                string jsonData = FixJson(request.downloadHandler.text);
-                WebData returnedData = JsonUtility.FromJson<WebData>(jsonData);
-                myId = returnedData.id;
-            }
-        }
+    //        if (request.result != UnityWebRequest.Result.Success)
+    //        {
+    //            Debug.Log(request.downloadHandler.text);
+    //        }
+    //        else
+    //        {
+    //            Debug.Log("Form download complete!");
+    //            print(request.downloadHandler.text);
+    //            string jsonData = FixJson(request.downloadHandler.text);
+    //            WebData returnedData = JsonUtility.FromJson<WebData>(jsonData);
+    //            myId = returnedData.id;
+    //        }
+    //    }
         
-    }
-    public void ButtonGetId()
-    {
-        StartCoroutine(GetIdByUsername());
-    }
+    //}
+    //public void ButtonGetId()
+    //{
+    //    StartCoroutine(GetIdByUsername());
+    //}
 
     string FixJson(string value)
     {

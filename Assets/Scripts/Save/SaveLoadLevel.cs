@@ -76,14 +76,16 @@ public class SaveLoadLevel : MonoBehaviour
 
         SaveLoad<SavedLevel>.Save(dataToSave, filename);
 
-
-        if (PlayerPrefs.HasKey("myId"))
+        if(!network.isProf)
         {
-            network.ButtonUpdate(PlayerPrefs.GetString(filename));
-        }
-        else
-        {
-            network.ButtonUpload(PlayerPrefs.GetString(filename));
+            if (PlayerPrefs.HasKey("myId"))
+            {
+                network.ButtonUpdate(PlayerPrefs.GetString(filename));
+            }
+            else
+            {
+                network.ButtonUpload(PlayerPrefs.GetString(filename));
+            }
         }
     }
 
