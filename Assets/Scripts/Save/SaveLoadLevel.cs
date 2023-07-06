@@ -36,10 +36,12 @@ public class SaveLoadLevel : MonoBehaviour
     private List<int> myIndex = new List<int>();
 
     private BuildingManager manager;
+    private NetworkManager network;
 
     void Awake()
     {
         manager = gameObject.GetComponent<BuildingManager>();
+        network = gameObject.GetComponent<NetworkManager>();
         Initialize();
     }
 
@@ -73,6 +75,16 @@ public class SaveLoadLevel : MonoBehaviour
         };
 
         SaveLoad<SavedLevel>.Save(dataToSave, filename);
+
+
+        if (PlayerPrefs.HasKey("myId"))
+        {
+            network.ButtonUpdate(PlayerPrefs.GetString(filename));
+        }
+        else
+        {
+            network.ButtonUpload(PlayerPrefs.GetString(filename));
+        }
     }
 
     public void LoadData(string filename)
