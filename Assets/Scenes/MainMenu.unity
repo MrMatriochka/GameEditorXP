@@ -1110,6 +1110,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isProf: 0
+  profInterface: {fileID: 0}
 --- !u!114 &586705056
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3394,7 +3395,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Username
+  m_text: Ton prenom
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 50230e06093646f429052ca613ddebf9, type: 2}
   m_sharedMaterial: {fileID: 4904050327934917893, guid: 50230e06093646f429052ca613ddebf9, type: 2}
