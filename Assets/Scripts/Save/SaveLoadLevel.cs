@@ -80,11 +80,11 @@ public class SaveLoadLevel : MonoBehaviour
         {
             if (PlayerPrefs.HasKey("myId"))
             {
-                network.ButtonUpdate(PlayerPrefs.GetString(filename));
+                network.ButtonUpdate(dataToSave);
             }
             else
             {
-                network.ButtonUpload(PlayerPrefs.GetString(filename));
+                network.ButtonUpload(dataToSave);
             }
         }
     }

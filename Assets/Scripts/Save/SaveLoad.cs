@@ -21,7 +21,7 @@ public static class SaveLoad<T>
 
     public static T Load(string file)
     {
-        if(PlayerPrefs.HasKey(file))
+        if (PlayerPrefs.HasKey(file))
         {
             string jsonData = PlayerPrefs.GetString(file);
             T returnedData = JsonUtility.FromJson<T>(jsonData);

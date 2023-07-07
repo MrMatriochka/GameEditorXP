@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 public class StudentButton : MonoBehaviour
 {
-    [HideInInspector] public ProfNetworkManager managerRef;
+     public ProfNetworkManager managerRef;
     [HideInInspector] public int id;
     public TMP_Text username;
     private void Start()
@@ -14,6 +14,6 @@ public class StudentButton : MonoBehaviour
 
     public void LoadButton()
     {
-        
+        managerRef.LoadLevel(id);
     }
 }

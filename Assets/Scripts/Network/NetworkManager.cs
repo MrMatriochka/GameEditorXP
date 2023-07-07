@@ -11,7 +11,7 @@ public class WebData
     public string id = "";
     public string group = "";
     public string username = "";
-    public string data = "";
+    public SavedLevel data = new SavedLevel();
 }
 
 public class NetworkManager : MonoBehaviour
@@ -19,23 +19,34 @@ public class NetworkManager : MonoBehaviour
     static string myId;
     static string myUsername;
     public bool isProf;
+    public GameObject profInterface;
     private void Start()
     {
-       if(PlayerPrefs.HasKey("myId"))
+        if (PlayerPrefs.HasKey("isProf"))
         {
-            myId = PlayerPrefs.GetString("myId");
+            isProf = true;
         }
-        if(PlayerPrefs.HasKey("myUsername"))
+        else
         {
-            myUsername = PlayerPrefs.GetString("myUsername");
+            isProf = false;
+            profInterface.SetActive(false);
+            if (PlayerPrefs.HasKey("myId"))
+            {
+                myId = PlayerPrefs.GetString("myId");
+            }
+            if (PlayerPrefs.HasKey("myUsername"))
+            {
+                myUsername = PlayerPrefs.GetString("myUsername");
+            }
         }
+       
     }
     public void SetUsername(TMP_InputField inputField)
     {
         myUsername = inputField.text;
         PlayerPrefs.SetString("myUsername", myUsername);
     }
-    IEnumerator Upload(string levelSave)
+    IEnumerator Upload(SavedLevel levelSave)
     {
         WebData dataToSave = new WebData
         {
@@ -74,49 +85,12 @@ public class NetworkManager : MonoBehaviour
             }
         } 
     }
-    public void ButtonUpload(string levelSave)
+    public void ButtonUpload(SavedLevel levelSave)
     {
         StartCoroutine(Upload(levelSave));
     }
-   
-    //IEnumerator GetIdByUsername()
-    //{
-    //    string uri = "https://api.studioxp.ca/items/game_editor_data?filter[username][_eq]=default";
 
-    //    using (UnityWebRequest request =UnityWebRequest.Get(uri))
-    //    {
-    //        request.SetRequestHeader("Content-Type", "application/json");
-    //        request.SetRequestHeader("Authorization", "Bearer 3prCBvKlJncjeXjAOROUBQZ3qIUCMHDQ");
-    //        yield return request.SendWebRequest();
-
-    //        if (request.result != UnityWebRequest.Result.Success)
-    //        {
-    //            Debug.Log(request.downloadHandler.text);
-    //        }
-    //        else
-    //        {
-    //            Debug.Log("Form download complete!");
-    //            print(request.downloadHandler.text);
-    //            string jsonData = FixJson(request.downloadHandler.text);
-    //            WebData returnedData = JsonUtility.FromJson<WebData>(jsonData);
-    //            myId = returnedData.id;
-    //        }
-    //    }
-        
-    //}
-    //public void ButtonGetId()
-    //{
-    //    StartCoroutine(GetIdByUsername());
-    //}
-
-    string FixJson(string value)
-    {
-        value = value.Remove(0,9);
-        value = value.Remove((value.Length-3), 2);
-        return value;
-    }
-
-    IEnumerator UpdateData(string levelSave)
+    IEnumerator UpdateData(SavedLevel levelSave)
     {
         WebData dataToSave = new WebData
         {
@@ -147,7 +121,7 @@ public class NetworkManager : MonoBehaviour
             }
         }
     }
-    public void ButtonUpdate(string levelSave)
+    public void ButtonUpdate(SavedLevel levelSave)
     {
         StartCoroutine(UpdateData(levelSave));
     }

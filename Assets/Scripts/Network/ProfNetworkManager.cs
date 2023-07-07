@@ -9,6 +9,7 @@ public class ProfNetworkManager : MonoBehaviour
     [HideInInspector] public WebData[] groupData;
     public GameObject studentListLocation;
     public GameObject studentButtonPrefab;
+    public SaveLoadLevel loader;
     IEnumerator GetGroupData(string groupName)
     {
         string uri = "https://api.studioxp.ca/items/game_editor_data?filter[group][_eq]=" + groupName;
@@ -34,7 +35,6 @@ public class ProfNetworkManager : MonoBehaviour
                 for (int i = 0; i < tempChildCount; i++)
                     {
                         Destroy(studentListLocation.transform.GetChild(0).gameObject);
-                        print(studentListLocation.transform.childCount);
                         yield return null;
                 }
 
@@ -55,14 +55,36 @@ public class ProfNetworkManager : MonoBehaviour
         StartCoroutine(GetGroupData("default"));
     }
 
-    public void DeleteButton()
+    public void LoadLevel(int id)
     {
+        SavedLevel dataToSave = groupData[id].data;
+        SaveLoad<SavedLevel>.Save(dataToSave, "Level");
+        loader.LoadData("Level");
+
+    }
+
+    IEnumerator DeleteGroupData(string groupName)
+    {
+        for (int i = 0; i < groupData.Length; i++)
+        {
+            string uri = "https://api.studioxp.ca/items/game_editor_data/" + groupData[i].id;
+
+            using (UnityWebRequest request = UnityWebRequest.Delete(uri))
+            {
+                request.SetRequestHeader("Content-Type", "application/json");
+                request.SetRequestHeader("Authorization", "Bearer tr4mfJ9rvQS9qucARPIQmuAQ61bf1Bgc");
+
+                yield return request.SendWebRequest();
+
+            }
+            yield return null;
+        }
+
         int tempChildCount = studentListLocation.transform.childCount;
         for (int i = 0; i < tempChildCount; i++)
         {
             Destroy(studentListLocation.transform.GetChild(0).gameObject);
-            print(studentListLocation.transform.childCount);
-            //yield return null;
+            yield return null;
         }
 
         int tempId = 0;
@@ -73,6 +95,10 @@ public class ProfNetworkManager : MonoBehaviour
             studentButton.GetComponent<StudentButton>().id = tempId;
             tempId++;
         }
+    }
+    public void DeleteButton()
+    {
+        StartCoroutine(DeleteGroupData("default"));
     }
 
     string FixJson(string value)
