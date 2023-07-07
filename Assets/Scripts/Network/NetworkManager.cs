@@ -114,6 +114,7 @@ public class NetworkManager : MonoBehaviour
             if (request.result != UnityWebRequest.Result.Success)
             {
                 Debug.Log(request.downloadHandler.text);
+                StartCoroutine(Upload(levelSave));
             }
             else
             {
