@@ -10,6 +10,18 @@ public class ProfNetworkManager : MonoBehaviour
     public GameObject studentListLocation;
     public GameObject studentButtonPrefab;
     public SaveLoadLevel loader;
+
+    private void Start()
+    {
+        StartCoroutine(AutoRefresh());
+    }
+    IEnumerator AutoRefresh()
+    {
+        RefreshButton();
+        yield return new WaitForSeconds(30);
+        StartCoroutine(AutoRefresh());
+        yield return null;
+    }
     IEnumerator GetGroupData(string groupName)
     {
         string uri = "https://api.studioxp.ca/items/game_editor_data?filter[group][_eq]=" + groupName;

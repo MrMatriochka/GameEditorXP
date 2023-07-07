@@ -45,7 +45,18 @@ public class SaveLoadLevel : MonoBehaviour
         Initialize();
     }
 
+    private void Start()
+    {
+        StartCoroutine(AutoSave());
+    }
 
+    IEnumerator AutoSave()
+    {
+        SaveData("Level");
+        yield return new WaitForSeconds(30);
+        StartCoroutine(AutoSave());
+        yield return null;
+    }
     public void SaveData(string filename)
     {
         myPositions.Clear();
